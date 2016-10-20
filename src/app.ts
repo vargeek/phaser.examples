@@ -8,7 +8,8 @@ import { BootState } from './boot.state';
 // import { ImageFollowInputState } from './basics/04-image-follow-input.state';
 // import { LoadAnAnimationState } from './basics/05-load-an-animation.state';
 // import { RenderTextState } from './basics/06-render-text.state';
-import { TweenAnImageState } from './basics/07-tween-an-image.state';
+// import { TweenAnImageState } from './basics/07-tween-an-image.state';
+import { SpriteRotationState } from './basics/08-sprite-rotation.state';
 
 const BootStateKey = 'boot';
 class App {
@@ -34,4 +35,5 @@ class App {
 // const app = new App(ImageFollowInputState);
 // const app = new App(LoadAnAnimationState);
 // const app = new App(RenderTextState);
-const app = new App(TweenAnImageState);
+// const app = new App(TweenAnImageState);
+const app = new App(SpriteRotationState);

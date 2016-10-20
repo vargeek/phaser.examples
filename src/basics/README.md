@@ -77,3 +77,32 @@
     this.tween.to({ x: this.world.width}, duration, 'Linear', autoStart , delay);
     ```
 # 08-sprite-rotation
+  - 角度和弧度
+    + `angle` is in degrees, from -180 to 180.
+    + `rotation` is in radians, from -PI to PI.
+    + 转换
+      ```js
+      Phaser.Math.degToRad(degree)
+      Phaser.Math.radToDeg(radians)
+      ```
+  - Graphics
+    + Graphics
+    + BitmapData
+    + RenderTexture
+  - 设置 Graphics:
+    ```js
+    this.graphics = this.add.graphics(0, 0);
+    this.graphics.lineStyle(2, 0x00ff00, 1);
+    ```
+  - 在 Graphics 上移动、画线、画圆
+    ```js
+    this.graphics.moveTo(x, y);
+    this.graphics.lineTo(x, y);
+
+    const circle = new Phaser.Circle(x, y, diameter);
+    this.graphics.drawCircle(circle.x, circle.y, circle.diameter);
+    ```
+  - 获取圆周上一个点的坐标
+    ```js
+    circle.circumferencePoint(angle, asDegrees)
+    ```
