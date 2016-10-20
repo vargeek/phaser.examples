@@ -4,6 +4,7 @@ import { BootState } from './boot.state';
 
 // import { LoadAnImageState } from './basics/load-an-image.state';
 import { ClickAnImageState } from './basics/click-an-image.state';
+import { MoveAnImageState } from './basics/move-an-image.state';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,4 +25,5 @@ class App {
 }
 
 // const app = new App(LoadAnImageState);
-const app = new App(ClickAnImageState);
+// const app = new App(ClickAnImageState);
+const app = new App(MoveAnImageState);
