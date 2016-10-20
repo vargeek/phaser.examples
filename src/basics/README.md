@@ -64,5 +64,10 @@
     this.srpite.animations.play(key, frameRate, loop);
     ```
 # 06-render-text
+  - text sprite
+    ```js
+    const style = { font: "65px Arial", fill: "#ff0044", align: "center" };
+    this.add.text(x, y, text, style)
+    ```
 # 07-tween-an-image
 # 08-sprite-rotation
