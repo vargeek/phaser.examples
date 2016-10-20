@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./bin/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "allowJs": true
+  },
+  "files": [
+    "./src/app.ts"
+  ]
+}
