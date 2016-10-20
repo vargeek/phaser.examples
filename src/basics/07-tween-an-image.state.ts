@@ -9,6 +9,7 @@ const AssetID = {
 export class TweenAnImageState extends BootState {
 
   sprite: Phaser.Sprite;
+  tween: Phaser.Tween;
 
   preload () {
 
@@ -20,13 +21,16 @@ export class TweenAnImageState extends BootState {
 
     this.sprite = this.add.sprite(-this.world.width / 2, 0, AssetID.Einstein);
 
+    this.tween = this.add.tween(this.sprite);
+    this.tween.to({ x: this.world.width}, 5000, 'Linear', true , 0);
+
   }
 
   update () {
 
-    if (this.sprite.x < this.world.width) {
-      this.sprite.x += 4;
-    }
+    // if (this.sprite.x < this.world.width) {
+    //   this.sprite.x += 4;
+    // }
 
   }
 

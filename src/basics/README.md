@@ -70,4 +70,10 @@
     this.add.text(x, y, text, style)
     ```
 # 07-tween-an-image
+  - 手动设置坐标
+  - 使用 Tween
+    ```
+    this.add.tween(this.sprite);
+    this.tween.to({ x: this.world.width}, duration, 'Linear', autoStart , delay);
+    ```
 # 08-sprite-rotation
