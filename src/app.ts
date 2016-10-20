@@ -1,30 +1,25 @@
 /// <reference path="./phaser.d.ts" />
 
-import { IBootInfo, IBounds, IStateInfo } from './boot-info.interface';
-import * as LoadAnImage from './basics/load-an-image.state';
+import { BootState } from './boot.state';
 
-let bootInfo = LoadAnImage.bootInfo;
+import { LoadAnImageState } from './basics/load-an-image.state';
 
 const BootStateKey = 'boot';
 class App {
   game: Phaser.Game;
 
-  constructor (bounds: IBounds = { width: 640,height:480}, renderer: number = Phaser.AUTO) {
-
-    this.game = new Phaser.Game(bounds.width, bounds.height, renderer, '');
-
+  constructor (boot:typeof BootState) {
+    let info = boot.bootInfo;
+    this.game = new Phaser.Game(info.bounds.width, info.bounds.height, info.renderer, '');
+    this.addStatesAndBoot(boot);
   }
 
-  addStatesAndBoot (boot: typeof Phaser.State, states: IStateInfo[] = []) {
-
-    states.forEach((state)=>{
+  addStatesAndBoot (boot: typeof BootState) {
+    boot.bootInfo.states.forEach((state)=>{
       this.game.state.add(state.key, state.constructor);
     });
     this.game.state.add(BootStateKey, boot, true);
-
   }
 }
 
-
-const app = new App(bootInfo.bounds, bootInfo.renderer);
-app.addStatesAndBoot(bootInfo.boot, bootInfo.states);
+const app = new App(LoadAnImageState);
