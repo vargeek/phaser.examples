@@ -3,9 +3,10 @@
 import { BootState } from './boot.state';
 
 // import { LoadAnImageState } from './basics/load-an-image.state';
-import { ClickAnImageState } from './basics/click-an-image.state';
-import { MoveAnImageState } from './basics/move-an-image.state';
-import { ImageFollowInputState } from './basics/04-image-follow-input.state';
+// import { ClickAnImageState } from './basics/click-an-image.state';
+// import { MoveAnImageState } from './basics/move-an-image.state';
+// import { ImageFollowInputState } from './basics/04-image-follow-input.state';
+import { LoadAnAnimationState } from './basics/05-load-an-animation.state';
 
 const BootStateKey = 'boot';
 class App {
@@ -28,4 +29,5 @@ class App {
 // const app = new App(LoadAnImageState);
 // const app = new App(ClickAnImageState);
 // const app = new App(MoveAnImageState);
-const app = new App(ImageFollowInputState);
+// const app = new App(ImageFollowInputState);
+const app = new App(LoadAnAnimationState);

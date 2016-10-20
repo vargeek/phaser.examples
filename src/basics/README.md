@@ -54,6 +54,15 @@
     // point默认值为 this.input.activePointer
     ```
 # 05-load-an-animation
+  - load a Texture Atlas file
+    ```js
+    this.load.atlasJSONHash(key, 'path/xxx.png', 'path/xxx.json');
+    ```
+  - animations
+    ```js
+    this.sprite.animations.add(key);
+    this.srpite.animations.play(key, frameRate, loop);
+    ```
 # 06-render-text
 # 07-tween-an-image
 # 08-sprite-rotation
