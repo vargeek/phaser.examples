@@ -102,3 +102,15 @@
 
     this.cache.getJSON(AssetID.Version) as VersionJSON;
     ```
+# load-spritesheet
+  - spritesheet
+    和 Texture Atlas 的区别: spritesheet每一帧的尺寸是固定的， Texture Atlas每一帧尺寸是可变化的，尺寸信息保存在json或xml文件中。
+  - 使用
+    ```js
+    this.load.spritesheet(key, 'xxx/xxx.png', frameWidth, frameHeight, frameMax);
+
+    let sprite = this.add.sprite(x, y, key);
+    sprite.animations.add(name);
+    sprite.animations.play(name, frameRate, loop);
+
+    ```
