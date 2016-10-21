@@ -20,3 +20,20 @@
     this.game.debug.soundInfo(this.music, 32, 32);
 
     ```
+# load-binary-file
+  - 加载二进制文件， 得到 ArrayBuffer 数组， 转换成 Uint8Array 视图
+    ```js
+    preload () {
+      this.load.binary(AssetID.Mod, '/assets/audio/protracker/global_trash_3_v2.mod', this.binaryLoadCallback, this);
+    }
+
+    binaryLoadCallback (key: string, data: ArrayBuffer) {
+      return new Uint8Array(data);
+    }
+
+    ```
+  - 使用二进制文件数据
+    ```js
+    let buffer = this.cache.getBinary(AssetID.Mod) as Uint8Array;
+
+    ```

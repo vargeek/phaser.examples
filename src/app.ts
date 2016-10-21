@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadAudioState } from './loader/load-audio';
+import { LoadBinaryState } from './loader/load-binary-file';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadAudioState);
+const app = new App(LoadBinaryState);
