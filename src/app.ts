@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadBinaryState } from './loader/load-binary-file';
+import { CheckCacheState } from './loader/check-cache';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadBinaryState);
+const app = new App(CheckCacheState);

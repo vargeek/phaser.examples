@@ -37,3 +37,10 @@
     let buffer = this.cache.getBinary(AssetID.Mod) as Uint8Array;
 
     ```
+# check-cache
+  - 检查缓存中是否包含某数据
+    ```js
+    let image = this.cache.checkImageKey(AssetID.Image);
+    let text = this.cache.checkTextKey(AssetID.Html);
+
+    ```
