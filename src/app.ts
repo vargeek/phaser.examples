@@ -11,7 +11,8 @@ import { BootState } from './boot.state';
 // import { TweenAnImageState } from './basics/07-tween-an-image.state';
 // import { SpriteRotationState } from './basics/08-sprite-rotation.state';
 // import { FixedToCamera } from './world/fixed-to-camera';
-import { MoveAroundWorldState } from './world/move-around-world';
+// import { WorldWrapState } from './world/move-around-world';
+import { WorldWrapState } from './world/world-wrap';
 
 const BootStateKey = 'boot';
 class App {
@@ -40,4 +41,5 @@ class App {
 // const app = new App(TweenAnImageState);
 // const app = new App(SpriteRotationState);
 // const app = new App(FixedToCamera);
-const app = new App(MoveAroundWorldState);
+// const app = new App(MoveAroundWorldState);
+const app = new App(WorldWrapState);
