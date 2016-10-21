@@ -82,4 +82,15 @@
     this.add.button(x, y, key, this.onClickStartButton, this, overframe, outframe, downframe);
 
     ```
+# load-image
+  - 加载图片
+    ```js
+    preload () {
+      this.load.image(AssetID.ImageKey, '/assets/sprites/phaser2.png');
+    }
 
+    create () {
+      this.add.sprite(0, 0, AssetID.ImageKey);
+    }
+
+    ```

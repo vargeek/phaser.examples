@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadEventsState } from './loader/load-events';
+import { LoadImageState } from './loader/load-image';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadEventsState);
+const app = new App(LoadImageState);
