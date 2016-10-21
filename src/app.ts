@@ -2,17 +2,7 @@
 
 import { BootState } from './boot.state';
 
-// import { LoadAnImageState } from './basics/load-an-image.state';
-// import { ClickAnImageState } from './basics/click-an-image.state';
-// import { MoveAnImageState } from './basics/move-an-image.state';
-// import { ImageFollowInputState } from './basics/04-image-follow-input.state';
-// import { LoadAnAnimationState } from './basics/05-load-an-animation.state';
-// import { RenderTextState } from './basics/06-render-text.state';
-// import { TweenAnImageState } from './basics/07-tween-an-image.state';
-// import { SpriteRotationState } from './basics/08-sprite-rotation.state';
-// import { FixedToCamera } from './world/fixed-to-camera';
-// import { WorldWrapState } from './world/move-around-world';
-import { WorldWrapState } from './world/world-wrap';
+import { LoadAudioState } from './loader/load-audio';
 
 const BootStateKey = 'boot';
 class App {
@@ -32,14 +22,4 @@ class App {
   }
 }
 
-// const app = new App(LoadAnImageState);
-// const app = new App(ClickAnImageState);
-// const app = new App(MoveAnImageState);
-// const app = new App(ImageFollowInputState);
-// const app = new App(LoadAnAnimationState);
-// const app = new App(RenderTextState);
-// const app = new App(TweenAnImageState);
-// const app = new App(SpriteRotationState);
-// const app = new App(FixedToCamera);
-// const app = new App(MoveAroundWorldState);
-const app = new App(WorldWrapState);
+const app = new App(LoadAudioState);
