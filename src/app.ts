@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { CheckCacheState } from './loader/check-cache';
+import { LoadBitmapFontState } from './loader/load-bitmap-font';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(CheckCacheState);
+const app = new App(LoadBitmapFontState);

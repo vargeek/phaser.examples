@@ -44,3 +44,18 @@
     let text = this.cache.checkTextKey(AssetID.Html);
 
     ```
+# load-bitmap-font
+  - 需要加载字体 png 和 xml 文件
+    ```js
+    this.load.bitmapFont(AssetID.Desyrel, '/assets/fonts/bitmapFonts/desyrel-pink.png', '/assets/fonts/bitmapFonts/desyrel-pink.xml');
+
+    ```
+  - 使用字体
+    ```js
+    this.text = this.add.bitmapText(200, 100, AssetID.Desyrel, 'Bitmap fonts', 64);
+     this.text.setText('foo-bar');
+
+    ```
+    - 工具
+      + On Windows you can use the free app BMFont: http://www.angelcode.com/products/bmfont/
+      + On OS X we recommend Glyph Designer: http://www.71squared.com/en/glyphdesigner
