@@ -21,3 +21,7 @@
     if (this.cursors.up.isDown) {} // update()中
 
     ```
+# move-around-world
+  - 世界中的物体运动
+  - 世界运动
+  - 相机运动
