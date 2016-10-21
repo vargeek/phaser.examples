@@ -94,3 +94,11 @@
     }
 
     ```
+# load-json-file
+  - 加载和获取
+    phaser 内部使用 XMLHttpRequest 请求 json 文件。
+    ```js
+    this.load.json(AssetID.Version, '/assets/version.json');
+
+    this.cache.getJSON(AssetID.Version) as VersionJSON;
+    ```
