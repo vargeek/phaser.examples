@@ -59,3 +59,27 @@
     - 工具
       + On Windows you can use the free app BMFont: http://www.angelcode.com/products/bmfont/
       + On OS X we recommend Glyph Designer: http://www.71squared.com/en/glyphdesigner
+# load-events
+  - 监听加载事件
+    ```js
+    this.load.onLoadStart.add(this.onLoadStart, this
+    );
+    this.load.onFileComplete.add(this.onFileComplete, this);
+    this.load.onLoadComplete.add(this.onLoadComplete, this);
+    // onFileComplete (progress: number, cacheKey: string, success: boolean, totalLoaded: number, totalFiles: number)
+
+    ```
+  - 非preload()函数内调用的load方法，需要手动start。
+    ```js
+    this.load.image('picture1', 'xxx/xxx.jpg');
+    this.load.start();
+
+    ```
+  - button: 使用精灵表单，以便设置不同状态下的图片
+    ```js
+    this.load.spritesheet(key, 'xxx/xxx.png', w, h);
+
+    this.add.button(x, y, key, this.onClickStartButton, this, overframe, outframe, downframe);
+
+    ```
+

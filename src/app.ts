@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadBitmapFontState } from './loader/load-bitmap-font';
+import { LoadEventsState } from './loader/load-events';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadBitmapFontState);
+const app = new App(LoadEventsState);
