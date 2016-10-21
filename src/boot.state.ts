@@ -21,8 +21,8 @@ export class BootState extends Phaser.State {
     states: [],
     renderer: Phaser.AUTO,
     bounds: {
-      width: 640,
-      height: 480
+      width: 800,
+      height: 600
     }
   }
 
