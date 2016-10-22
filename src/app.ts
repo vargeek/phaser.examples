@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadTilemapJsonState } from './loader/load-tilemap-json';
+import { LoadVideoState } from './loader/load-video';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadTilemapJsonState);
+const app = new App(LoadVideoState);

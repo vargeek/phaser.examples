@@ -194,4 +194,19 @@
     this.layer.resizeWorld();
 
     ```
+# load-video
+  - 加载、添加、播放视频
+    ```js
+    this.load.video(cacheKey, 'xxx/xxx.webm');
 
+     this.video = this.add.video(AssetID.Chrome);
+     // x, y, anchor x, anchor y, scale x, scale y
+    this.video.addToWorld(this.world.centerX, this.world.centerY, 0.5, 0.5, 2, 2);
+
+    // loop
+    this.video.play(true);
+
+    // pause
+    this.video.paused = true;
+
+    ```
