@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadSpritesheet } from './loader/load-spritesheet';
+import { LoadTextureAtlasState } from './loader/load-texture-atlas';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadSpritesheet);
+const app = new App(LoadTextureAtlasState);

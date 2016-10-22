@@ -114,3 +114,38 @@
     sprite.animations.play(name, frameRate, loop);
 
     ```
+# load-texture-atlas
+  - 加载 texture-atlas
+    JSON文件必须使用UTF-8编码，以免部分浏览器无法加载
+    ```js
+    this.load.atlas(key: string, textureURL?: string, atlasURL?: string, atlasData?: any, format?: number): Phaser.Loader;
+    // format 默认为 Phaser.Loader.TEXTURE_ATLAS_JSON_ARRAY
+    this.load.atlas(key, 'xxx/xxx.png', 'xxx/xxx.json');
+    this.load.atlas(key, 'yyy/yyy.png','yyy/yyy.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+
+    ```
+  - 动画
+    ```js
+    let octopus = this.add.sprite(x, y, AssetID.Seacreatures);
+    let frameNames = Phaser.Animation.generateFrameNames('octopus', 0, 24, '', 4);
+    // static generateFrameNames(prefix: string, start: number, stop: number, suffix?: string, zeroPad?: number): string[];
+    // ["octopus0000","octopus0001",...,"octopus0024"]
+
+    octopus.animations.add(Animation.Swim, frameNames, frameRate, loop);
+    octopus.animations.play(Animation.Swim);
+
+    ```
+  - 显示某一帧
+    ```js
+    this.add.sprite(x, y, key);
+
+    // 相当于
+    this.add.sprite(0, 0, key, 0);
+    // 或
+    this.add.sprite(0, 0, key, 'cactuar');
+
+    this.add.sprite(0, 0, key, 1);
+    // 相当于
+    this.add.sprite(0, 0, key, 'carrot');
+
+    ```
