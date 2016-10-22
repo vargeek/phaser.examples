@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadStarlingAtlasState } from './loader/load-starling-atlas';
+import { LoadTextFileState } from './loader/load-text-file';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadStarlingAtlasState);
+const app = new App(LoadTextFileState);

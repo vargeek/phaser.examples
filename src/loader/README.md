@@ -156,3 +156,11 @@
     this.load.atlasXML(key, 'xxx/xxx.png', 'xxx/xxx.xml');
 
     ```
+# load-text-file
+  - 加载和获取文本
+    ```js
+     game.load.text(key, url);
+
+     let text = this.cache.getText(key);
+
+    ```
