@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadTextFileState } from './loader/load-text-file';
+import { LoadTilemapJsonState } from './loader/load-tilemap-json';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadTextFileState);
+const app = new App(LoadTilemapJsonState);

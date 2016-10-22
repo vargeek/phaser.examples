@@ -164,3 +164,34 @@
      let text = this.cache.getText(key);
 
     ```
+# load-tilemap-json
+  - 加载资源：
+    Tilemap 分成两部分： 地图数据 (CSV、JSON) 和 tileset (图片文件)
+    ```js
+    this.load.tilemap(key, url?, data?, format);
+    // url 和 data 两个参数二选一，另一个参数设置null。 format 包括 Phaser.Tilemap.TILED_JSON 和 Phaser.Tilemap.CSV
+
+    // 图片集
+    this.load.image(key, 'xxx/xxx.png');
+
+    ```
+  - 添加地图
+    ```js
+    // 添加tilemap 地图数据、tileset信息等
+    this.map = this.add.tilemap(key);
+
+    // 添加图片集
+    // tilesetName 对应 json 中的
+    // {tilesets:{name:SuperMarioBros-World1-1}}
+    this.map.addTilesetImage(tilesetName, cacheKey);
+
+    // 添加地图层
+    // layerName 对应 JSON 中的
+    //  {layers:[{name:World1, data:...}]}
+    this.layer = this.map.createLayer(layerName);
+
+    // 调整游戏世界的size
+    this.layer.resizeWorld();
+
+    ```
+
