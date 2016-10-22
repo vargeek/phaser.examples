@@ -149,3 +149,10 @@
     this.add.sprite(0, 0, key, 'carrot');
 
     ```
+# load-starling-atlas
+  - 加载 Starling XML 文件格式的 texture atlas files
+    ```js
+    atlasXML(key: string, textureURL?: string, atlasURL?: string, atlasData?: any): Phaser.Loader;
+    this.load.atlasXML(key, 'xxx/xxx.png', 'xxx/xxx.xml');
+
+    ```
