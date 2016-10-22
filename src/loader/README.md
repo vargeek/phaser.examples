@@ -239,3 +239,30 @@
       spritea.input.enableDrag(false, true);
 
     ```
+# asset-pack
+  - 资源包
+    ```js
+    /**
+     * asset-pack.json
+     * {
+     *    level1: [
+     *      {type:image,key,url,overwrite},
+     *      {type:audio,key,urls,autoDecode},
+     *      {type:spritesheet,key,url,frameWidth,frameHeight,frameMax,margin,spacing},
+     *      {type:bitmapFont,key,textureURL:xxx.png,atlasURL:xxx.xml,atlasData,xSpacing,ySpacing}
+     *    ],
+     *    meta: {
+     *    }
+     * }
+     */
+    this.load.pack(packKey, url, data, this);
+
+    this.add.image(0, 0, level1.Starwars);
+    this.sound.play(level1.Boden);
+    this.add.bitmapTExt(x,y,level1.desyrel,text,size);
+
+    ```
+# 小结
+  - check-cache, pack-images-from-cache, events, asset-pack,
+  - json-file, text-file, xml-file, binary-file
+  - image, spritesheet, texture-atlas, starling-atlas, bitmap-font, tilemap-json, audio, video,

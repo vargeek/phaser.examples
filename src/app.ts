@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { PickImagesFromCacheState } from './loader/pick-images-from-cache';
+import { AssetPackState } from './loader/asset-pack';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(PickImagesFromCacheState);
+const app = new App(AssetPackState);
