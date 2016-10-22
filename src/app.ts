@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadVideoState } from './loader/load-video';
+import { LoadXmlState } from './loader/load-xml-file';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadVideoState);
+const app = new App(LoadXmlState);

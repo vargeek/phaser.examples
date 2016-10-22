@@ -210,3 +210,11 @@
     this.video.paused = true;
 
     ```
+# load-xml-file
+  - 加载和获取xml文件
+  ```js
+    this.load.xml(cacheKey, 'xxx/xxx.xml');
+
+    this.cache.getXML(cacheKey) as XMLDocument;
+
+  ```
