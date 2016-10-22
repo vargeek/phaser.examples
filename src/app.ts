@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { LoadXmlState } from './loader/load-xml-file';
+import { PickImagesFromCacheState } from './loader/pick-images-from-cache';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(LoadXmlState);
+const app = new App(PickImagesFromCacheState);

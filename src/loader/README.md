@@ -218,3 +218,24 @@
     this.cache.getXML(cacheKey) as XMLDocument;
 
   ```
+# pick-images-from-cache
+  - 获取缓存中所有图片的key
+    ```js
+    // string[]
+     this.cache.getKeys(Phaser.Cache.IMAGE);
+
+    ```
+  - 从数组中随机取出一个元素
+    ```js
+    //  pick<T>(ary: T[]): T;
+    this.rnd.pick(images)
+
+    ```
+  - 拖拽物体
+    ```js
+      sprite.inputEnabled = true;
+      // lockCenter: 鼠标锁定到物体中心
+      // bringToTop: 拖拽后移到最上层
+      spritea.input.enableDrag(false, true);
+
+    ```
