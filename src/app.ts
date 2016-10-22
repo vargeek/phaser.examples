@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { AddASpriteState } from './sprites/add-a-sprite';
+import { AddSeveralSprites } from './sprites/add-several-sprites';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(AddASpriteState);
+const app = new App(AddSeveralSprites);
