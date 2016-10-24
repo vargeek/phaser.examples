@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { DestroyState } from './sprites/destroy';
+import { SpriteTintState } from './sprites/sprite-tint';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(DestroyState);
+const app = new App(SpriteTintState);

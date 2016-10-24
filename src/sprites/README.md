@@ -75,3 +75,9 @@
     sprite.destroy();
 
     ```
+# sprite-tint
+  - sprite-tint
+    ```js
+    this.sprite.tint = Math.random() * 0xffffff;
+
+    ```
