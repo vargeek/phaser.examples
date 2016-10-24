@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { SpriteTintState } from './sprites/sprite-tint';
+import { SpriteDimensionsState } from './sprites/sprite-dimensions';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(SpriteTintState);
+const app = new App(SpriteDimensionsState);

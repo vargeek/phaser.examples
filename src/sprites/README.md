@@ -81,3 +81,9 @@
     this.sprite.tint = Math.random() * 0xffffff;
 
     ```
+# sprite-dimensions
+  - dimensions
+    ```js
+    sprite1.width, sprite1.height
+
+    ```
