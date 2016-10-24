@@ -2,8 +2,13 @@
 
 import { BootState } from './boot.state';
 
-// import { RotateAndScaleState } from './sprites/rotate-and-scale';
-import { FixedScaleState } from './sprites/fixed-scale';
+import { SpriteBoundsState } from './sprites/sprite-bounds';
+import { AlignInRectangleState } from './sprites/align-in-rectangle';
+import { AlignMultipleSpriteState } from './sprites/align-multiple-sprites';
+import { AlignToSpriteState } from './sprites/align-to-sprite';
+import { AlignToRectangleState } from './sprites/align-to-rectangle';
+import { AlignWithinSpriteState } from './sprites/align-within-sprite';
+import { RopeState } from './sprites/rope';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,5 +28,10 @@ class App {
   }
 }
 
-// const app = new App(RotateAndScaleState);
-const app = new App(FixedScaleState);
+// const app = new App(SpriteBoundsState);
+// const app = new App(AlignInRectangleState);
+// const app = new App(AlignMultipleSpriteState);
+// const app = new App(AlignToSpriteState);
+// const app = new App(AlignToRectangleState);
+// const app = new App(AlignWithinSpriteState);
+const app = new App(RopeState);

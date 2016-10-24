@@ -199,4 +199,115 @@
     this.add.tween(this.parent.scale).to({x: 3, y:3}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
 
     ```
+# sprite bounds
+  - rect
+    ```js
+    this.rect = new Phaser.Rectangle(x, y, w, h);
 
+    /**
+     *               TOP_LEFT     TOP_CENTER     TOP_RIGHT
+     * LEFT_TOP     |-------------------------------------| RIGHT_TOP
+     *              |                                     |
+     * LEFT_CENTER  |                                     | RIGHT_CENTER
+     *              |                                     |
+     * LEFT_BOTTOM  |                                     | RIGHT_BOTTOM
+     *              |-------------------------------------|
+     *              BOTTOM_LEFT   BOTTOM_CENTER  BOTTOM_RIGHT
+     */
+    getPoint(position: number, out: Phaser.Point): Phaser.Point;
+    this.rect.getPoint(Phaser.TOP_LEFT, undefined)
+
+    this.sprite.centerX = this.rect.centerX;
+    this.sprite.centerY = this.rect.centerY;
+
+    ```
+  - debug rect
+    ```js
+    this.game.debug.rectangle(this.rect, '#ffffff', filled);
+    this.game.debug.geom(this.rect.getPoint(Phaser.TOP_CENTER, undefined), '#ff00ff');
+
+    ```
+# align in rectangle
+  - align in
+    ```js
+    alignIn(container: Phaser.Rectangle | Phaser.Sprite | Phaser.Image | Phaser.Text | Phaser.BitmapText | Phaser.Button | Phaser.Graphics | Phaser.TileSprite, position?: number, offsetX?: number, offsetY?: number): any;
+
+    this.sprite1.alignIn(this.rect, Phaser.TOP_LEFT);
+
+    ```
+# align to rectangle
+  - align to
+    ```js
+    alignTo(container: Phaser.Rectangle | Phaser.Sprite | Phaser.Image | Phaser.Text | Phaser.BitmapText | Phaser.Button | Phaser.Graphics | Phaser.TileSprite, position?: number, offsetX?: number, offsetY?: number): any;
+
+    this.sprite1.alignTo(this.rect, Phaser.TOP_CENTER);
+
+    ```
+# align to sprite
+  - 创建多个 sprite
+    ```js
+    createMultiple(quantity: number, key: string | string[], frame?: any | any[], exists?: boolean): any[];
+
+    this.world.createMultiple(12, AssetID.pangball, 0, true);
+
+    ```
+  - align to sprite
+    ```js
+    (this.world.getChildAt(1) as Phaser.Sprite).alignTo(sprite, Phaser.TOP_LEFT);
+
+    ```
+# align text to sprite
+  - align text to sprite
+    ```js
+    text1.alignTo(sprite, Phaser.RIGHT_TOP, 16);
+
+    ```
+# align multiple sprites
+  - align multiple sprites
+    ```js
+    sprite2.alignTo(sprite1, Phaser.RIGHT_CENTER, 16);
+    sprite3.alignTo(sprite2, Phaser.RIGHT_CENTER, 16);
+
+    ```
+
+# align within sprite
+  - align within sprite
+    ```js
+    sprite1.alignIn(anotherSprite, Phaser.BOTTOM_RIGHT);
+
+    ```
+
+
+# rope
+  - rope
+    ```js
+    create () {
+
+      let count = 0;
+      let length = 918 / 20;
+      let points: Phaser.Point[] = [];
+
+      for (let index = 0; index < 20; index++) {
+        points.push(new Phaser.Point(index * length, 0));
+      }
+
+      this.rope =  this.add.rope(32, this.world.centerY, AssetID.snake, null, points);
+      this.rope.scale.set(0.8, 0.8);
+
+      this.rope.updateAnimation = function () {
+        count += 0.1;
+        for (let index = 0; index < points.length; index++) {
+          points[index].y = Math.sin(index * 0.5 + count) * 20;
+        }
+
+      }
+    }
+
+    ```
+  - debug rope
+    ```js
+    render () {
+      this.game.debug.ropeSegments(this.rope);
+    }
+
+    ```
