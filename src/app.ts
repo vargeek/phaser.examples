@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { CreateSpriteState } from './sprites/create-sprite';
+import { SharedSpriteTexturesState } from './sprites/shared-sprite-textures';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(CreateSpriteState);
+const app = new App(SharedSpriteTexturesState);

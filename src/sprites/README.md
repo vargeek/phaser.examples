@@ -38,3 +38,18 @@
     this.rectSprite = this.add.sprite(200, 200, bmd);
 
     ```
+# shared-sprite-textures
+  - make several unique sprites from the same file
+    ```js
+    this.load.atlas(shareKey, 'xxx/xxx.png','xxx/xxx.json');
+    let chick = this.add.sprite(x, y, shareKey);
+    chick.frameName = 'budbrain_chick.png';
+    // or
+    // chick.frame = 0;
+
+    let cop = this.add.sprite(x, y, shareKey);
+    cop.frameName = 'ladycop.png';
+
+    ```
+# multi texture test, multi texture example, multi texture example 32
+  优化渲染
