@@ -118,3 +118,85 @@
     this.parent.addChild(this.game.make.sprite(x, y, cacheKey));
 
     ```
+# rotate-and-scale
+  - rotate and scale
+    ```js
+    to(properties: any, duration?: number, ease?: string, autoStart?: boolean, delay?: number, repeat?: number, yoyo?: boolean): Phaser.Tween;
+
+    // rotate
+    this.add.tween(this.sprite).to({angle: 45}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
+    // scale
+    this.add.tween(this.sprite.scale).to({x: 1.5, y: 1.5}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
+
+    ```
+# rotate-and-scale
+  - rotate
+    ```js
+    // in update() 改变角度
+    this.sprite.angle += 1;
+    // or in update() 改变弧度
+    this.sprite.rotation += 0.01;
+
+    // 使用Tween
+    to(properties: any, duration?: number, ease?: string, autoStart?: boolean, delay?: number, repeat?: number, yoyo?: boolean): Phaser.Tween;
+    this.add.tween(this.sprite).to({angle: 45}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
+    this.add.tween(this.sprite.scale).to({x: 1, y: 1}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
+
+    ```
+  - rotated atlas frame support
+    ```js
+    /**
+     * "cactuar":
+     * {
+	   *   "frame": {"x":491,"y":2,"w":213,"h":159},
+	   *   "rotated": true,
+	   *   "trimmed": true,
+	   *   "spriteSourceSize": {"x":0,"y":0,"w":213,"h":159},
+	   *   "sourceSize": {"w":231,"h":175},
+	   *   "pivot": {"x":0.5,"y":0.5}
+     * },
+     * "contra1":
+     * {
+     * 	"frame": {"x":249,"y":395,"w":83,"h":169},
+     * 	"rotated": true,
+     * 	"trimmed": false,
+     * 	"spriteSourceSize": {"x":0,"y":0,"w":83,"h":169},
+     * 	"sourceSize": {"w":83,"h":169},
+     * 	"pivot": {"x":0.5,"y":0.5}
+     * },
+     */
+    this.load.atlas(key, 'xxx/xxx.png', 'xxx/xxx.json'); // in preload()
+    // in create()
+    this.contra = this.add.sprite(x,y, cacheKey, frameName);
+    // Should be 83x169 (the original dimensions, even though rotated in the atlas)
+    console.log(this.contra.width, this.contra.height);
+
+    ```
+  - rotate sprite around point
+    ```js
+    // in create()
+    this.orb = this.add.sprite(x, y, cacheKey);
+    this.orb.anchor.set(0.5);
+    this.orb.pivot.x = 100;
+
+    // 绕 this.ship旋转
+    // in preRender()
+    this.orb.x = this.ship.x;
+    this.orb.y = this.ship.y;
+
+    ```
+# fixed-scale
+  - 限定 scale 取值范围
+    ```js
+    this.parent = this.add.sprite(100, 100, AssetID.Disk);
+
+    this.child = this.make.sprite(0, 0, AssetID.Ball);
+    this.parent.addChild(this.child);
+
+    this.child.setScaleMinMax(1, 2);
+
+    // Even though the parent will scale, the child will remain at its own scale (and this is carried on down to any of its children)
+    this.add.tween(this.parent.scale).to({x: 3, y:3}, 2000, Phaser.Easing.Linear.None, true, 0, Number.MAX_VALUE, true);
+
+    ```
+

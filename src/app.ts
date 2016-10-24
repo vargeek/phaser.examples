@@ -2,7 +2,8 @@
 
 import { BootState } from './boot.state';
 
-import { ChildSpritesState } from './sprites/child-sprites';
+// import { RotateAndScaleState } from './sprites/rotate-and-scale';
+import { FixedScaleState } from './sprites/fixed-scale';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +23,5 @@ class App {
   }
 }
 
-const app = new App(ChildSpritesState);
+// const app = new App(RotateAndScaleState);
+const app = new App(FixedScaleState);
