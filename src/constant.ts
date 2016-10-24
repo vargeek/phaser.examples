@@ -5,5 +5,8 @@ export const AssetID = {
   spaceship: 'spaceship',
   pangball: 'pangball',
   snake: 'snake',
-  trsi: 'trsi'
+  trsi: 'trsi',
+  chaos: 'chaos',
+  box: 'box',
+  platform: 'platform',
 }

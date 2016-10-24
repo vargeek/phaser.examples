@@ -2,9 +2,9 @@
 
 import { BootState } from './boot.state';
 
-import { HorizontalCropState } from './sprites/horizontal-crop';
-import { VerticalCropState } from './sprites/vertical-crop';
-import { DynamicCropState } from './sprites/dynamic-crop';
+import { MaskState } from './sprites/mask';
+import { SpriteGroupMaskState } from './sprites/sprite-group-mask';
+import { MovementMaskState } from './sprites/movement-mask';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,6 +24,6 @@ class App {
   }
 }
 
-// const app = new App(HorizontalCropState);
-// const app = new App(VerticalCropState);
-const app = new App(DynamicCropState);
+// const app = new App(MaskState);
+// const app = new App(SpriteGroupMaskState);
+const app = new App(MovementMaskState);

@@ -352,4 +352,33 @@
     }
 
     ```
+# mask
+  - mask
+    ```js
+    this.mask = this.add.graphics(0, 0);
+    this.mask.beginFill(0xffffff);
+    this.mask.drawCircle(100, 100, 100);
 
+    this.sprite.mask = this.mask;
+
+    ```
+  - 移动mask
+    ```js
+    this.mask.x = x - 100;
+    this.mask.y = y - 100;
+
+    ```
+# movement mask
+  - 在sprite的移动范围内添加mask
+  ```js
+    let mask = this.add.graphics(0, 0);
+    mask.beginFill(0xffffff);
+    mask.drawRect(platform.x, platform.y - 200, platform.width, 200);
+
+    this.box.mask = mask;
+
+    this.add.tween(this.box).to({y: 200}, 500, Phaser.Easing.Sinusoidal.InOut, true, 0, -1, true);
+    this.add.tween(this.box).to({x: 232}, 3000, Phaser.Easing.Sinusoidal.InOut, true, 0, -1, true);
+
+  ```
+# sprite group mask
