@@ -112,3 +112,9 @@
     sprite.pivot.x = 100;
     sprite.pivot.y = 100;
     ```
+# child-sprites
+  - 添加子精灵
+    ```js
+    this.parent.addChild(this.game.make.sprite(x, y, cacheKey));
+
+    ```
