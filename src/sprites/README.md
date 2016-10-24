@@ -53,3 +53,19 @@
     ```
 # multi texture test, multi texture example, multi texture example 32
   优化渲染
+# extending-sprite
+  - 继承 Phaser.Sprite 和使用子类
+    ```js
+    class SuperSprite extends Phaser.Sprite {
+
+      constructor (...) {
+        super(game: Phaser.Game, x: number, y: number, key?: string | Phaser.RenderTexture | Phaser.BitmapData | PIXI.Texture, frame?: string | number);
+      }
+
+    }
+
+    // in create()
+    let sprite = new SuperSprite(...);
+    this.add.existing(sprite); //或game.add.existing(sprite);
+
+    ```
