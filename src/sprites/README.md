@@ -87,3 +87,12 @@
     sprite1.width, sprite1.height
 
     ```
+# sprite-anchor
+  - anchor
+    ```js
+      this.sprite.anchor.x -= 0.1;
+      this.sprite.anchor.y -= 0.1;
+      this.sprite.anchor.set(0.5, 0.5);
+      this.sprite.anchor.setTo(0.5, 0.5);
+
+    ```

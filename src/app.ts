@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { SpriteDimensionsState } from './sprites/sprite-dimensions';
+import { SpriteAnchorState } from './sprites/sprite-anchor';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(SpriteDimensionsState);
+const app = new App(SpriteAnchorState);
