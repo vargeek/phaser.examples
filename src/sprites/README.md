@@ -96,3 +96,19 @@
       this.sprite.anchor.setTo(0.5, 0.5);
 
     ```
+# pivot
+  - pivot
+    以以 anchor 为原点的坐标 (pivot.x, pivot.y) 为旋转点。
+    ```js
+    // 旋转点: sprite左上角向右100单位
+    sprite.pivot.x = 100;
+
+    // 旋转点: sprite中心向右100单位
+    sprite.anchor.set(0.5);
+    sprite.pivot.x = 100;
+
+    // 旋转点: sprite中心向右100单位, 向下100单位
+    sprite.anchor.set(0.5);
+    sprite.pivot.x = 100;
+    sprite.pivot.y = 100;
+    ```

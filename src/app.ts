@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { SpriteAnchorState } from './sprites/sprite-anchor';
+import { PivotState } from './sprites/pivot';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(SpriteAnchorState);
+const app = new App(PivotState);
