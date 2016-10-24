@@ -2,13 +2,9 @@
 
 import { BootState } from './boot.state';
 
-import { SpriteBoundsState } from './sprites/sprite-bounds';
-import { AlignInRectangleState } from './sprites/align-in-rectangle';
-import { AlignMultipleSpriteState } from './sprites/align-multiple-sprites';
-import { AlignToSpriteState } from './sprites/align-to-sprite';
-import { AlignToRectangleState } from './sprites/align-to-rectangle';
-import { AlignWithinSpriteState } from './sprites/align-within-sprite';
-import { RopeState } from './sprites/rope';
+import { HorizontalCropState } from './sprites/horizontal-crop';
+import { VerticalCropState } from './sprites/vertical-crop';
+import { DynamicCropState } from './sprites/dynamic-crop';
 
 const BootStateKey = 'boot';
 class App {
@@ -28,10 +24,6 @@ class App {
   }
 }
 
-// const app = new App(SpriteBoundsState);
-// const app = new App(AlignInRectangleState);
-// const app = new App(AlignMultipleSpriteState);
-// const app = new App(AlignToSpriteState);
-// const app = new App(AlignToRectangleState);
-// const app = new App(AlignWithinSpriteState);
-const app = new App(RopeState);
+// const app = new App(HorizontalCropState);
+// const app = new App(VerticalCropState);
+const app = new App(DynamicCropState);

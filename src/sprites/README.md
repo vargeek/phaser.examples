@@ -311,3 +311,45 @@
     }
 
     ```
+
+# horizontal crop
+  - horizontal crop
+    ```js
+    // in create()
+    this.pic = this.add.image(this.world.centerX, this.world.centerY, AssetID.trsi);
+    // crop后，x,y不变，长宽会发生变化。设置anchor使pic始终居中
+    this.pic.anchor.setTo(0.5, 0.5);
+
+    this.cropRect = new Phaser.Rectangle(0, 0, 0, this.pic.height);
+    let tween = this.add.tween(this.cropRect).to({width: this.pic.width}, 3000, Phaser.Easing.Bounce.Out, false, 0, Number.MAX_VALUE, true);
+
+    this.pic.crop(this.cropRect);
+
+    // in update()
+    this.pic.updateCrop();
+    ```
+# vertical crop
+# dynamic crop
+  - dynamic crop
+    ```js
+    // in create()
+    this.w = this.pic.width;
+    this.h = this.pic.height;
+
+    this.cropRect = new Phaser.Rectangle(0, 0, 128, 128);
+    this.pic.crop(this.cropRect);
+
+    // in update()
+    if (this.input.x < this.w && this.input.y < this.h) {
+      // 将图片移动到input的位置
+      this.pic.x = this.input.x;
+      this.pic.y = this.input.y;
+      // 从原始图片的x,y处开始crop
+      this.cropRect.x = this.input.x;
+      this.cropRect.y = this.input.y;
+      // 更新crop
+      this.pic.updateCrop();
+    }
+
+    ```
+

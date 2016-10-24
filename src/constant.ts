@@ -4,5 +4,6 @@ export const AssetID = {
   block: 'block',
   spaceship: 'spaceship',
   pangball: 'pangball',
-  snake: 'snake'
+  snake: 'snake',
+  trsi: 'trsi'
 }
