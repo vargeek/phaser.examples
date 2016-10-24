@@ -69,3 +69,9 @@
     this.add.existing(sprite); //或game.add.existing(sprite);
 
     ```
+# destroy
+  - destroy
+    ```js
+    sprite.destroy();
+
+    ```

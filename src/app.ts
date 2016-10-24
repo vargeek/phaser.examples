@@ -2,7 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { ExtendingSpriteState } from './sprites/extending-sprite';
+import { DestroyState } from './sprites/destroy';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +22,4 @@ class App {
   }
 }
 
-const app = new App(ExtendingSpriteState);
+const app = new App(DestroyState);
