@@ -2,8 +2,10 @@
 
 import { BootState } from './boot.state';
 
-import { OverlapTweenWithoutPhysicsState } from './sprites/overlap-tween-without-physics';
-import { OverlapWithoutPhysicsState } from './sprites/overlap-without-physics';
+import { TileSpriteState } from './tile-sprites/tiling-sprite';
+import { SpriteSheetTilingSpriteState } from './tile-sprites/sprite-sheet-tiling-sprite';
+import { TilingAtlasTrimState } from './tile-sprites/tiling-atlast-trim';
+import { TilingSpriteAtlasState } from './tile-sprites/tiling-sprite-atlas';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,5 +25,7 @@ class App {
   }
 }
 
-// const app = new App(OverlapTweenWithoutPhysicsState);
-const app = new App(OverlapWithoutPhysicsState);
+// const app = new App(TileSpriteState);
+// const app = new App(SpriteSheetTilingSpriteState);
+// const app = new App(TilingAtlasTrimState);
+const app = new App(TilingSpriteAtlasState);

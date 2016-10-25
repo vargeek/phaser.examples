@@ -15,8 +15,14 @@ export const AssetID = {
   ship: 'ship',
   atari1: 'atari1',
   atari2: 'atari2',
+  starfield: 'starfield',
+  mummy: 'mummy',
+  seacreatures: 'seacreatures',
+  tstrim: 'tstrim',
 }
 
 export const Animation = {
-  run: 'run'
+  run: 'run',
+  walk: 'walk',
+  swim: 'swim',
 }
