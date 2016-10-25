@@ -2,9 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { MaskState } from './sprites/mask';
-import { SpriteGroupMaskState } from './sprites/sprite-group-mask';
-import { MovementMaskState } from './sprites/movement-mask';
+import { MoveASpriteState } from './sprites/move-a-sprite';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,6 +22,4 @@ class App {
   }
 }
 
-// const app = new App(MaskState);
-// const app = new App(SpriteGroupMaskState);
-const app = new App(MovementMaskState);
+const app = new App(MoveASpriteState);

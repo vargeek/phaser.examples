@@ -9,4 +9,9 @@ export const AssetID = {
   chaos: 'chaos',
   box: 'box',
   platform: 'platform',
+  bot: 'bot',
+}
+
+export const Animation = {
+  run: 'run'
 }

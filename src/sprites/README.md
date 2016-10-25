@@ -382,3 +382,17 @@
 
   ```
 # sprite group mask
+# move a sprite
+  - move a sprite
+    ```js
+    // 默认为所有帧
+    this.sprite.animations.add(Animation.run)
+    this.sprite.animations.play(Animation.run, 10, true);
+
+    // in update
+    if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+      this.sprite.x -= 4;
+    }
+    // else ...
+
+    ```
