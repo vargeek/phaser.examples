@@ -2,10 +2,10 @@
 
 import { BootState } from './boot.state';
 
-import { AnimationEventsState } from './animation/animation-events';
-import { StopAnimationState } from './animation/stop-animation';
-import { LoopedAnimationState } from './animation/looped-animation';
-import { DestroyAnimationState } from './animation/destroy-animation';
+import { FrameUpdateState } from './animation/frame-update';
+import { ChangeFrameState } from './animation/change-frame';
+import { ChangeTextureOnClickState } from './animation/change-texture-on-click';
+import { DynamicAnimationState } from './animation/dynamic-animation';
 
 const BootStateKey = 'boot';
 class App {
@@ -25,7 +25,7 @@ class App {
   }
 }
 
-// const app = new App(AnimationEventsState);
-// const app = new App(StopAnimationState);
-// const app = new App(LoopedAnimationState);
-const app = new App(DestroyAnimationState);
+// const app = new App(FrameUpdateState);
+// const app = new App(ChangeFrameState);
+// const app = new App(ChangeTextureOnClickState);
+const app = new App(DynamicAnimationState);

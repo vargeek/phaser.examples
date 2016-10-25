@@ -129,3 +129,78 @@
         // more than one Game Object sharing the same BaseTexture.
 
     ```
+
+# frame update
+  - on animation frame update
+    ```js
+    let walk = mummy.animations.add(Animation.walk);
+
+    // Gets or sets if this animation will dispatch the onUpdate events upon changing frame.
+    walk.enableUpdate = true;
+
+    // This event is dispatched when the Animation changes frame.
+    // By default this event is disabled due to its intensive nature. Enable it with: Animation.enableUpdate = true.
+    // Note that the event is only dispatched with the current frame. In a low-FPS environment Animations
+    // will automatically frame-skip to try and claw back time, so do not base your code on expecting to
+    // receive a perfectly sequential set of frames from this event.
+    walk.onUpdate.add(this.onAnimationUpdate, this);
+
+    ```
+# two frame test => frame update
+# change frame
+  - change frame (texture不变)
+    ```js
+    // Gets or sets the current frame name of the texture being used to render this Game Object.
+    // To change the frame set frameName to the name of the new frame in the texture atlas you wish this Game Object to use,
+    // for example: player.frameName = "idle".
+    // If the frame name given doesn't exist it will revert to the first frame found in the texture and throw a console warning.
+    // If you are using a sprite sheet then you should use the frame property instead.
+    // If you wish to fully replace the texture being used see loadTexture.
+    greenJellyfish.frameName = 'greenJellyfish0010';
+
+    ```
+# change texture on click  => load texture
+  - change texture
+    ```js
+    // Changes the base texture the Game Object is using. The old texture is removed and the new one is referenced or fetched from the Cache.
+    // If your Game Object is using a frame from a texture atlas and you just wish to change to another frame, then see the frame or frameName properties instead.
+    // You should only use loadTexture if you want to replace the base texture entirely.
+    // Calling this method causes a WebGL texture update, so use sparingly or in low-intensity portions of your game, or if you know the new texture is already on the GPU.
+    // You can use the new const Phaser.PENDING_ATLAS as the texture key for any sprite.
+    // Doing this then sets the key to be the frame argument (the frame is set to zero).
+    // This allows you to create sprites using load.image during development, and then change them
+    // to use a Texture Atlas later in development by simply searching your code for 'PENDING_ATLAS'
+    // and swapping it to be the key of the atlas data.
+    // Note: You cannot use a RenderTexture as a texture for a TileSprite.
+    this.sprite.loadTexture(AssetID.mummy, 0);
+
+    ```
+# dynamic animation
+  - make a new sprite but not add to game
+    ```js
+    // make.sprite(x, y, key, frame) → {Phaser.Sprite}
+    // Create a new Sprite with specific position and sprite sheet key.
+
+    let orb = this.make.sprite(0, 0, AssetID.orb);
+
+    ```
+  - dynamic animation
+    在bmd中动态画出图片，作为动画帧
+    ```js
+    let bmd = this.add.bitmapData(frames * w, h);
+    let x = 0;
+    let y = -h; // 第一帧只看到orb的最底部
+
+    for (let index = 0; index < frames; index++) {
+      bmd.draw(orb, x, y);
+      x += w;
+      y += 3;
+    }
+
+    this.cache.addSpriteSheet('dynamic', '', bmd.canvas, w, h, frames, 0, 0);
+
+    let test = this.add.sprite(x, y, 'dynamic');
+    test.animations.add('float');
+    test.play('float', 20, true);
+
+    ```
