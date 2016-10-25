@@ -19,6 +19,9 @@ export const AssetID = {
   mummy: 'mummy',
   seacreatures: 'seacreatures',
   tstrim: 'tstrim',
+  disk: 'disk',
+  waters: 'waters',
+  ball: 'ball'
 }
 
 export const Animation = {
