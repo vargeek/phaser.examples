@@ -2,10 +2,7 @@
 
 import { BootState } from './boot.state';
 
-import { FrameUpdateState } from './animation/frame-update';
-import { ChangeFrameState } from './animation/change-frame';
-import { ChangeTextureOnClickState } from './animation/change-texture-on-click';
-import { DynamicAnimationState } from './animation/dynamic-animation';
+import { GroupCreationState } from './animation/group-creation';
 
 const BootStateKey = 'boot';
 class App {
@@ -25,7 +22,4 @@ class App {
   }
 }
 
-// const app = new App(FrameUpdateState);
-// const app = new App(ChangeFrameState);
-// const app = new App(ChangeTextureOnClickState);
-const app = new App(DynamicAnimationState);
+const app = new App(GroupCreationState);

@@ -204,3 +204,15 @@
     test.play('float', 20, true);
 
     ```
+# group creation
+  - callAll
+    ```js
+    //  Here is the important part. Group.callAll will call a method that exists on every child in the Group.
+    //  In this case we're saying: child.animations.add('swim', frameNames, 30, true, false)
+    //  The second parameter ('animations') is really important and is the context in which the method is called.
+    //  For animations the context is the Phaser.AnimationManager, which is linked to the child.animations property.
+    //  Everything after the 2nd parameter is just the usual values you'd pass to the animations.add method.
+    group.callAll('animations.add', 'animations', 'swim', frameNames, 30, true, false);
+
+    ```
+# multiple anims => sprite sheet
