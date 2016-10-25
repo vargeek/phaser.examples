@@ -2,9 +2,10 @@
 
 import { BootState } from './boot.state';
 
-import { AnimatedTilingSpriteState } from './tile-sprites/animated-tiling-sprite';
-import { TileSpriteFromAnimatdSpriteState } from './tile-sprites/tile-sprite-from-animated-sprite';
-import { CollidingWithTilingSpriteState } from './tile-sprites/colliding-with-tiling-sprite';
+import { SpriteSheetState } from './animation/sprite-sheet';
+import { LoadTextureState } from './animation/load-texture';
+import { StarlingAtlasState } from './animation/starling-atlas';
+import { LocalJsonObjectState } from './animation/local-json-object';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,6 +25,7 @@ class App {
   }
 }
 
-// const app = new App(AnimatedTilingSpriteState);
-// const app = new App(TileSpriteFromAnimatdSpriteState);
-const app = new App(CollidingWithTilingSpriteState);
+// const app = new App(SpriteSheetState);
+// const app = new App(LoadTextureState);
+// const app = new App(StarlingAtlasState);
+const app = new App(LocalJsonObjectState);

@@ -21,7 +21,9 @@ export const AssetID = {
   tstrim: 'tstrim',
   disk: 'disk',
   waters: 'waters',
-  ball: 'ball'
+  ball: 'ball',
+  monster: 'monster',
+  octopus: 'octopus',
 }
 
 export const Animation = {
