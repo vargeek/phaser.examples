@@ -2,7 +2,8 @@
 
 import { BootState } from './boot.state';
 
-import { MoveASpriteState } from './sprites/move-a-sprite';
+import { OutOfBoundsState } from './sprites/out-of-bounds';
+import { CollideWorldBoundsState } from './sprites/collide-world-bounds';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +23,5 @@ class App {
   }
 }
 
-const app = new App(MoveASpriteState);
+// const app = new App(OutOfBoundsState);
+const app = new App(CollideWorldBoundsState);

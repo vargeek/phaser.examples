@@ -10,6 +10,9 @@ export const AssetID = {
   box: 'box',
   platform: 'platform',
   bot: 'bot',
+  pineapple: 'pineapple',
+  alien: 'alien',
+  ship: 'ship',
 }
 
 export const Animation = {
