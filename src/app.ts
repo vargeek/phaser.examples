@@ -2,8 +2,8 @@
 
 import { BootState } from './boot.state';
 
-import { OutOfBoundsState } from './sprites/out-of-bounds';
-import { CollideWorldBoundsState } from './sprites/collide-world-bounds';
+import { OverlapTweenWithoutPhysicsState } from './sprites/overlap-tween-without-physics';
+import { OverlapWithoutPhysicsState } from './sprites/overlap-without-physics';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,5 +23,5 @@ class App {
   }
 }
 
-// const app = new App(OutOfBoundsState);
-const app = new App(CollideWorldBoundsState);
+// const app = new App(OverlapTweenWithoutPhysicsState);
+const app = new App(OverlapWithoutPhysicsState);

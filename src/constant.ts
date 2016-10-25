@@ -13,6 +13,8 @@ export const AssetID = {
   pineapple: 'pineapple',
   alien: 'alien',
   ship: 'ship',
+  atari1: 'atari1',
+  atari2: 'atari2',
 }
 
 export const Animation = {

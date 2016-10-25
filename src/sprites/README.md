@@ -453,3 +453,32 @@
 
     ```
 
+# overlap tween without physics
+  - Phaser.Rectangle.intersects
+    ```js
+    // Determines whether the two Rectangles intersect with each other.
+    // This method checks the x, y, width, and height properties of the Rectangles.
+    return Phaser.Rectangle.intersects(sprite1.getBounds() as any as Phaser.Rectangle, sprite2.getBounds() as any as Phaser.Rectangle);
+
+    ```
+  - Sprite.inputEnabled
+    ```js
+    // By default a Game Object won't process any input events. By setting inputEnabled to true a Phaser.InputHandler is created for this Game Object and it will then start to process click / touch events and more.
+    this.sprite1.inputEnabled = true;
+
+    ```
+  - Sprite.input.enableDrag()
+    ```js
+    // Allow this Sprite to be dragged by any valid pointer.
+    // When the drag begins the Sprite.events.onDragStart event will be dispatched.
+    // When the drag completes by way of the user letting go of the pointer that was dragging the sprite, the Sprite.events.onDragStop event is dispatched.
+    // For the duration of the drag the Sprite.events.onDragUpdate event is dispatched. This event is only dispatched when the pointer actually changes position and moves. The event sends 5 parameters: sprite, pointer, dragX, dragY and snapPoint.
+
+    // You can control the thresholds over when a drag starts via the properties:
+    // Pointer.dragDistanceThreshold the distance, in pixels, that the pointer has to move before the drag will start.
+    // Pointer.dragTimeThreshold the time, in ms, that the pointer must be held down on the Sprite before the drag will start.
+    // You can set either (or both) of these properties after enabling a Sprite for drag.
+    this.sprite1.input.enableDrag();
+
+    ```
+# overlap without physics
