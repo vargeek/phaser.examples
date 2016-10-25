@@ -24,6 +24,9 @@ export const AssetID = {
   ball: 'ball',
   monster: 'monster',
   octopus: 'octopus',
+  lazur: 'lazur',
+  undersea: 'undersea',
+  coral: 'coral',
 }
 
 export const Animation = {

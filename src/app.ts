@@ -2,10 +2,10 @@
 
 import { BootState } from './boot.state';
 
-import { SpriteSheetState } from './animation/sprite-sheet';
-import { LoadTextureState } from './animation/load-texture';
-import { StarlingAtlasState } from './animation/starling-atlas';
-import { LocalJsonObjectState } from './animation/local-json-object';
+import { AnimationEventsState } from './animation/animation-events';
+import { StopAnimationState } from './animation/stop-animation';
+import { LoopedAnimationState } from './animation/looped-animation';
+import { DestroyAnimationState } from './animation/destroy-animation';
 
 const BootStateKey = 'boot';
 class App {
@@ -25,7 +25,7 @@ class App {
   }
 }
 
-// const app = new App(SpriteSheetState);
-// const app = new App(LoadTextureState);
-// const app = new App(StarlingAtlasState);
-const app = new App(LocalJsonObjectState);
+// const app = new App(AnimationEventsState);
+// const app = new App(StopAnimationState);
+// const app = new App(LoopedAnimationState);
+const app = new App(DestroyAnimationState);

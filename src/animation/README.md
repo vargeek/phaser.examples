@@ -72,3 +72,60 @@
 
     ```
 
+# animation events
+  - events
+    ```js
+    this.animation.onStart.add(this.onAnimationStart, this);
+    this.animation.onLoop.add(this.onAnimationLoop, this);
+    this.animation.onComplete.add(this.onAnimationStop, this);
+
+    onAnimationStart (sprite: Phaser.Sprite, animation: Phaser.Animation) { }
+
+    onAnimationLoop (sprite: Phaser.Sprite, animation: Phaser.Animation) { }
+
+    onAnimationStop (sprite: Phaser.Sprite, animation: Phaser.Animation) { }
+
+    // The number of times the animation has looped since it was last started.
+    animation.loopCount
+
+    // The loop state of the Animation.
+    animation.loop
+
+    ```
+# stop animation
+  - stop animation
+    ```js
+    this.greenJellyfish.animations.stop(null, true);
+    stop(name?: string, resetFrame?: boolean): void;
+    //  This will just top the animation from running, freezing it at its current frame
+    // greenJellyfish.animations.stop();
+
+    //  This method will reset the frame to frame 1 after stopping
+
+    ```
+# destroy animation
+# looped animation
+  - Group.setAll()
+    ```js
+    // Quickly set the same property across all children of this group to a new value.
+    // This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children. If you need that ability please see Group.setAllChildren.
+    // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication. A value of 0 replaces the value with the new one. A value of 1 adds it, 2 subtracts it, 3 multiplies it and 4 divides it.
+    setAll(key, value, checkAlive, checkVisible, operation, force)
+    this.sprites.setAll('x', 10, true, true, 1);
+
+    ```
+  - Group.remove(child), Sprite.destroy
+    ```js
+        this.sprites.remove(sprite, true);
+        // Removes the given child from this group.
+        // This will dispatch an onRemovedFromGroup event from the child (if it has one), and optionally destroy the child.
+        // If the group cursor was referring to the removed child it is updated to refer to the next child.
+
+        Sprite.destroy(destroyChildren?: boolean): void;
+        // Destroys the Game Object. This removes it from its parent group, destroys the input, event and animation handlers if present
+        // and nulls its reference to game, freeing it up for garbage collection.
+        // If this Game Object has the Events component it will also dispatch the onDestroy event.
+        // You can optionally also destroy the BaseTexture this Game Object is using. Be careful if you've
+        // more than one Game Object sharing the same BaseTexture.
+
+    ```
