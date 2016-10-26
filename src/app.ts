@@ -3,6 +3,8 @@
 import { BootState } from './boot.state';
 
 import { GroupCreationState } from './animation/group-creation';
+import { CreaturePhoenixState } from './animation/creature-phoenix';
+import { CreatureDragonState } from './animation/creature-dragon';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,4 +24,6 @@ class App {
   }
 }
 
-const app = new App(GroupCreationState);
+// const app = new App(GroupCreationState);
+// const app = new App(CreaturePhoenixState);
+const app = new App(CreatureDragonState);

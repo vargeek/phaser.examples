@@ -27,10 +27,16 @@ export const AssetID = {
   lazur: 'lazur',
   undersea: 'undersea',
   coral: 'coral',
+  sky: 'sky',
+  phoenixTexture: 'phoenixTexture',
+  phoenixMesh: 'phoenixMesh',
+  dragonTexture: 'dragonTexture',
+  dragonMesh: 'dragonMesh',
 }
 
 export const Animation = {
   run: 'run',
   walk: 'walk',
   swim: 'swim',
+  flight: 'flight',
 }
