@@ -32,6 +32,9 @@ export const AssetID = {
   phoenixMesh: 'phoenixMesh',
   dragonTexture: 'dragonTexture',
   dragonMesh: 'dragonMesh',
+  phaser: 'phaser',
+  arrows: 'arrows',
+  space: 'space',
 }
 
 export const Animation = {

@@ -1,8 +1,9 @@
 import { BootState } from './boot.state';
 
-import { GroupCreationState } from './animation/group-creation';
-import { CreaturePhoenixState } from './animation/creature-phoenix';
-import { CreatureDragonState } from './animation/creature-dragon';
+import { TweenFromState } from './tweens/tween-from';
+import { TweenToState } from './tweens/tween-to';
+import { TweenRelativeState } from './tweens/tween-relative';
+import { YoyoState } from './tweens/yoyo';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,6 +23,7 @@ class App {
   }
 }
 
-// const app = new App(GroupCreationState);
-// const app = new App(CreaturePhoenixState);
-const app = new App(CreatureDragonState);
+// const app = new App(TweenFromState);
+// const app = new App(TweenToState);
+// const app = new App(TweenRelativeState);
+const app = new App(YoyoState);
