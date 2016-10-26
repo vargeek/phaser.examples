@@ -1,5 +1,3 @@
-/// <reference path="./phaser.d.ts" />
-
 import { BootState } from './boot.state';
 
 import { GroupCreationState } from './animation/group-creation';
