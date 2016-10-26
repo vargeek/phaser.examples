@@ -223,3 +223,21 @@
 
     ```
 # fading in a sprite
+# tween array
+  - to({x:[],y:[]})
+    ```js
+    this.tween.to({x:[500, 500, 100, 100], y:[250, 150, 150, 250]}, 3000, Phaser.Easing.Linear.None);
+
+    ```
+# interpolation
+  - tween.interpolation
+    ```js
+    this.tween = this.add.tween(this.logo).to({
+      x: [w, w, 0, 0],
+      y: [0, h, h, 0]
+    }, 4000, Phaser.Easing.Sinusoidal.Out, true, 0, -1);
+    this.tween.interpolation(Phaser.Math.bezierInterpolation);
+    this.tween.interpolation(Phaser.Math.catmullRomInterpolation);
+    this.tween.interpolation(Phaser.Math.linearInterpolation)
+
+    ```
