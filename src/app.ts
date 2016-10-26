@@ -1,7 +1,8 @@
 import { BootState } from './boot.state';
 
-import { SingleTweenReuseState } from './tweens/single-tween-reuse';
-import { TweenReuseState } from './tweens/tween-reuse';
+import { ChainedTweensState } from './tweens/chained-tweens';
+import { CombinedTweensState } from './tweens/combined-tweens';
+import { TweenSeveralPropertiesState } from './tweens/tween-several-properties';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,6 +22,7 @@ class App {
   }
 }
 
-// const app = new App(SingleTweenReuseState);
-const app = new App(TweenReuseState);
+// const app = new App(ChainedTweensState);
+// const app = new App(CombinedTweensState);
+const app = new App(TweenSeveralPropertiesState);
 

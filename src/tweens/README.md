@@ -147,3 +147,20 @@
     // If the cursor is at the end of the group (top child) it is moved the start of the group (bottom child).
 
     ```
+
+# chained tweens
+  -  B start as soon as A complete
+    ```js
+    this.tweenA.chain(this.tweenB);
+
+    ```
+# combined tweens
+  - onComplete
+# tween several properties
+  - 同时进行多个Tween
+    ```js
+      // 字母旋转掉下， 落地后 bounce 效果
+      this.add.tween(item).to({y: 240}, 2000, Phaser.Easing.Bounce.Out, true, 1000 + 400 * index);
+      this.add.tween(item).to({angle: 360}, 2400, Phaser.Easing.Cubic.In, true, 1000 + 400 * index);
+
+    ```

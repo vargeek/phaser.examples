@@ -43,6 +43,9 @@ export const AssetID = {
   bikkuriman: 'bikkuriman',
   beball: 'beball',
   darkwing_crazy: 'darkwing_crazy',
+  kirito: 'kirito',
+  asuna: 'asuna',
+  pig: 'pig',
 
 }
 
