@@ -37,6 +37,9 @@ export const AssetID = {
   space: 'space',
   lemming: 'lemming',
   shadow: 'shadow',
+  diamond: 'diamond',
+  button: 'button',
+  back: 'back',
 }
 
 export const Animation = {

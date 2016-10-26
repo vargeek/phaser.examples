@@ -77,3 +77,39 @@
 
     ```
 # easing spritesheets
+# tween loop event
+  - events
+    ```js
+    // onStart(target, tween), 如果有delay, onStart是在delay完成之后才触发.
+    this.tween.onStart.add(this.onTweenStart, this);
+    this.tween.onRepeat.add(this.onTweenLoop, this);
+    this.tween.onComplete.add(this.onTweenComplete, this);
+
+    ```
+
+# pause tween
+  - pause, resume
+    ```js
+    this.tween.pause();
+    this.tween.resume();
+
+    ```
+# repeat
+  ```js
+  let tween = this.add.tween(sprite).to({alpha: 1}, 2000, Phaser.Easing.Linear.None, true);
+  tween.repeat(10, 1000);
+  // repeat v.s. start
+
+  ```
+# tween delay
+  - delay
+    ```js
+    // delay=2000
+    let tween = this.add.tween(pic).to({alpha: 1}, 2000, Phaser.Easing.Linear.None, true, 2000);
+
+    // 2000ms 后start, 触发 onTweenStart
+    tween.onStart.add(this.onTweenStart, this);
+    tween.onComplete.add(this.onTweenCompleted, this);
+
+    ```
+

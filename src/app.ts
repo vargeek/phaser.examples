@@ -1,7 +1,9 @@
 import { BootState } from './boot.state';
 
-import { EasingState } from './tweens/easing';
-import { EasingSpritesheetsState } from './tweens/easing-spritesheets';
+import { TweenLoopEventsState } from './tweens/tween-loop-event';
+import { PauseTweenState } from './tweens/pause-tween';
+import { RepeatState } from './tweens/repeat';
+import { TweenDelayState } from './tweens/tween-delay';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,5 +23,8 @@ class App {
   }
 }
 
-// const app = new App(EasingState);
-const app = new App(EasingSpritesheetsState);
+// const app = new App(TweenLoopEventsState);
+// const app = new App(PauseTweenState);
+// const app = new App(RepeatState);
+const app = new App(TweenDelayState);
+
