@@ -1,9 +1,7 @@
 import { BootState } from './boot.state';
 
-import { TweenFromState } from './tweens/tween-from';
-import { TweenToState } from './tweens/tween-to';
-import { TweenRelativeState } from './tweens/tween-relative';
-import { YoyoState } from './tweens/yoyo';
+import { AlphaTextState } from './tweens/alpha-text';
+import { TweenRotationState } from './tweens/tween-rotation';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,7 +21,5 @@ class App {
   }
 }
 
-// const app = new App(TweenFromState);
-// const app = new App(TweenToState);
-// const app = new App(TweenRelativeState);
-const app = new App(YoyoState);
+// const app = new App(AlphaTextState);
+const app = new App(TweenRotationState);

@@ -35,6 +35,7 @@ export const AssetID = {
   phaser: 'phaser',
   arrows: 'arrows',
   space: 'space',
+  lemming: 'lemming',
 }
 
 export const Animation = {

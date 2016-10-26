@@ -48,3 +48,25 @@
     tween.yoyo(true, 3000);
 
     ```
+
+# alpha text
+  - tween alpha
+    ```js
+    text.alpha = 0.1;
+    this.add.tween(text).to({alpha: 1}, 3000, Phaser.Easing.Linear.None, true, 0, -1, true);
+
+    ```
+# tween rotation
+  - tween rotaton
+    ```js
+        this.add.tween(this.arrow).to({angle: newAngle}, time, Phaser.Easing.Linear.None, true);
+
+    ```
+  - 两点相对原点的角度
+    ```js
+    let angleTo = this.arrow.position.angle(this.lemming.position, true);
+    let shortesAngle = (this.game.math as any).getShortestAngle(angleTo, this.arrow.angle);
+    let newAngle = this.arrow.angle - shortesAngle;
+
+    ```
+
