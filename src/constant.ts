@@ -47,6 +47,7 @@ export const AssetID = {
   asuna: 'asuna',
   pig: 'pig',
   tile: 'tile',
+  wasp: 'wasp',
 
 }
 

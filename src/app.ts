@@ -1,7 +1,6 @@
 import { BootState } from './boot.state';
 
-import { TweenArrayState } from './tweens/tween-array';
-import { InterpolationState } from './tweens/interpolation';
+import { GenerateDataState } from './tweens/generate-data';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,6 +20,5 @@ class App {
   }
 }
 
-// const app = new App(TweenArrayState);
-const app = new App(InterpolationState);
+const app = new App(GenerateDataState);
 

@@ -241,3 +241,19 @@
     this.tween.interpolation(Phaser.Math.linearInterpolation)
 
     ```
+# generate data
+  - 产生所有帧数据， 然后手动使用帧数据
+    ```js
+    //  Generates the tween data at a rate of 60 frames per second.
+    //  This is useful if you've got a lot of objects all using the same tween, just at different coordinates.
+    //  It saves having to calculate the same tween across the properties of all objects involved in the motion.
+    //  Instead you can pre-calculate it in advance and trade that in for a bit of memory to store it in an array.
+    // generateData(frameRate, data) → {array}
+    this.data = tween.generateData(60);
+
+    // in update()
+    (this.bugs.getAt(0) as any).x = this.pos[0].x + this.data[this.index].x;
+    (this.bugs.getAt(0) as any).y = this.pos[0].y + this.data[this.index].y;
+    this.index++;
+
+    ```
