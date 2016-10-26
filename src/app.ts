@@ -1,8 +1,9 @@
 import { BootState } from './boot.state';
 
-import { ChainedTweensState } from './tweens/chained-tweens';
-import { CombinedTweensState } from './tweens/combined-tweens';
-import { TweenSeveralPropertiesState } from './tweens/tween-several-properties';
+import { BounceState } from './tweens/bounce';
+import { BubblesState } from './tweens/bubbles';
+import { EarthQuakeState } from './tweens/earthquake';
+import { FadingInASpriteState } from './tweens/fading-in-a-sprite';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,7 +23,8 @@ class App {
   }
 }
 
-// const app = new App(ChainedTweensState);
-// const app = new App(CombinedTweensState);
-const app = new App(TweenSeveralPropertiesState);
+// const app = new App(BounceState);
+// const app = new App(BubblesState);
+// const app = new App(EarthQuakeState);
+const app = new App(FadingInASpriteState);
 

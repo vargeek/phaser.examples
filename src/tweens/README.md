@@ -164,3 +164,62 @@
       this.add.tween(item).to({angle: 360}, 2400, Phaser.Easing.Cubic.In, true, 1000 + 400 * index);
 
     ```
+
+# bounce
+# bubbles
+  - bulles
+    ```js
+    for (let index = 0; index < 40; index++) {
+      let sprite = this.add.sprite(-100 + this.world.randomX, 600, AssetID.ball);
+      sprite.scale.set(this.rnd.realInRange(0.1, 0.6));
+      let speed = this.rnd.between(4000, 6000);
+      this.add.tween(sprite).to({y: -356}, speed, Phaser.Easing.Sinusoidal.InOut, true, delay, 1000, false);
+      delay += 200;
+    }
+
+    // in update()
+    this.bg.tilePosition.y += 0.4;
+
+    ```
+# earthquake
+  - earthquake
+    ```js
+    // we need to add margin to the world, so the camera can move
+    var margin = 50;
+    // and set the world's bounds according to the given margin
+    var x = -margin;
+    var y = -margin;
+    var w = this.world.width + margin * 2;
+    var h = this.world.height + margin * 2;
+    // it's not necessary to increase height, we do it to keep uniformity
+    this.world.setBounds(x, y, w, h);
+
+    // we make sure camera is at position (0,0)
+    this.world.camera.position.set(0);
+    this.addQuake();
+
+    addQuake () {
+      let rumbleOffset = 10;
+      let properties = {
+        x: this.camera.x - rumbleOffset
+      }
+
+      let duration = 100;
+      let repeat = 4;
+      let ease = Phaser.Easing.Bounce.InOut;
+      let autoStart = false;
+      let delay = 1000;
+      let yoyo = true;
+
+      let quake = this.add.tween(this.camera)
+        .to(properties, duration, ease, autoStart, delay, repeat, yoyo);
+
+      quake.onComplete.addOnce(this.addQuake, this);
+
+      quake.start();
+
+    }
+
+
+    ```
+# fading in a sprite
