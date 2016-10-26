@@ -113,3 +113,37 @@
 
     ```
 
+# single tween reuse
+  - tween reuse
+    -```js
+    this.tween = this.add.tween(this.sprite).to({y: 500}, 200, Phaser.Easing.Bounce.Out, true);
+    this.tween.onComplete.addOnce(this.tween2, this);
+
+    //  Notice the use of addOnce above. If you don't use that then you *must* do:
+    // tween.onComplete.removeAll();
+    //  before using the tween again, or it will fire both onComplete callbacks.
+
+    tween2 () {
+      // .to({y:500}).to({alpha: 0.5})
+      this.tween.to({alpha: 0.5}, 2000, Phaser.Easing.Bounce.Out, true);
+      this.tween.onComplete.addOnce(this.tween3, this);
+    }
+    tween3 () {
+      // .to({y:500}).to({alpha: 0.5}).to({x:2,y:2})
+      this.tween.to({x: 2, y: 2}, 2000, Phaser.Easing.Bounce.Out, true);
+      this.tween.onComplete.addOnce(this.tween4, this);
+    }
+
+    ```
+# tween reuse
+  - group.cursor, group.next
+    ```js
+    this.sprites.cursor
+    // The current display object that the group cursor is pointing to, if any. (Can be set manually.)
+    // The cursor is a way to iterate through the children in a Group using next and previous.
+
+    this.sprites.next();
+    // Advances the group cursor to the next (higher) object in the group.
+    // If the cursor is at the end of the group (top child) it is moved the start of the group (bottom child).
+
+    ```

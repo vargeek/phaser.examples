@@ -40,6 +40,10 @@ export const AssetID = {
   diamond: 'diamond',
   button: 'button',
   back: 'back',
+  bikkuriman: 'bikkuriman',
+  beball: 'beball',
+  darkwing_crazy: 'darkwing_crazy',
+
 }
 
 export const Animation = {
