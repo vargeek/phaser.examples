@@ -70,3 +70,10 @@
 
     ```
 
+# easing
+  - easing
+    ```js
+    let tween = this.add.tween(item).to({y: 245}, 2400, Phaser.Easing.Bounce.Out, true);
+
+    ```
+# easing spritesheets

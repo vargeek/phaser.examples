@@ -1,7 +1,7 @@
 import { BootState } from './boot.state';
 
-import { AlphaTextState } from './tweens/alpha-text';
-import { TweenRotationState } from './tweens/tween-rotation';
+import { EasingState } from './tweens/easing';
+import { EasingSpritesheetsState } from './tweens/easing-spritesheets';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,5 +21,5 @@ class App {
   }
 }
 
-// const app = new App(AlphaTextState);
-const app = new App(TweenRotationState);
+// const app = new App(EasingState);
+const app = new App(EasingSpritesheetsState);
