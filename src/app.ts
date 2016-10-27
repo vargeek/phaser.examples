@@ -1,10 +1,7 @@
 import { BootState } from './boot.state';
 
-import { CallAllState } from './groups/call-all';
-import { CallAllAnimationsState } from './groups/call-all-animations';
-import { CallAllInputState } from './groups/call-all-input';
-import { SetAllState } from './groups/set-all';
-import { ForEachState } from './groups/for-each';
+import { FilterByPropertyState } from './groups/filter-by-property';
+import { HasPropertyState } from './groups/has-property';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,9 +21,6 @@ class App {
   }
 }
 
-// const app = new App(CallAllState);
-// const app = new App(CallAllAnimationsState);
-// const app = new App(CallAllInputState);
-// const app = new App(SetAllState);
-const app = new App(ForEachState);
+// const app = new App(FilterByPropertyState);
+const app = new App(HasPropertyState);
 

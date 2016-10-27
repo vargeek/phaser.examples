@@ -360,3 +360,43 @@
     this.world.forEach(function (item: any) {})
 
     ```
+# filter by property
+  - 获取第一个属性值相符的子元素
+    ```js
+    // iterate(key, value, returnType, callback, callbackContext, args) → {any}
+
+    // Iterates over the children of the group performing one of several actions for matched children.
+    // A child is considered a match when it has a property, named key, whose value is equal to value
+    // according to a strict equality comparison.
+    // The result depends on the returnType:
+    // RETURN_TOTAL:
+    // The callback, if any, is applied to all matching children. The number of matched children is returned.
+    // RETURN_NONE:
+    // The callback, if any, is applied to all matching children. No value is returned.
+    // RETURN_CHILD:
+    // The callback, if any, is applied to the first matching child and the first matched child is returned.
+    // If there is no matching child then null is returned.
+    // If args is specified it must be an array. The matched child will be assigned to the first
+    // element and the entire array will be applied to the callback function.
+    let card = this.items.iterate('key', 'card', Phaser.Group.RETURN_CHILD);
+
+    ```
+# has property
+  - 判断某个对象是否有某个属性
+    ```js
+    hasProperty (obj: any, key: string) {
+
+      let names = key.split('.');
+
+      for (let name of names) {
+        if (!name || !obj || !(name in obj)) {
+          return false;
+        }
+        obj = obj[name];
+      }
+
+      return true;
+
+    }
+
+    ```
