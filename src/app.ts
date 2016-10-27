@@ -1,7 +1,7 @@
 import { BootState } from './boot.state';
 
-import { FilterByPropertyState } from './groups/filter-by-property';
-import { HasPropertyState } from './groups/has-property';
+import { NestedGroupsState } from './groups/nested-groups';
+import { SubGroupsGroupLengthState } from './groups/sub-groups-group-length';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,6 +21,6 @@ class App {
   }
 }
 
-// const app = new App(FilterByPropertyState);
-const app = new App(HasPropertyState);
+// const app = new App(NestedGroupsState);
+const app = new App(SubGroupsGroupLengthState);
 

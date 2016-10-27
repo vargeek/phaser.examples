@@ -400,3 +400,18 @@
     }
 
     ```
+# nested groups
+  - 嵌套group
+    ```js
+    // Now make the ships group a child of the balls group - so anything that happens to the balls group
+	  // will happen to the ships group too
+    this.ballsGroup.add(this.shipsGroup);
+
+    // in update()
+    // shipsGroup里子元素的绝对数据比ballsGroup的子元素快.
+    this.ballsGroup.x += 0.1;
+    this.shipsGroup.x += 0.1;
+
+    ```
+# sub groups group length
+  - 嵌套group只算作一个子元素的长度
