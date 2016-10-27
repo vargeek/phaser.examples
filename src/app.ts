@@ -1,10 +1,7 @@
 import { BootState } from './boot.state';
 
-import { GroupTransformState } from './groups/group-transform';
-import { GroupTransformRotateState } from './groups/group-transform-rotate';
-import { GroupTransformTweenState } from './groups/group-transform-tween';
-import { GroupScaleState } from './groups/group-scale';
-import { GroupBoundsState } from './groups/group-bounds';
+import { AlignFramesToGridState } from './groups/align-frames-to-grid';
+import { AlignSpriteToGridState } from './groups/align-sprites-to-grid';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,9 +21,6 @@ class App {
   }
 }
 
-// const app = new App(GroupTransformState);
-// const app = new App(GroupTransformRotateState);
-// const app = new App(GroupTransformTweenState);
-// const app = new App(GroupScaleState);
-const app = new App(GroupBoundsState);
+// const app = new App(AlignFramesToGridState);
+const app = new App(AlignSpriteToGridState);
 

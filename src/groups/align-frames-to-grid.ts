@@ -1,47 +1,18 @@
-# create group
-  - create group, create sprite
-    ```js
-      let group = this.add.group();
+import { BootState } from '../boot.state';
+import { AssetID } from '../constant';
 
-      // create(x, y, key, frame, exists, index) → {DisplayObject}
+export class AlignFramesToGridState extends BootState {
 
-      // Creates a new Phaser.Sprite object and adds it to the top of this group.`
-      // Use classType to change the type of object created.`
-      // The child is automatically added to the top of the group, and is displayed above every previous child.`
-      // Or if the optional index is specified, the child is added at the location specified by the index value,
-      // this allows you to control child ordering.`
+  preload () {
 
-      // If Group.enableBody is set, then a physics body will be created on the object, so long as one does not already exist.`
-      // If Group.inputEnableChildren is set, then an Input Handler will be created on the object, so long as one does not already exist.
+    this.load.atlas(AssetID.seacreatures, 'assets/sprites/seacreatures_json.png', 'assets/sprites/seacreatures_json.json');
 
-      group.create(this.world.randomX, this.world.randomY, AssetID.sonic);
+  }
 
-    ```
-# create sprite in a group
-# add a sprite to group
-  - add a sprite to group
-    ```js
-    let ufo = this.add.sprite(200, 240, AssetID.ufo);
-    this.friendAndFoe.add(ufo);
+  create () {
 
-    // 相当于
-    // this.friendAndFoe.create(200, 240, AssetID.ufo)
+    let group = this.add.group();
 
-    ```
-# extending a group
-# group transform
-  - 子元素的坐标是相对group的。
-# group transform rotate
-  - 子元素相对group静止时，group旋转时，子元素跟着group旋转。
-# group transform tween
-  - 子元素相对group直径时，group运动，子元素跟着group运动
-# group scale
-  - 子元素跟着group一起scale
-# group bounds
-  - group bounds是包围所有可见子元素的最小矩形。如，子元素相对group静止时，group旋转时，group的bounds可能会发生变化。
-# align frames to grid
-  - create multiple
-    ```js
     // createMultiple(quantity, key, frame, exists) → {array}
 
     // Creates multiple Phaser.Sprite objects and adds them to the top of this Group.
@@ -59,9 +30,6 @@
     // createMultiple(20, ['diamonds', 'balls'], [0, 1, 2])  => 120 sprites
     group.createMultiple(5, AssetID.seacreatures, ['blueJellyfish0000', 'crab10000', 'flyingFish0000'], true);
 
-    ```
-    - align to grid
-    ```js
     // align(width, height, cellWidth, cellHeight, position, offset) → {boolean}
 
     // This method iterates through all children in the Group (regardless if they are visible or exist)
@@ -86,6 +54,8 @@
      *              BOTTOM_LEFT   BOTTOM_CENTER  BOTTOM_RIGHT
      */
     group.align(5, 3, 160, 160, Phaser.CENTER);
+    // group.align(5, -1, 160, 160, Phaser.CENTER);
 
-    ```
-# align sprites to grid
+  }
+
+}
