@@ -117,3 +117,116 @@
     ```
 # depth sort
   - 将group中的所有子元素按照y排序，使y越大越能遮住其他子元素。
+# get first (alive)
+  - game object 的存活状态
+    ```js
+    // alive :boolean
+    // A useful flag to control if the Game Object is alive or dead.
+    // This is set automatically by the Health components damage method should the object run out of health.
+    // Or you can toggle it via your game code.
+    // This property is mostly just provided to be used by your game - it doesn't effect rendering or logic updates.
+    // However you can use Group.getFirstAlive in conjunction with this property for fast object pooling and recycling.
+
+    // health :number
+    // The Game Objects health value. This is a handy property for setting and manipulating health on a Game Object.
+    // It can be used in combination with the damage method or modified directly.
+
+    // damage(amount: number): Phaser.Sprite;
+    // Damages the Game Object. This removes the given amount of health from the health property.
+    // If health is taken below or is equal to zero then the kill method is called.
+
+    // heal(amount: number): Phaser.Sprite;
+    // Heal the Game Object. This adds the given amount of health to the health property.
+
+    // maxHealth :number
+    // The Game Objects maximum health value. This works in combination with the heal method to ensure the health value never exceeds the maximum.
+
+    // exists :Boolean
+    // Controls if this Sprite is processed by the core Phaser game loops and Group loops.
+
+    // <readonly> fresh :boolean
+    // A Game Object is considered fresh if it has just been created or reset and is yet to receive a renderer transform update.
+    // This property is mostly used internally by the physics systems, but is exposed for the use of plugins.
+
+    ```
+  - 获取第一个活的子元素
+    ```js
+      // getFirstAlive(createIfNull, x, y, key, frame) → {DisplayObject}
+
+      // Get the first child that is alive (child.alive === true).
+      // This is handy for choosing a squad leader, etc.
+      // You can use the optional argument createIfNull to create a new Game Object if no alive ones were found in this Group.
+      // It works by calling Group.create passing it the parameters given to this method, and returning the new child.
+      // If a child was found , createIfNull is false and you provided the additional arguments then the child
+      // will be reset and/or have a new texture loaded on it. This is handled by Group.resetChild
+      let item = this.world.getFirstAlive() as Phaser.Sprite;
+
+      if (item) {
+
+        // kill() → {PIXI.DisplayObject}
+
+        // Kills a Game Object. A killed Game Object has its alive, exists and visible properties all set to false.
+        // It will dispatch the onKilled event. You can listen to events.onKilled for the signal.
+        // Note that killing a Game Object is a way for you to quickly recycle it in an object pool,
+        // it doesn't destroy the object or free it up from memory.
+        // If you don't need this Game Object any more you should call destroy instead.
+        item.kill();
+      }
+
+    ```
+# get first dead
+  - 定时器 game.time.events.repeat
+    ```js
+    // repeat(delay, repeatCount, callback, callbackContext, arguments) → {Phaser.TimerEvent}
+
+    // Adds a new TimerEvent that will always play through once and then repeat for the given number of iterations.
+    // The event will fire after the given amount of delay in milliseconds has passed, once the Timer has started running.
+    // The delay is in relation to when the Timer starts, not the time it was added.
+    // If the Timer is already running the delay will be calculated based on the timers current time.
+    // Make sure to call start after adding all of the Events you require for this Timer.
+    this.time.events.repeat(Phaser.Timer.SECOND, 20, this.resurrect, this);
+
+    ```
+  - 获取第一个死子元素
+    ```js
+    // getFirstDead(createIfNull, x, y, key, frame) → {DisplayObject}
+    // Get the first child that is dead (child.alive === false).
+    // This is handy for checking if everything has been wiped out and adding to the pool as needed.
+    // You can use the optional argument createIfNull to create a new Game Object if no dead ones were found in this Group.
+    // It works by calling Group.create passing it the parameters given to this method, and returning the new child.
+    // If a child was found , createIfNull is false and you provided the additional arguments then the child
+    // will be reset and/or have a new texture loaded on it. This is handled by Group.resetChild.
+    let item = this.veg.getFirstDead() as Phaser.Sprite;
+
+    ```
+  - 重置(并复活)一个子元素
+    ```js
+    // reset(x, y, health) → {PIXI.DisplayObject}
+
+    // Resets the Game Object.
+    // This moves the Game Object to the given x/y world coordinates and sets fresh, exists,
+    // visible and renderable to true.
+    // If this Game Object has the LifeSpan component it will also set alive to true and health to the given value.
+    // If this Game Object has a Physics Body it will reset the Body.
+    item.reset(this.world.randomX, this.world.randomY);
+
+    item.frame = this.rnd.integerInRange(0, 36);
+
+    ```
+# recycling
+  - 重复使用子元素: 一个game object被kill时，并未被销毁，可以从对象池中取出并reset，重新使用。
+# create if null
+  - 如果对象池中已经没有dead对象，新建一个game object
+    ```js
+    // getFirstDead(createIfNull, x, y, key, frame) → {DisplayObject}
+
+    // Get the first child that is dead (child.alive === false).
+    // Get the first child that is dead (child.alive === false).
+    // This is handy for checking if everything has been wiped out and adding to the pool as needed.
+    // You can use the optional argument createIfNull to create a new Game Object if no dead ones were found in this Group.
+    // It works by calling Group.create passing it the parameters given to this method, and returning the new child.
+    // If a child was found , createIfNull is false and you provided the additional arguments then the child
+    // will be reset and/or have a new texture loaded on it. This is handled by Group.resetChild.
+    this.veg.getFirstDead(true, x, y, key, frame);
+
+    ```

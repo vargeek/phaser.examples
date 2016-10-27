@@ -1,10 +1,9 @@
 import { BootState } from './boot.state';
 
-import { DisplayOrderState } from './groups/display-order';
-import { GroupAsLayersState } from './groups/group-as-layers';
-import { BringAGroupToTopState } from './groups/bring-a-group-to-top';
-import { SortState } from './groups/sort';
-import { DepthSortsState } from './groups/depth-sort';
+import { GetFirstState } from './groups/get-first';
+import { GetFirstDeadState } from './groups/get-first-dead';
+import { RecyclingState } from './groups/recycling';
+import { CreateIfNullState } from './groups/create-if-null';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,9 +23,8 @@ class App {
   }
 }
 
-// const app = new App(DisplayOrderState);
-// const app = new App(GroupAsLayersState);
-// const app = new App(BringAGroupToTopState);
-// const app = new App(SortState);
-const app = new App(DepthSortsState);
+// const app = new App(GetFirstState);
+// const app = new App(GetFirstDeadState);
+// const app = new App(RecyclingState);
+const app = new App(CreateIfNullState);
 
