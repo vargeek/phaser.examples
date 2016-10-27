@@ -415,3 +415,31 @@
     ```
 # sub groups group length
   - 嵌套group只算作一个子元素的长度
+# create thumbnail
+  - 缩略图
+    ```js
+
+    // 用来截取游戏世界画面
+    this.capture = this.make.bitmapData(800, 600);
+
+    // 用来放游戏世界截图的缩略图
+    this.thumbnail = this.make.bitmapData(204, 154);
+    var thumbContainer = this.make.sprite(590, 10, this.thumbnail);
+    // thumbContainer 应该添加到game.stage上，而不是game.world上，因为待会要拍摄game.world的所有内容.
+    this.stage.addChild(thumbContainer);
+
+    // 添加各种 game object 到 game.world...
+
+    this.input.onDown.add(this.makeThumbnail, this);
+
+    makeThumbnail () {
+
+      // 把整个this.world group上的内容捕获下来
+      this.capture.drawFull(this.world);
+      this.thumbnail.rect(0, 0, 204, 154, '#000');
+      // 拷贝到缩略图上
+      this.thumbnail.copy(this.capture, 0, 0, 800, 600, 2, 2, 200, 150);
+
+    }
+
+    ```

@@ -1,7 +1,6 @@
 import { BootState } from './boot.state';
 
-import { NestedGroupsState } from './groups/nested-groups';
-import { SubGroupsGroupLengthState } from './groups/sub-groups-group-length';
+import { CreateThumbnailState } from './groups/create-thumbnail';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,6 +20,5 @@ class App {
   }
 }
 
-// const app = new App(NestedGroupsState);
-const app = new App(SubGroupsGroupLengthState);
+const app = new App(CreateThumbnailState);
 
