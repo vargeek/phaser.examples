@@ -1,7 +1,10 @@
 import { BootState } from './boot.state';
 
-import { AlignFramesToGridState } from './groups/align-frames-to-grid';
-import { AlignSpriteToGridState } from './groups/align-sprites-to-grid';
+import { DisplayOrderState } from './groups/display-order';
+import { GroupAsLayersState } from './groups/group-as-layers';
+import { BringAGroupToTopState } from './groups/bring-a-group-to-top';
+import { SortState } from './groups/sort';
+import { DepthSortsState } from './groups/depth-sort';
 
 const BootStateKey = 'boot';
 class App {
@@ -21,6 +24,9 @@ class App {
   }
 }
 
-// const app = new App(AlignFramesToGridState);
-const app = new App(AlignSpriteToGridState);
+// const app = new App(DisplayOrderState);
+// const app = new App(GroupAsLayersState);
+// const app = new App(BringAGroupToTopState);
+// const app = new App(SortState);
+const app = new App(DepthSortsState);
 

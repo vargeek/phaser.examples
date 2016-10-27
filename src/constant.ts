@@ -52,6 +52,7 @@ export const AssetID = {
   ufo: 'ufo',
   baddie: 'baddie',
   coin: 'coin',
+  tree: 'tree',
 }
 
 export const Animation = {

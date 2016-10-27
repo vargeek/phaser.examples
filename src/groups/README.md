@@ -89,3 +89,31 @@
 
     ```
 # align sprites to grid
+# display order
+  - 同一个group中，两个元素重叠，z轴高度(在group中的索引越大)会遮住z轴低的。
+# group as layers
+  - 当group2的z轴高于group1的z轴， 则group2的子元素都高于group1的子元素。
+# bring a group to top
+  - 把一个layer拉到最顶层
+    ```js
+      // bringToTop(child) → {any}
+
+      // Brings the given child to the top of this group so it renders above all other children.
+      this.world.bringToTop(this.group1);
+
+    ```
+# sort
+  - 将group中的所有元素按某个属性排序(排序后，index越大，z轴越高，越可以遮住其他元素)。 通常用y来排序。
+    ```js
+    // sort(key, order)
+
+    // Sort the children in the group according to a particular key and ordering.
+    // Call this function to sort the group according to a particular key value and order.
+    // For example to depth sort Sprites for Zelda-style game you might call group.sort('y', Phaser.Group.SORT_ASCENDING) at the bottom of your State.update().
+    // Internally this uses a standard JavaScript Array sort, so everything that applies there also applies here, including
+    // alphabetical sorting, mixing strings and numbers, and Unicode sorting. See MDN for more details.
+    group.sort('y', Phaser.Group.SORT_ASCENDING);
+
+    ```
+# depth sort
+  - 将group中的所有子元素按照y排序，使y越大越能遮住其他子元素。
