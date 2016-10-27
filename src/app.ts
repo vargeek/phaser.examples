@@ -1,11 +1,10 @@
 import { BootState } from './boot.state';
 
-import { MoveToAnotherGroupState } from './groups/move-to-another-group';
-import { RemoveState } from './groups/remove';
-import { RemoveCheckState } from './groups/remove-check';
-import { RemoveBetweenState } from './groups/remove-between';
-import { ReplaceState } from './groups/replace';
-import { SwapChildrenInAGroupState } from './groups/swap-children-in-a-group';
+import { CallAllState } from './groups/call-all';
+import { CallAllAnimationsState } from './groups/call-all-animations';
+import { CallAllInputState } from './groups/call-all-input';
+import { SetAllState } from './groups/set-all';
+import { ForEachState } from './groups/for-each';
 
 const BootStateKey = 'boot';
 class App {
@@ -25,10 +24,9 @@ class App {
   }
 }
 
-// const app = new App(MoveToAnotherGroupState);
-// const app = new App(RemoveState);
-// const app = new App(RemoveCheckState);
-// const app = new App(RemoveBetweenState);
-// const app = new App(ReplaceState);
-const app = new App(SwapChildrenInAGroupState);
+// const app = new App(CallAllState);
+// const app = new App(CallAllAnimationsState);
+// const app = new App(CallAllInputState);
+// const app = new App(SetAllState);
+const app = new App(ForEachState);
 

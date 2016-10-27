@@ -304,3 +304,59 @@
     this.world.swap(this.atari1, this.atari2);
 
     ```
+# call all
+  - call all
+    ```js
+    // Inherited From: Phaser.Group#callAll
+    // callAll(method, context, args)
+
+    // Calls a function, specified by name, on all on children.
+    // The function is called for all children regardless if they are dead or alive (see callAllExists for different options).
+    // After the method parameter and context you can add as many extra parameters as you like, which will all be passed to the child.
+
+    // callAllExists(callback, existsValue, parameter)
+    // Calls a function, specified by name, on all children in the group who exist (or do not exist).
+    // After the existsValue parameter you can add as many parameters as you like, which will all be passed to the child callback.
+    this.world.callAll('revive');
+
+    ```
+# call all animations
+  - call all - context
+    ```js
+    this.coins.callAll('animations.add', 'animations', 'spin', [0, 1, 2, 3, 4, 5], 10, true);
+
+    this.coins.callAll('animations.play', 'animations', 'spin');
+
+    ```
+# call all input
+# set All
+  - set all
+    ```js
+    // Set "alpha" value of all the childs.
+    // setAll(key, value, checkAlive, checkVisible, operation, force)
+
+    // Quickly set the same property across all children of this group to a new value.
+    // This call doesn't descend down children, so if you have a Group inside of this group, the property will be set on the group but not its children.
+    // If you need that ability please see Group.setAllChildren.
+    // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+
+    // setAllChildren(key, value, checkAlive, checkVisible, operation, force)
+    // Quickly set the same property across all children of this group, and any child Groups, to a new value.
+    // If this group contains other Groups then the same property is set across their children as well, iterating down until it reaches the bottom.
+    // Unlike with setAll the property is NOT set on child Groups itself.
+    // The operation parameter controls how the new value is assigned to the property, from simple replacement to addition and multiplication.
+    this.world.setAll('alpha', Math.random());
+
+    ```
+# for each
+  - for each
+    ```js
+    // Animating alpha property of each item using forEach() method.
+    // forEach(callback, callbackContext, checkExists, args)
+
+    // Call a function on each child in this group.
+    // Additional arguments for the callback can be specified after the checkExists parameter.
+    // Note: This check will skip any children which are Groups themselves.
+    this.world.forEach(function (item: any) {})
+
+    ```
