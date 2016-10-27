@@ -48,7 +48,9 @@ export const AssetID = {
   pig: 'pig',
   tile: 'tile',
   wasp: 'wasp',
-
+  sonic: 'sonic',
+  ufo: 'ufo',
+  baddie: 'baddie',
 }
 
 export const Animation = {

@@ -1,6 +1,9 @@
 import { BootState } from './boot.state';
 
-import { GenerateDataState } from './tweens/generate-data';
+import { CreateGroupState } from './groups/create-group';
+import { CreateSpriteInAGroupState } from './groups/create-sprite-in-a-group';
+import { AddASpriteToGroupState } from './groups/add-a-sprite-to-group';
+import { ExtendingAGroupState } from './groups/extending-a-group';
 
 const BootStateKey = 'boot';
 class App {
@@ -20,5 +23,8 @@ class App {
   }
 }
 
-const app = new App(GenerateDataState);
+// const app = new App(CreateGroupState);
+// const app = new App(CreateSpriteInAGroupState);
+// const app = new App(AddASpriteToGroupState);
+const app = new App(ExtendingAGroupState);
 
