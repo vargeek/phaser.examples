@@ -230,3 +230,77 @@
     this.veg.getFirstDead(true, x, y, key, frame);
 
     ```
+# move to another group
+  - 把所有子元素从一个group移到另一个group
+    ```js
+    //  This moves all ships from group 1 into group 2
+    // moveAll(group, silent) → {Phaser.Group}
+
+    // Moves all children from this Group to the Group given.
+    // silent: If true the children will not dispatch the onAddedToGroup event for the new Group.
+    this.group1.moveAll(this.group2);
+
+    ```
+# remove
+  - 拖拽时或放开后自动对齐网络
+    ```js
+      // Then we make it snap to 90x90 grids.
+      // 自动对齐网格
+      // enableSnap(snapX, snapY, onDrag, onRelease, snapOffsetX, snapOffsetY)
+
+      // Make this Sprite snap to the given grid either during drag or when it's released.
+      // For example 16x16 as the snapX and snapY would make the sprite snap to every 16 pixels.
+      item.input.enableSnap(90, 90, false, true);
+
+    ```
+  - 从group中移除一个子元素
+    ```js
+      //  Remove the item from the Group.
+      // remove(child, destroy, silent) → {boolean}
+
+      // Removes the given child from this group.
+      // This will dispatch an onRemovedFromGroup event from the child (if it has one), and optionally destroy the child.
+      // If the group cursor was referring to the removed child it is updated to refer to the next child.
+      this.items.remove(item);
+
+    ```
+# remove check
+  - 从group移除子元素时，会自动检查子元素是否在group中
+    ```js
+    //  This should do nothing, because sprite isn't a child of the group
+    this.group.remove(this.sprite);
+
+    ```
+# remove between
+  - 从group中移除指定范围的子元素
+    ```js
+    // removeBetween(startIndex, endIndex, destroy, silent)
+
+    // Removes all children from this group whose index falls beteen the given startIndex and endIndex values.
+    this.sprites.removeBetween(10, 19);
+
+    ```
+# replace
+  - 用一个新元素替换group的一个子元素
+  ```js
+  // replace(oldChild, newChild) → {any}
+
+  // Replaces a child of this Group with the given newChild. The newChild cannot be a member of this Group.
+  // If Group.enableBody is set, then a physics body will be created on the object, so long as one does not already exist.
+  // If Group.inputEnableChildren is set, then an Input Handler will be created on the object, so long as one does not already exist.
+
+  this.selected.parent.replace(this.selected , item);
+
+  ```
+# swap children in a group
+  - 交换group中两个子元素的索引位置
+    ```js
+    //The 2 Sprites are in the global world Group (World class extends the Group class), but this will work for any Group:
+    // swap(child1, child2)
+
+    // 交换两个子元素在数组中的位置
+    // waps the position of two children in this group.
+    // Both children must be in this group, a child cannot be swapped with itself, and unparented children cannot be swapped.
+    this.world.swap(this.atari1, this.atari2);
+
+    ```

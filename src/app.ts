@@ -1,9 +1,11 @@
 import { BootState } from './boot.state';
 
-import { GetFirstState } from './groups/get-first';
-import { GetFirstDeadState } from './groups/get-first-dead';
-import { RecyclingState } from './groups/recycling';
-import { CreateIfNullState } from './groups/create-if-null';
+import { MoveToAnotherGroupState } from './groups/move-to-another-group';
+import { RemoveState } from './groups/remove';
+import { RemoveCheckState } from './groups/remove-check';
+import { RemoveBetweenState } from './groups/remove-between';
+import { ReplaceState } from './groups/replace';
+import { SwapChildrenInAGroupState } from './groups/swap-children-in-a-group';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,8 +25,10 @@ class App {
   }
 }
 
-// const app = new App(GetFirstState);
-// const app = new App(GetFirstDeadState);
-// const app = new App(RecyclingState);
-const app = new App(CreateIfNullState);
+// const app = new App(MoveToAnotherGroupState);
+// const app = new App(RemoveState);
+// const app = new App(RemoveCheckState);
+// const app = new App(RemoveBetweenState);
+// const app = new App(ReplaceState);
+const app = new App(SwapChildrenInAGroupState);
 
