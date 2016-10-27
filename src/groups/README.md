@@ -29,3 +29,13 @@
 
     ```
 # extending a group
+# group transform
+  - 子元素的坐标是相对group的。
+# group transform rotate
+  - 子元素相对group静止时，group旋转时，子元素跟着group旋转。
+# group transform tween
+  - 子元素相对group直径时，group运动，子元素跟着group运动
+# group scale
+  - 子元素跟着group一起scale
+# group bounds
+  - group bounds是包围所有可见子元素的最小矩形。如，子元素相对group静止时，group旋转时，group的bounds可能会发生变化。

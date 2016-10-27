@@ -51,6 +51,7 @@ export const AssetID = {
   sonic: 'sonic',
   ufo: 'ufo',
   baddie: 'baddie',
+  coin: 'coin',
 }
 
 export const Animation = {

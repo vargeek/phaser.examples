@@ -1,9 +1,10 @@
 import { BootState } from './boot.state';
 
-import { CreateGroupState } from './groups/create-group';
-import { CreateSpriteInAGroupState } from './groups/create-sprite-in-a-group';
-import { AddASpriteToGroupState } from './groups/add-a-sprite-to-group';
-import { ExtendingAGroupState } from './groups/extending-a-group';
+import { GroupTransformState } from './groups/group-transform';
+import { GroupTransformRotateState } from './groups/group-transform-rotate';
+import { GroupTransformTweenState } from './groups/group-transform-tween';
+import { GroupScaleState } from './groups/group-scale';
+import { GroupBoundsState } from './groups/group-bounds';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,8 +24,9 @@ class App {
   }
 }
 
-// const app = new App(CreateGroupState);
-// const app = new App(CreateSpriteInAGroupState);
-// const app = new App(AddASpriteToGroupState);
-const app = new App(ExtendingAGroupState);
+// const app = new App(GroupTransformState);
+// const app = new App(GroupTransformRotateState);
+// const app = new App(GroupTransformTweenState);
+// const app = new App(GroupScaleState);
+const app = new App(GroupBoundsState);
 
