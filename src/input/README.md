@@ -405,3 +405,61 @@
     if (bunny.input.pointerOver()) {}
 
     ```
+
+# mouse-buttons
+  - 鼠标事件 event.preventDefault
+    ```js
+    // http://localhost:3000/Phaser.Mouse.html#capture
+    // Phaser.Input, Phaser.Mouse
+    // capture :boolean
+    // if true the DOM mouse events will have event.preventDefault applied to them, if false they will propagate fully.
+    this.input.mouse.capture = true;
+
+    ```
+  - 鼠标按键点击状态
+    ```js
+    // http://localhost:3000/Phaser.Pointer.html#leftButton
+    // leftButton :Phaser.DeviceButton
+    // If this Pointer is a Mouse or Pen / Stylus then you can access its left button directly through this property.
+    // The DeviceButton has its own properties such as isDown, duration and methods like justReleased for more fine-grained
+    // button control.
+    this.game.debug.text("Left Button: " + this.game.input.activePointer.leftButton.isDown, 300, 132);
+
+    ```
+# multi-touch
+  - add pointer
+    ```js
+    // http://localhost:3000/Phaser.Input.html#addPointer
+    // addPointer() → {Phaser.Pointer|null}
+    // Add a new Pointer object to the Input Manager.
+    // By default Input creates 3 pointer objects: mousePointer (not include in part of general pointer pool), pointer1 and pointer2.
+    // This method adds an additional pointer, up to a maximum of Phaser.Input.MAX_POINTERS (default of 10).
+    this.input.addPointer();
+
+    ```
+  - mousePointer
+    ```js
+    //  Just renders out the pointer data when you touch the canvas
+    // http://localhost:3000/Phaser.Input.html#mousePointer
+    // mousePointer :Pointer
+    // The mouse has its own unique Phaser.Pointer object which you can use if making a desktop specific game.
+    this.game.debug.pointer(this.input.mousePointer);
+
+    ```
+  - activePointer
+    ```js
+    // http://localhost:3000/Phaser.Input.html#activePointer
+    // activePointer :Phaser.Pointer
+    // The most recently active Pointer object.
+    // When you've limited max pointers to 1 this will accurately be either the first finger touched or mouse.
+
+    ```
+# follow-mouse
+  - mouse pointer
+    ```js
+    //  only move when you click
+    // http://localhost:3000/Phaser.Input.html#mousePointer
+    // The mouse has its own unique Phaser.Pointer object which you can use if making a desktop specific game.
+    if (this.input.mousePointer.isDown) { }
+
+    ```
