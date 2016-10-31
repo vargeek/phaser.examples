@@ -1,8 +1,10 @@
 import { BootState } from './boot.state';
 
-import { MouseButtonsState } from './input/mouse-buttons';
-import { MultiTouchState } from './input/multi-touch';
-import { FollowMouseState } from './input/follow-mouse';
+import { PixelPerfectClickDetectionState } from './input/pixel-perfect-click-detection';
+import { PixelpickAtlasState } from './input/pixelpick-atlas';
+import { PixelpickAtlasScaledState } from './input/pixelpick-atlas-scaled';
+import { PixelpickSpritesheetState } from './input/pixelpick-spritesheet';
+import { PixelpickScrollingEffectState } from './input/pixelpick-scrolling-effect';
 
 const BootStateKey = 'boot';
 class App {
@@ -22,8 +24,10 @@ class App {
   }
 }
 
-// const app = new App(MouseButtonsState);
-// const app = new App(MultiTouchState);
-const app = new App(FollowMouseState);
+// const app = new App(PixelPerfectClickDetectionState);
+// const app = new App(PixelpickAtlasState);
+// const app = new App(PixelpickAtlasScaledState);
+// const app = new App(PixelpickSpritesheetState);
+const app = new App(PixelpickScrollingEffectState);
 
 

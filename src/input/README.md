@@ -463,3 +463,31 @@
     if (this.input.mousePointer.isDown) { }
 
     ```
+# pixel-perfect-click-detection
+  - 通过像素点alpha值判断pointer是否在精灵上面，而不是简单通过矩形判断。
+    ```js
+    // 注意光标在什么区域开始变成手型光标
+    // http://localhost:3000/Phaser.InputHandler.html#pixelPerfectOver
+    // pixelPerfectOver :boolean
+    // Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite.
+    // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
+    // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
+    // Warning: This is expensive, especially on mobile (where it's not even needed!) so only enable if required. Also see the less-expensive InputHandler.pixelPerfectClick. Use a pixel perfect check when testing for pointer over.
+    this.bunny.input.pixelPerfectOver = true;
+
+    ```
+# pixelpick-atlas
+  - 通过像素点alpha判断精灵是否被点击(只有点击时才判断像素alpha，所以比pixelPerfectOver性能高一点)
+    ```js
+    // http://localhost:3000/Phaser.InputHandler.html#pixelPerfectClick
+    // pixelPerfectClick :boolean
+    // Set to true to use pixel perfect hit detection when checking if the pointer is over this Sprite when it's clicked or touched.
+    // The x/y coordinates of the pointer are tested against the image in combination with the InputHandler.pixelPerfectAlpha value.
+    // This feature only works for display objects with image based textures such as Sprites. It won't work on BitmapText or Rope.
+    // Warning: This is expensive so only enable if you really need it. Use a pixel perfect check when testing for clicks or touches on the Sprite.
+
+    ```
+# pixelpick-atlas-scaled
+# pixelpick-spritesheet
+# pixelpick-scrolling-effect
+
