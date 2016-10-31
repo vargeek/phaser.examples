@@ -1,10 +1,12 @@
 import { BootState } from './boot.state';
 
-import { PixelPerfectClickDetectionState } from './input/pixel-perfect-click-detection';
-import { PixelpickAtlasState } from './input/pixelpick-atlas';
-import { PixelpickAtlasScaledState } from './input/pixelpick-atlas-scaled';
-import { PixelpickSpritesheetState } from './input/pixelpick-spritesheet';
-import { PixelpickScrollingEffectState } from './input/pixelpick-scrolling-effect';
+import { InputOrderState } from './input/input-order';
+import { InputPriorityState } from './input/input-priority';
+import { InputEnableGroupState } from './input/input-enable-group';
+import { GroupInputEventsState } from './input/group-input-events';
+import { IgnoreChildInputState } from './input/ignore-child-input';
+import { InputChildPriorityState } from './input/input-child-priority';
+import { CustomCandidateHandlerState } from './input/custom-candidate-handler';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,10 +26,12 @@ class App {
   }
 }
 
-// const app = new App(PixelPerfectClickDetectionState);
-// const app = new App(PixelpickAtlasState);
-// const app = new App(PixelpickAtlasScaledState);
-// const app = new App(PixelpickSpritesheetState);
-const app = new App(PixelpickScrollingEffectState);
+// const app = new App(InputOrderState);
+// const app = new App(InputPriorityState);
+// const app = new App(InputEnableGroupState);
+// const app = new App(GroupInputEventsState);
+// const app = new App(IgnoreChildInputState);
+// const app = new App(InputChildPriorityState);
+const app = new App(CustomCandidateHandlerState);
 
 

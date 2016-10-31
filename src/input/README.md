@@ -490,4 +490,84 @@
 # pixelpick-atlas-scaled
 # pixelpick-spritesheet
 # pixelpick-scrolling-effect
+# input-order
+  - renderOrderID
+    ```js
+    // http://localhost:3000/Phaser.Sprite.html#renderOrderID
+    // <readonly> renderOrderID :number
+    // The render order ID is used internally by the renderer and Input Manager and should not be modified.
+    // This property is mostly used internally by the renderers, but is exposed for the use of plugins.
+    this.text = `You clicked: ${sprite.name} RenderOrderID: ${sprite.renderOrderID}`;
 
+    ```
+# input-priority
+  - 优先级
+    ```js
+    // http://localhost:3000/Phaser.InputHandler.html#priorityID
+    // priorityID :number
+    // The priorityID is used to determine which game objects should get priority when input events occur. For example if you have
+    // several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
+    // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
+    manga.input.priorityID = 2;
+
+    ```
+# input-enable-group
+  - 输入使能 group的子元素(使能后添加的子元素)
+    ```js
+    // http://localhost:3000/Phaser.Group.html#inputEnableChildren
+    // inputEnableChildren :boolean
+    // A Group with inputEnableChildren set to true will automatically call inputEnabled = true
+    // on any children added to, or created by, this Group.
+    // If there are children already in the Group at the time you set this property, they are not changed.
+    group.inputEnableChildren = true;
+
+    ```
+# group-input-events
+  - group input events: onChildInputDown, onChildInputOver, onChildInputOut
+    ```js
+    // And now we'll listen to the Group events
+    // http://localhost:3000/Phaser.Group.html#onChildInputDown
+    // onChildInputDown :Phaser.Signal
+    // This Signal is dispatched whenever a child of this Group emits an onInputDown signal as a result
+    // of having been interacted with by a Pointer. You can bind functions to this Signal instead of to
+    // every child Sprite.
+
+    // This Signal is sent 2 arguments: A reference to the Sprite that triggered the signal, and
+    // a reference to the Pointer that caused it.
+    this.group1.onChildInputDown.add(this.onDown, this);
+
+    ```
+# ignore-child-input
+  - ignore child input
+    ```js
+    // http://localhost:3000/Phaser.Group.html#ignoreChildInput
+    // ignoreChildInput :Boolean
+    // If ignoreChildInput is false it will allow this objects children to be considered as valid for Input events.
+    // If this property is true then the children will not be considered as valid for Input events.
+    // Note that this property isn't recursive: only immediate children are influenced, it doesn't scan further down.
+    this.group2.ignoreChildInput = !this.group2.ignoreChildInput;
+
+    ```
+# input-child-priority
+# custom-candidate-handler
+  - 自定义选择input响应对象
+    ```js
+    // http://localhost:3000/Phaser.Input.html#setInteractiveCandidateHandler
+    // Adds a callback that is fired every time Pointer.processInteractiveObjects is called.
+    // The purpose of processInteractiveObjects is to work out which Game Object the Pointer is going to
+    // interact with. It works by polling all of the valid game objects, and then slowly discounting those
+    // that don't meet the criteria (i.e. they aren't under the Pointer, are disabled, invisible, etc).
+
+    // Eventually a short-list of 'candidates' is created. These are all of the Game Objects which are valid
+    // for input and overlap with the Pointer. If you need fine-grained control over which of the items is
+    // selected then you can use this callback to do so.
+
+    // The callback will be sent 3 parameters:
+
+    // 1) A reference to the Phaser.Pointer object that is processing the Items.
+    // 2) An array containing all potential interactive candidates. This is an array of InputHandler objects, not Sprites.
+    // 3) The current 'favorite' candidate, based on its priorityID and position in the display list.
+    // Your callback MUST return one of the candidates sent to it.
+    this.input.setInteractiveCandidateHandler(this.interactiveCandidateHandler, this);
+
+    ```
