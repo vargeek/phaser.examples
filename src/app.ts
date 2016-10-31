@@ -1,12 +1,11 @@
 import { BootState } from './boot.state';
 
-import { InputOrderState } from './input/input-order';
-import { InputPriorityState } from './input/input-priority';
-import { InputEnableGroupState } from './input/input-enable-group';
-import { GroupInputEventsState } from './input/group-input-events';
-import { IgnoreChildInputState } from './input/ignore-child-input';
-import { InputChildPriorityState } from './input/input-child-priority';
-import { CustomCandidateHandlerState } from './input/custom-candidate-handler';
+import { KeyState } from './input/key';
+import { KeyboardState } from './input/keyboard';
+import { KeyboardJustpressedState } from './input/keyboard-justpressed';
+import { KeyboardHotkeysState } from './input/keyboard-hotkeys';
+import { WordInputState } from './input/word-input';
+import { CursorKeyMovementState } from './input/cursor-key-movement';
 
 const BootStateKey = 'boot';
 class App {
@@ -26,12 +25,10 @@ class App {
   }
 }
 
-// const app = new App(InputOrderState);
-// const app = new App(InputPriorityState);
-// const app = new App(InputEnableGroupState);
-// const app = new App(GroupInputEventsState);
-// const app = new App(IgnoreChildInputState);
-// const app = new App(InputChildPriorityState);
-const app = new App(CustomCandidateHandlerState);
-
+// const app = new App(KeyState);
+// const app = new App(KeyboardState);
+// const app = new App(KeyboardJustpressedState);
+// const app = new App(KeyboardHotkeysState);
+// const app = new App(WordInputState);
+const app = new App(CursorKeyMovementState);
 

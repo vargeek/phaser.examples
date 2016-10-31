@@ -571,3 +571,124 @@
     this.input.setInteractiveCandidateHandler(this.interactiveCandidateHandler, this);
 
     ```
+# key
+  - 创建按键对象
+    ```js
+    //  In this example we'll create 4 specific keys (up, down, left, right) and monitor them in our update function
+    // http://localhost:3000/Phaser.Keyboard.html#addKey
+    // addKey(keycode) → {Phaser.Key}
+    // If you need more fine-grained control over a Key you can create a new Phaser.Key object via this method.
+    // The Key object can then be polled, have events attached to it, etc.
+    this.upKey = this.input.keyboard.addKey(Phaser.Keyboard.UP);
+
+    ```
+# keyboard
+  - 判断键盘某个键是否按下
+    ```js
+    // http://localhost:3000/Phaser.Keyboard.html#isDown
+    // isDown(keycode) → {boolean}
+    // Returns true of the key is currently pressed down. Note that it can only detect key presses on the web browser.
+    if (this.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {}
+
+    ```
+# keyboard-justpressed
+  - 注册按键
+    ```js
+	  //  Register the keys.
+    //  In this example we'll create 4 specific keys (up, down, left, right) and monitor them in our update function
+    // http://localhost:3000/Phaser.Keyboard.html#addKey
+    // addKey(keycode) → {Phaser.Key}
+    // If you need more fine-grained control over a Key you can create a new Phaser.Key object via this method.
+    // The Key object can then be polled, have events attached to it, etc.
+    this.leftKey = this.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+
+    ```
+  - 阻止按键事件传递给浏览器
+    ```js
+    //  Stop the following keys from propagating up to the browser
+    // http://localhost:3000/Phaser.Keyboard.html#addKeyCapture
+    // addKeyCapture(keycode)
+    // By default when a key is pressed Phaser will not stop the event from propagating up to the browser.
+    // There are some keys this can be annoying for, like the arrow keys or space bar, which make the browser window scroll.
+    // The addKeyCapture method enables consuming keyboard event for specific keys so it doesn't bubble up to the the browser
+    // and cause the default browser behavior.
+    // Pass in either a single keycode or an array/hash of keycodes.
+    this.input.keyboard.addKeyCapture([Phaser.Keyboard.LEFT]);
+
+    ```
+  - 判断按键在指定时间范围内是否按下过
+    ```js
+    // http://localhost:3000/Phaser.Key.html#downDuration
+    // downDuration(duration) → {boolean}
+    // Returns true if the Key was pressed down within the duration value given, or false if it either isn't down,
+    // or was pressed down longer ago than then given duration.
+    if (this.leftKey.downDuration(250)) { }
+
+    ```
+# keyboard-hotkeys
+  - 注册按键
+    ```js
+    // http://localhost:3000/Phaser.Keyboard.html#addKey
+    // addKey(keycode) → {Phaser.Key}
+    // 注册按键.
+    // 通过addKey注册的按键默认自动添加了addKeyCapture(阻止向浏览器传递按键事件)，未注册而只通过轮询的方式检查是否按下的按键默认是不会被capture
+    // If you need more fine-grained control over a Key you can create a new Phaser.Key object via this method.
+    // The Key object can then be polled, have events attached to it, etc.
+    this.key1 = this.input.keyboard.addKey(Phaser.Keyboard.ONE);
+
+    ```
+  -  当按键被capture，该按键会阻止向浏览器传递按键事件，所以在游戏事件外面的 &lt;input&gt; 无法输入被capture的按键。三种方法处理这个问题：
+    ```js
+    // Option 1 - 在update() 中使用this.input.activePointer.withinGame 判断鼠标是否在游戏世界里， 不在游戏世界时禁用game.input
+    // http://localhost:3000/Phaser.Pointer.html#withinGame
+    // withinGame :boolean
+    // true if the Pointer is over the game canvas, otherwise false.
+    if (this.input.activePointer.withinGame) {
+      this.input.enabled = true;
+    }
+    else {
+      this.input.enabled = false;
+    }
+
+    //  Option 2 - Alternatively, Remove captures so they flood up to the browser too
+    // http://localhost:3000/Phaser.Keyboard.html#removeKeyCapture
+    // removeKeyCapture(keycode)
+    // Removes an existing key capture.
+    this.input.keyboard.removeKeyCapture(Phaser.Keyboard.ONE);
+    this.input.keyboard.removeKeyCapture(Phaser.Keyboard.TWO);
+    this.input.keyboard.removeKeyCapture(Phaser.Keyboard.THREE);
+
+    //  Option 3 - If the game is an iframe, or chat is in another window, use Game.onBlur and Game.onFocus instead
+    // http://localhost:3000/Phaser.Game.html#onBlur
+    // onBlur :Phaser.Signal
+    // This event is fired when the game no longer has focus (typically on page hide).
+    // game.onBlur.add(...);
+    // game.onFocus.add(...);
+
+    ```
+# word-input
+  - key presse
+    ```js
+    // Capture all key presses
+    // http://localhost:3000/Phaser.Keyboard.html#addCallbacks
+    // addCallbacks(context, onDown, onUp, onPress)
+    // Add callbacks to the Keyboard handler so that each time a key is pressed down or released the callbacks are activated.
+    this.input.keyboard.addCallbacks(this, null, null, this.onKeyPress)
+
+    ```
+# cursor-key-movement
+  - 方向键
+    ```js
+    //  For example this checks if the up or down keys are pressed and moves the camera accordingly.
+    // Phaser.Key
+    // isDown :boolean
+    // The "down" state of the key. This will remain true for as long as the keyboard thinks this key is held down.
+    if (this.cursors.up.isDown) { }
+
+    //  If the shift key is also pressed then the world is rotated
+    // Phaser.Key
+    // shiftKey :boolean
+    // The down state of the SHIFT key, if pressed at the same time as this key.
+    if (this.cursors.up.shiftKey) { }
+
+    ```
