@@ -287,3 +287,121 @@
     this.button.pendingDestroy = true;
 
     ```
+
+
+
+
+# game-scale
+  - world bounds
+    ```js
+    // http://localhost:3000/Phaser.World.html#setBounds
+    // setBounds(x, y, width, height)
+    // Updates the size of this world and sets World.x/y to the given values
+    // The Camera bounds and Physics bounds (if set) are also updated to match the new World bounds.
+    this.world.setBounds(0, 0, 2000, 2000);
+
+    ```
+# down-duration
+  - onUp 事件
+    ```js
+    // http://localhost:3000/Phaser.Input.html#onUp
+    // game.input.onUp: Phaser.Input, Phaser.Signal
+    // onDown, onHold, onTap, onUp, ...
+    this.input.onUp.add(this.getTime, this);
+
+    ```
+  - activePointer
+    ```js
+    // http://localhost:3000/Phaser.Input.html#activePointer
+    // game.input.activePointer: Phaser.Input, Phaser.Pointer
+
+    // the most recently active Pointer object.
+    // When you've limited max pointers to 1 this will accurately be either the first finger touched or mouse.
+    if (this.input.activePointer.isDown) { }
+
+    ```
+  - down duration
+    ```js
+    // http://localhost:3000/Phaser.Pointer.html#duration
+    // Phaser.Pointer
+    // 按住时间
+
+    // How long the Pointer has been depressed on the touchscreen or any of the mouse buttons have been held down.
+    // If not currently down it returns -1.
+    // If you need to test a specific mouse or pen button then access the buttons directly, i.e. Pointer.rightButton.duration.
+    lastDuration = pointer.duration;
+
+    ```
+# out-of-game
+  - pointer.withinGame
+    ```js
+    // http://localhost:3000/Phaser.Pointer.html#withinGame
+    // withinGame :boolean
+    // true if the Pointer is over the game canvas, otherwise false.
+    if (this.input.activePointer.withinGame) {}
+
+    ```
+# out-of-game-mouse-up
+  - 鼠标移出世界后自动触发 onUp
+    ```js
+    //  Even if you release the mouse button outside of the game window
+    //  the 'onUp' function will still be called.
+    this.bubble.events.onInputDown.add(this.onDown, this);
+
+    ```
+# override-default-controls
+  - 阻止按键传到浏览器
+    ```js
+    // Prevent directions and space key events bubbling up to browser,
+    // since these keys will make web page scroll which is not
+    // expected.
+    //  Stop the following keys from propagating up to the browser
+    // http://localhost:3000/Phaser.Keyboard.html#addKeyCapture
+    // addKeyCapture(keycode)
+    // By default when a key is pressed Phaser will not stop the event from propagating up to the browser.
+    // There are some keys this can be annoying for, like the arrow keys or space bar, which make the browser window scroll.
+    // The addKeyCapture method enables consuming keyboard event for specific keys so it doesn't bubble up to the the browser
+    // and cause the default browser behavior.
+    // Pass in either a single keycode or an array/hash of keycodes.
+    this.input.keyboard.addKeyCapture([
+
+    ```
+# pointer-lock
+  - 射击类游戏: 锁住光标
+    ```js
+    // http://localhost:3000/Phaser.Mouse.html#requestPointerLock
+    // 设计类游戏: 锁住光标。
+    // requestPointerLock()
+    // If the browser supports it you can request that the pointer be locked to the browser window.
+    // This is classically known as 'FPS controls', where the pointer can't leave the browser until the user presses an exit key.
+    // If the browser successfully enters a locked state the event Phaser.Mouse.pointerLock will be dispatched and the first parameter will be 'true'.
+    this.input.mouse.requestPointerLock();
+
+    ```
+  - mousemove事件
+    ```js
+    // http://localhost:3000/Phaser.Input.html#addMoveCallback
+    // addMoveCallback(callback, context)
+    // Adds a callback that is fired every time the activePointer receives a DOM move event such as a mousemove or touchmove.
+
+    // The callback will be sent 4 parameters:
+    // A reference to the Phaser.Pointer object that moved,
+    // The x position of the pointer,
+    // The y position,
+    // A boolean indicating if the movement was the result of a 'click' event (such as a mouse click or touch down).
+
+    // It will be called every time the activePointer moves, which in a multi-touch game can be a lot of times, so this is best
+    // to only use if you've limited input to a single pointer (i.e. mouse or touch).
+    // The callback is added to the Phaser.Input.moveCallbacks array and should be removed with Phaser.Input.deleteMoveCallback.
+    game.input.addMoveCallback(move, this);
+
+    ```
+# pointer-over
+  - 是否有pointer悬浮在精灵上
+    ```js
+    // http://localhost:3000/Phaser.InputHandler.html#pointerOver
+    // pointerOver(pointerId) → {boolean}
+    // Is the Pointer over this Sprite?
+    if (bunny.input.pointerOver()) {}
+
+    ```

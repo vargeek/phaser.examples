@@ -1,9 +1,12 @@
 import { BootState } from './boot.state';
 
-import { TouchEventsState } from './input/touch-events';
-import { OnTapState } from './input/on-tap';
-import { ButtonOpenPopupState } from './input/button-open-popup';
-import { ButtonDestroyState } from './input/button-destroy';
+import { GameScaleState } from './input/game-scale';
+import { DownDurationState } from './input/down-duration';
+import { OutOfGameState } from './input/out-of-game';
+import { OutOfGameMouseUpState } from './input/out-of-game-mouse-up';
+import { OverrideDefaultControlsState } from './input/override-default-controls';
+import { PointerLockState } from './input/pointer-lock';
+import { PointerOverState } from './input/pointer-over';
 
 const BootStateKey = 'boot';
 class App {
@@ -23,8 +26,12 @@ class App {
   }
 }
 
-// const app = new App(TouchEventsState);
-// const app = new App(OnTapState);
-// const app = new App(ButtonOpenPopupState);
-const app = new App(ButtonDestroyState);
+// const app = new App(GameScaleState);
+// const app = new App(DownDurationState);
+// const app = new App(OutOfGameState);
+// const app = new App(OutOfGameMouseUpState);
+// const app = new App(OverrideDefaultControlsState);
+// const app = new App(PointerLockState);
+const app = new App(PointerOverState);
+
 
