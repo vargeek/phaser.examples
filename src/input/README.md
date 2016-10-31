@@ -692,3 +692,93 @@
     if (this.cursors.up.shiftKey) { }
 
     ```
+
+# gamepad
+  - 启动手柄的轮询
+    ```js
+    // http://localhost:3000/Phaser.Gamepad.html#start
+    // game.input.gamepad: Phaser.Input, Phaser.Gamepad
+    // start()
+    // Starts the Gamepad event handling.
+    // This MUST be called manually before Phaser will start polling the Gamepad API.
+
+    ```
+  - 手柄
+    ```js
+    // To listen to buttons from a specific pad listen directly on that pad game.input.gamepad.padX, where X = pad 1-4
+    // http://localhost:3000/Phaser.Gamepad.html#pad1
+    // game.input.gamepad.pad1: Phaser.Input, Phaser.Gamepad, Phaser.SinglePad
+    // Gamepad #1
+
+    ```
+  - 手柄的支持、激活和连接状态
+    ```js
+    // Pad "connected or not" indicator
+    // http://localhost:3000/Phaser.Gamepad.html#supported
+    // <readonly> supported :boolean
+    // Whether or not gamepads are supported in current browser.
+
+    // http://localhost:3000/Phaser.Gamepad.html#active
+    // <readonly> active :boolean
+    // If the gamepad input is active or not - if not active it should not be updated from Input.js
+
+    // http://localhost:3000/Phaser.SinglePad.html#connected
+    // <readonly> connected :boolean
+    // Whether or not this particular gamepad is connected or not.
+    if (this.input.gamepad.supported && this.input.gamepad.active && this.pad1.connected) { }
+
+    ```
+  - 轮询按钮和摇杆
+    ```js
+    // http://localhost:3000/Phaser.SinglePad.html#isDown
+    // isDown(buttonCode) → {boolean}
+    // Returns true if the button is pressed down.
+
+    // http://localhost:3000/Phaser.SinglePad.html#axis
+    // axis(axisCode) → {number}
+    // Returns value of requested axis.
+    if (this.pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) || this.pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1) {}
+
+    ```
+  - 检查按钮是否刚被按下
+    ```js
+    // http://localhost:3000/Phaser.SinglePad.html#justPressed
+    // justPressed(buttonCode, duration) → {boolean}
+    // Returns the "just pressed" state of a button from this gamepad. Just pressed is considered true if the button was pressed down within the duration given (default 250ms).
+
+    ```
+# gamepad-analog-button
+  - 监听手柄连接、按键事件
+    ```js
+    // http://localhost:3000/Phaser.Singlepad.html#addCallbacks
+    // addCallbacks(context, callbacks)
+    // Add callbacks to this Gamepad to handle connect / disconnect / button down / button up / axis change / float value buttons.
+    // callbacks: Object that takes six different callbak methods:
+    // onConnectCallback, onDisconnectCallback, onDownCallback, onUpCallback, onAxisCallback, onFloatCallback
+    this.pad.addCallbacks(this, {onConnect: this.addButtons});
+
+    ```
+  - 获取手柄设备按键对象 (this.pad onConnect 后才能获取按键对象 ) 
+    ```js
+    // http://localhost:3000/Phaser.SinglePad.html#getButton
+    // Phaser.DeviceButton
+    // Gets a DeviceButton object from this controller to be stored and referenced locally.
+    // The DeviceButton object can then be polled, have events attached to it, etc.
+    this.leftTriggerButton = this.pad.getButton(Phaser.Gamepad.XBOX360_LEFT_TRIGGER);   
+
+    ```
+  - 手柄按键模拟信号事件
+    ```js
+    // http://localhost:3000/Phaser.DeviceButton.html#onFloat
+    // onFloat :Phaser.Signal
+    // Gamepad only.
+    // This Signal is dispatched every time this DeviceButton changes floating value (between, but not exactly, 0 and 1).
+    // When dispatched it sends 2 arguments: A reference to this DeviceButton and the value of the button.
+    this.leftTriggerButton.onFloat.add(this.onLeftTrigger.bind(this));
+
+    ```
+# gamepad-buttons
+# gamepad-hotkeys
+# gamepad-multiple-pads
+# gamepad-debug
+# gamepad-tanks

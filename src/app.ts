@@ -1,11 +1,10 @@
 import { BootState } from './boot.state';
 
-import { KeyState } from './input/key';
-import { KeyboardState } from './input/keyboard';
-import { KeyboardJustpressedState } from './input/keyboard-justpressed';
-import { KeyboardHotkeysState } from './input/keyboard-hotkeys';
-import { WordInputState } from './input/word-input';
-import { CursorKeyMovementState } from './input/cursor-key-movement';
+import { GamepadState } from './input/gamepad';
+import { GamepadAnalogButtonState } from './input/gamepad-analog-button';
+import { GamepadButtonsState } from './input/gamepad-buttons';
+import { GamepadHotkeysState } from './input/gamepad-hotkeys';
+import { GamepadMultiplePadsState } from './input/gamepad-multiple-pads';
 
 const BootStateKey = 'boot';
 class App {
@@ -25,10 +24,9 @@ class App {
   }
 }
 
-// const app = new App(KeyState);
-// const app = new App(KeyboardState);
-// const app = new App(KeyboardJustpressedState);
-// const app = new App(KeyboardHotkeysState);
-// const app = new App(WordInputState);
-const app = new App(CursorKeyMovementState);
+// const app = new App(GamepadState);
+// const app = new App(GamepadAnalogButtonState);
+// const app = new App(GamepadButtonsState);
+// const app = new App(GamepadHotkeysState);
+const app = new App(GamepadMultiplePadsState);
 
