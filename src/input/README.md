@@ -211,4 +211,79 @@
     // allowHorizontalDrag :boolean
     // Controls if the Sprite is allowed to be dragged horizontally.
     this.sprite.input.allowHorizontalDrag = false;
+
+    ```
+# touch-events
+  - onUp
+    ```js
+    // http://localhost:3000/Phaser.Input.html#onUp
+    // onUp :Phaser.Signal
+    // A Signal that is dispatched each time a pointer is released.
+    this.input.onUp.add(()=>{
+      console.log('Up');
+    });
+
+    ```
+  - onDown
+    ```js
+    // http://localhost:3000/Phaser.Input.html#onDown
+    // onDown :Phaser.Signal
+    // A Signal that is dispatched each time a pointer is pressed down.
+
+    ```
+  - onTap
+    ```js
+    // http://localhost:3000/Phaser.Input.html#onTap
+    // onTap :Phaser.Signal
+    // A Signal that is dispatched each time a pointer is tapped.
+
+    ```
+# on-tap
+  - onTap
+    ```js
+    // http://localhost:3000/Phaser.Input.html#onTap
+    // onTap :Phaser.Signal
+    // A Signal that is dispatched each time a pointer is tapped.
+    this.input.onTap.add(this.onTap, this);
+
+    ```
+# button-open-popup
+  - useHandCursor
+    ```js
+    // http://localhost:3000/Phaser.InputHandler.html#useHandCursor
+    // useHandCursor :boolean
+    // On a desktop browser you can set the 'hand' cursor to appear when moving over the Sprite.
+
+    ```
+  - 优先级
+    ```js
+    // http://localhost:3000/Phaser.InputHandler.html#priorityID
+    // priorityID :number
+
+    // The priorityID is used to determine which game objects should get priority when input events occur. For example if you have several Sprites that overlap, by default the one at the top of the display list is given priority for input events. You can
+    // stop this from happening by controlling the priorityID value. The higher the value, the more important they are considered to the Input events.
+    closeButton.input.priorityID = 1;
+
+    ```
+  - 事件
+    ```js
+    // events
+    // All Phaser Game Objects have an Events class which contains all of the events that are dispatched when certain things happen to this
+    // Game Object, or any of its components.
+    closeButton.events.onInputDown.add(this.closeWindow, this);
+
+    ```
+# button-destroy
+  - 销毁按钮
+    ```js
+    // http://localhost:3000/Phaser.Button.html#pendingDestroy
+    // pendingDestroy :boolean
+    // 在下一个 logic update 摧毁， 所以可以在button的回调里销毁这个button
+    // A Game Object is that is pendingDestroy is flagged to have its destroy method called on the next logic update.
+    // You can set it directly to allow you to flag an object to be destroyed on its next update.
+
+    // This is extremely useful if you wish to destroy an object from within one of its own callbacks
+    // such as with Buttons or other Input events.
+    this.button.pendingDestroy = true;
+
     ```
