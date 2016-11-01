@@ -1,10 +1,7 @@
 import { BootState } from './boot.state';
 
-import { GamepadState } from './input/gamepad';
-import { GamepadAnalogButtonState } from './input/gamepad-analog-button';
-import { GamepadButtonsState } from './input/gamepad-buttons';
-import { GamepadHotkeysState } from './input/gamepad-hotkeys';
-import { GamepadMultiplePadsState } from './input/gamepad-multiple-pads';
+import { TouchJoystickState } from './input/touch-joystick';
+import { VirtualGamecontroller } from './input/virtual-gamecontroller';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,9 +21,5 @@ class App {
   }
 }
 
-// const app = new App(GamepadState);
-// const app = new App(GamepadAnalogButtonState);
-// const app = new App(GamepadButtonsState);
-// const app = new App(GamepadHotkeysState);
-const app = new App(GamepadMultiplePadsState);
-
+// const app = new App(TouchJoystickState);
+const app = new App(VirtualGamecontroller);

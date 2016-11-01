@@ -758,13 +758,13 @@
     this.pad.addCallbacks(this, {onConnect: this.addButtons});
 
     ```
-  - 获取手柄设备按键对象 (this.pad onConnect 后才能获取按键对象 ) 
+  - 获取手柄设备按键对象 (this.pad onConnect 后才能获取按键对象 )
     ```js
     // http://localhost:3000/Phaser.SinglePad.html#getButton
     // Phaser.DeviceButton
     // Gets a DeviceButton object from this controller to be stored and referenced locally.
     // The DeviceButton object can then be polled, have events attached to it, etc.
-    this.leftTriggerButton = this.pad.getButton(Phaser.Gamepad.XBOX360_LEFT_TRIGGER);   
+    this.leftTriggerButton = this.pad.getButton(Phaser.Gamepad.XBOX360_LEFT_TRIGGER);
 
     ```
   - 手柄按键模拟信号事件
@@ -782,3 +782,14 @@
 # gamepad-multiple-pads
 # gamepad-debug
 # gamepad-tanks
+# touch-joystick
+  - 第三方库 [Austin Hallock's HTML5 Virtual Game Controller](https://github.com/austinhallock/html5-virtual-game-controller/)
+# virtual-gamecontroller
+  - 虚拟手柄
+    ```js
+    buttonjump.events.onInputOver.add(()=>{this.jump=true});
+    buttonjump.events.onInputOut.add(()=>{this.jump=false});
+    buttonjump.events.onInputDown.add(()=>{this.jump=true});
+    buttonjump.events.onInputUp.add(()=>{this.jump=false});
+
+    ```
