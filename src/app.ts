@@ -86,4 +86,16 @@ class App {
 // const app = new App(RotateToSpriteState);
 // const app = new App(ShootThePointerState);
 // const app = new App(MassVelocityTestState);
-const app = new App(AsteroidsMovementState);
+// const app = new App(AsteroidsMovementState);
+// const app = new App(SpriteVsSpriteState);
+// const app = new App(GroupVsSelfState);
+// const app = new App(SpriteVsGroupState);
+// const app = new App(GroupVsGroupState);
+// const app = new App(DirectBodyMovementState);
+// const app = new App(VerticalCollisionState);
+// const app = new App(VerticalCollisionState);
+// const app = new App(SortDirectionState);
+// const app = new App(SortDirectionVerticalState);
+// const app = new App(NestedGroupState);
+// const app = new App(OneWayCollisionState);
+const app = new App(QuadtreeCollisionInfosState);

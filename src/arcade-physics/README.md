@@ -439,3 +439,73 @@
     this.physics.arcade.accelerationFromRotation(this.sprite.rotation, 200,
 
     ```
+# sprite-vs-sprite
+# group-vs-self
+  - add.physicsGroup
+    ```js
+    // http://localhost:3000/Phaser.GameObjectFactory.html#physicsGroup
+    // physicsGroup(physicsBodyType, parent, name, addToStage) → {Phaser.Group}
+    // A Group is a container for display objects that allows for fast pooling, recycling and collision checks.
+
+    // A Physics Group is the same as an ordinary Group except that is has enableBody turned on by default, so any Sprites it creates are automatically given a physics body.
+    this.sprites = this.add.physicsGroup(Phaser.Physics.ARCADE);
+
+    ```
+# sprite-vs-group
+# custom-sprite-vs-group
+# group-vs-group
+  - sprite.events.onOutOfBounds
+    ```js
+    // http://localhost:3000/Phaser.Events.html#onOutOfBounds
+    // onOutOfBounds :Phaser.Signal
+    // This signal is dispatched when the Game Object leaves the Phaser.World bounds.
+    // This signal is only if Sprite.checkWorldBounds is set to true.
+    // It is sent one argument:
+    // {any} The Game Object that left the World bounds.
+    bullet.events.onOutOfBounds.add(this.resetBullet, this);
+
+    ```
+# direct-body-movement
+# vertical-collision
+# sort-direction, sort-direction-vertical
+  - arcade.sortDirection
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#sortDirection
+    // sortDirection :number
+    // Used when colliding a Sprite vs. a Group, or a Group vs. a Group, this defines the direction the sort is based on. Default is Phaser.Physics.Arcade.LEFT_RIGHT.
+    this.physics.arcade.sortDirection = Phaser.Physics.Arcade.RIGHT_LEFT;
+    // this.physics.arcade.sortDirection = Phaser.Physics.Arcade.BOTTOM_TOP;
+
+    ```
+# nested-group
+  - 碰撞时，不会自动检测子group里的元素
+# one-way-collision
+  - body.checkCollision
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#checkCollision
+    // checkCollision :object
+    // Set the checkCollision properties to control which directions collision is processed for this Body.
+    // For example checkCollision.up = false means it won't collide when the collision happened while moving up.
+    // If you need to disable a Body entirely, use body.enable = false, this will also disable motion.
+    // If you need to disable just collision and/or overlap checks, but retain motion, set checkCollision.none = true. An object containing allowed collision.
+    this.sprite.body.checkCollision.up = false;
+
+    ```
+# quadtree-collision-infos
+  - arcade.skipQuadTree
+    ```js
+    //  Enable the QuadTree
+    // http://localhost:3000/Phaser.Physics.Arcade.html#skipQuadTree
+    // skipQuadTree :boolean
+    // If true the QuadTree will not be used for any collision. QuadTrees are great if objects are well spread out in your game, otherwise they are a performance hit. If you enable this you can disable on a per body basis via Body.skipQuadTree.
+    this.physics.arcade.skipQuadTree = false;
+
+    ```
+  - body.skipQuadTree
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#skipQuadTree
+    // skipQuadTree :boolean
+    // If true and you collide this Sprite against a Group, it will disable the collision check from using a QuadTree.
+    // sprite.skipQuadTree
+
+    ```
