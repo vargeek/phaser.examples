@@ -39,7 +39,26 @@
     this.physics.startSystem(Phaser.Physics.ARCADE);
 
     ```
+  - physics.enable
+    ```js
+    //  Enable Arcade Physics for the sprite
+    // http://localhost:3000/Phaser.Physics.html#enable
+    // enable(object, system, debug)
+    // This will create a default physics body on the given game object or array of objects.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
 
+    // It can be for any of the physics systems that have been started:
+    // Phaser.Physics.Arcade - A light weight AABB based collision system with basic separation.
+    // Phaser.Physics.P2JS - A full-body advanced physics system supporting multiple object shapes, polygon loading, contact materials, springs and constraints.
+    // Phaser.Physics.NINJA - A port of Metanet Softwares N+ physics system. Advanced AABB and Circle vs. Tile collision.
+    // Phaser.Physics.BOX2D - A port of https://code.google.com/p/box2d-html5
+    // Phaser.Physics.MATTER - A full-body and light-weight advanced physics system (still in development)
+    // Phaser.Physics.CHIPMUNK is still in development.
+
+    // If you require more control over what type of body is created, for example to create a Ninja Physics Circle instead of the default AABB, then see the individual physics systems enable methods instead of using this generic one.
+    this.physics.enable([this.sprite, this.sprite2], Phaser.Physics.ARCADE);
+
+    ```
   - arcade.enable
     ```js
     //  Enable Arcade Physics for the sprite
@@ -198,3 +217,51 @@
     ```
 # gravity
   - world gravity(arcade.gravity) v.s. local gravity(body.gravity)
+# accelerate-to-pointer
+  - arcade.moveToPointer
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#moveToPointer
+    // moveToPointer(displayObject, speed, pointer, maxTime) → {number}
+    // Move the given display object towards the pointer at a steady velocity. If no pointer is given it will use Phaser.Input.activePointer.
+
+    // If you specify a maxTime then it will adjust the speed (over-writing what you set) so it arrives at the destination in that number of seconds.
+
+    // Timings are approximate due to the way browser timers work. Allow for a variance of +- 50ms.
+
+    // Note: The display object does not continuously track the target. If the target changes location during transit the display object will not modify its course.
+    // Note: The display object doesn't stop moving once it reaches the destination coordinates.
+    // Returns:
+    // The angle (in radians) that the object should be visually set to in order to match its new velocity.
+    // 只是给个初速度，到达目的地后不会自动停止;
+    // 移动过程中改变对象的位置，不会自动改变速度方向来重新朝向目的地。
+    // 速度的方向指向目的地，但是精灵本身没有面向目的地，需要根据返回值的角度自己设置精灵的rotation
+    this.sprite.rotation = this.physics.arcade.moveToPointer(this.sprite, 60, this.input.activePointer, 500);
+
+    ```
+# move-to-pointer
+  - arcade.moveToPointer
+  - arcade.distanceToPointer
+# distance-to-pointer
+  - arcade.distanceToPointer
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#distanceToPointer
+    // distanceToPointer(displayObject, pointer, world) → {number}
+    // Find the distance between a display object (like a Sprite) and a Pointer. If no Pointer is given the Input.activePointer is used.
+
+    // The calculation is made from the display objects x/y coordinate. This may be the top-left if its anchor hasn't been changed.
+    // If you need to calculate from the center of a display object instead use the method distanceBetweenCenters()
+    // The optional world argument allows you to return the result based on the Game Objects world property,  instead of its x and y values. This is useful of the object has been nested inside an offset Group, or parent Game Object.
+    this.game.debug.text(`Distance to pointer: ${this.physics.arcade.distanceToPointer(this.ball).toFixed(1)}`, 32, 32);
+
+    ```
+# move-towards-object
+  - group.enableBody
+    ```js
+    // http://localhost:3000/Phaser.Group.html#enableBody
+    // enableBody :boolean
+    // If true all Sprites created by, or added to this group, will have a physics body enabled on them.
+    // If there are children already in the Group at the time you set this property, they are not changed.
+    // The default body type is controlled with physicsBodyType.
+    this.balls.enableBody = true;
+
+    ```
