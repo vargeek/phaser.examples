@@ -71,4 +71,6 @@ class App {
   }
 }
 
-const app = new App(AccelerateToPointerState);
+// const app = new App(BodyEnableState);
+// const app = new App(CircleBodyState);
+const app = new App(GravityState);
