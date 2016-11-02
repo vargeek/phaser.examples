@@ -265,3 +265,177 @@
     this.balls.enableBody = true;
 
     ```
+# angle-between
+  - arcade.angleBetween
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#angleBetween
+    // angleBetween(source, target, world) → {number}
+    // Find the angle in radians between two display objects (like Sprites).
+    // 以source为原点，求target所在的角度
+
+    // source, target: The Display Object to test from, to
+
+    // world: boolean (false)
+    // Calculate the angle using World coordinates (true), or Object coordinates (false, the default)
+    // The optional world argument allows you to return the result based on the Game Objects world property, instead of its x and y values. This is useful of the object has been nested inside an offset Group, or parent Game Object.
+    this.arrow.rotation = this.physics.arcade.angleBetween(this.arrow, this.target);
+
+    ```
+# angle-to-pointer
+  - arcade.angleToPointer
+    ```js
+    //  This will update the sprite.rotation so that it points to the currently active pointer
+    //  On a Desktop that is the mouse, on mobile the most recent finger press.
+
+    // http://localhost:3000/Phaser.Physics.Arcade.html#angleToPointer
+    // angleToPointer(displayObject, pointer, world) → {number}
+    // Find the angle in radians between a display object (like a Sprite) and a Pointer, taking their x/y and center into account.
+
+    // pointer: he Phaser.Pointer to test to. If none is given then Input.activePointer is used.
+
+    // world: boolean (false)
+    // Calculate the angle using World coordinates (true), or Object coordinates (false, the default)
+    // The optional world argument allows you to return the result based on the Game Objects world property, instead of its x and y values. This is useful of the object has been nested inside an offset Group, or parent Game Object.
+    this.sprite.rotation = this.physics.arcade.angleToPointer(this.sprite);
+
+    ```
+# multi-angle-to-pointer
+# angular-velocity
+  - body.velocity
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#velocity
+    // velocity :Phaser.Point
+    // The velocity, or rate of change in speed of the Body. Measured in pixels per second.
+    (this.sprite.body as Body).velocity.x = 0;
+
+    ```
+  - body.angularVelocity
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#angularVelocity
+    // angularVelocity :number
+    // The angular velocity controls the rotation speed of the Body. It is measured in degrees per second.
+    (this.sprite.body as Body).angularVelocity = 0;
+
+    ```
+  - arcade.velocityFromAngle
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#velocityFromAngle
+    // velocityFromAngle(angle, speed, point) → {Phaser.Point}
+    // 根据速度大小和角度，计算速度矢量
+    // Given the angle (in degrees) and speed calculate the velocity and return it as a Point object, or set it to the given point object.
+    // One way to use this is: velocityFromAngle(angle, 200, sprite.velocity) which will set the values directly to the sprites velocity and not create a new Point object.
+
+    // point: 可选，保存计算结果
+    // The Point object in which the x and y properties will be set to the calculated velocity.
+    this.physics.arcade.velocityFromAngle(this.sprite.angle, 300, this.sprite.body.velocity);
+
+    ```
+  - body.angularAcceleration
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#angularAcceleration
+    // angularAcceleration :number
+    // The angular acceleration is the rate of change of the angular velocity. Measured in degrees per second squared.
+    this.game.debug.text(`angularAcceleration: ${this.sprite.body.angularAcceleration}`, 23, 232);
+
+    ```
+  - body.angularDrag
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#angularDrag
+    // angularDrag :number
+    // The drag applied during the rotation of the Body. Measured in degrees per second squared.
+    this.game.debug.text(`angularDrag: ${this.sprite.body.angularDrag}`, 32, 264);
+
+    ```
+  - body.deltaZ()
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#deltaZ
+    // deltaZ() → {number}
+    // Returns the delta z value. The difference between Body.rotation now and in the previous step.
+
+    ```
+# angular-acceleration
+  - body.maxAngular
+    ```js
+    //  We'll set a lower max angular velocity here to keep it from going totally nuts
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#maxAngular
+    // maxAngular :number
+    // The maximum angular velocity in degrees per second that the Body can reach.
+    (this.sprite.body as Body).maxAngular = 500;
+
+    ```
+  - body.angularDrag
+    ```js
+    //  Apply a drag otherwise the sprite will just spin and never slow down
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#angularDrag
+    // 角阻力
+    // angularDrag :number
+    // The drag applied during the rotation of the Body. Measured in degrees per second squared.
+    (this.sprite.body as Body).angularDrag = 50;
+
+    ```
+# rotate-to-sprite
+  - math.rotateToAngle
+    ```js
+    // http://localhost:3000/Phaser.Math.html#rotateToAngle
+    // rotateToAngle(currentAngle, targetAngle, lerp) → {number}
+    // Rotates currentAngle towards targetAngle, taking the shortest rotation distance.
+    // The lerp argument is the amount to rotate by in this call.
+
+    ```
+# shoot-the-pointer
+  - group.countDead()
+    ```js
+    // http://localhost:3000/Phaser.Group.html#countDead
+    // countDead() → {integer}
+    // Get the number of dead children in this group.
+    if (this.time.now > this.nextFire && this.bullets.countDead() > 0) { }
+
+    ```
+  - group.countLiving()
+    ```js
+    // http://localhost:3000/Phaser.Group.html#countLiving
+    // countLiving() → {integer}
+    // Get the number of living children in this group.
+    this.game.debug.text(`Active Bullets: ${this.bullets.countLiving()} / ${this.bullets.total}`, 32, 32);
+
+    ```
+# mass-velocity-test
+  - body.allowRotation
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#allowRotation
+    // allowRotation :boolean (true)
+    // Allow this Body to be rotated? (via angularVelocity, etc)
+    (this.car.body as Body).allowRotation = true;
+
+    ```
+# asteroids-movement
+  - body.drag
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#drag
+    // drag :Phaser.Point
+    // 阻力
+    // The drag applied to the motion of the Body.
+    this.sprite.body.drag.set(100);
+
+    ```
+  - body.maxVelocity
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#maxVelocity
+    // maxVelocity :Phaser.Point
+    // The maximum velocity in pixels per second sq. that the Body can reach.
+    this.sprite.body.maxVelocity.set(200);
+
+    ```
+  - arcade.accelerationFromRotation
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#accelerationFromRotation
+    // accelerationFromRotation(rotation, speed, point) → {Phaser.Point}
+    // Given the rotation (in radians) and speed calculate the acceleration and return it as a Point object, or set it to the given point object.
+
+    // One way to use this is: accelerationFromRotation(rotation, 200, sprite.acceleration) which will set the values directly to the sprites acceleration and not create a new Point object.
+
+    // point: 可选，保存计算结果
+    // The Point object in which the x and y properties will be set to the calculated acceleration.
+    this.physics.arcade.accelerationFromRotation(this.sprite.rotation, 200,
+
+    ```

@@ -77,4 +77,13 @@ class App {
 // const app = new App(AccelerateToPointerState);
 // const app = new App(DistanceToPointerState);
 // const app = new App(MoveToPointerState);
-const app = new App(MoveTowardsObjectState);
+// const app = new App(MoveTowardsObjectState);
+// const app = new App(AngleBetweenState);
+// const app = new App(AngleToPointerState);
+// const app = new App(MultiAngleToPointerState);
+// const app = new App(AngularVelocityState);
+// const app = new App(AngularAccelerationState);
+// const app = new App(RotateToSpriteState);
+// const app = new App(ShootThePointerState);
+// const app = new App(MassVelocityTestState);
+const app = new App(AsteroidsMovementState);
