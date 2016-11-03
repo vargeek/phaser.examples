@@ -723,3 +723,76 @@
     this.bmd.dirty = true;
 
     ```
+# snake
+# multiball
+# masked-collision
+  - sprite.data
+    ```js
+    //  And let's link the saw to the platform
+    // http://localhost:3000/Phaser.Image.html#data
+    // data :Object
+    // An empty Object that belongs to this Game Object.
+    // This value isn't ever used internally by Phaser, but may be used by your own code, or
+    // by Phaser Plugins, to store data that needs to be associated with the Game Object,
+    // without polluting the Game Object directly.
+    saw1.data.platform = this.platform1;
+
+    ```
+  - add.emitter
+    ```js
+    // http://localhost:3000/Phaser.GameObjectFactory.html#emitter
+    // emitter(x, y, maxParticles) → {Phaser.Particles.Arcade.Emitter}
+    // Create a new Emitter.
+    // A particle emitter can be used for one-time explosions or for
+    // continuous effects like rain and fire. All it really does is launch Particle objects out
+    // at set intervals, and fixes their positions and velocities accordingly.
+    this.emitter = this.add.emitter(0, 0, 64);
+
+    ```
+  - emitter.makeParticles
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#makeParticles
+    // makeParticles(keys, frames, quantity, collide, collideWorldBounds) → {Phaser.Particles.Arcade.Emitter}
+    // This function generates a new set of particles for use by this emitter.
+    // The particles are stored internally waiting to be emitted via Emitter.start.
+    this.emitter.makeParticles('blood');
+
+    ```
+  - emitter.minParticleSpeed
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#minParticleSpeed
+    // minParticleSpeed :Phaser.Point
+    // The minimum possible velocity of a particle.
+    this.emitter.minParticleSpeed.set(-200, -200);
+
+    ```
+  - emitter.maxParticleSpeed
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#maxParticleSpeed
+    // maxParticleSpeed :Phaser.Point
+    // The maximum possible velocity of a particle.
+    this.emitter.maxParticleSpeed.set(200, -300);
+
+    ```
+  - emitter.bounce
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#bounce
+    // bounce :Phaser.Point
+    // How much each particle should bounce on each axis. 1 = full bounce, 0 = no bounce.
+    this.emitter.bounce.set(0.5);
+
+    ```
+  - emitter
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#start
+    // start(explode, lifespan, frequency, quantity, forceQuantity) → {Phaser.Particles.Arcade.Emitter}
+    // Call this function to start emitting particles.
+    this.emitter.start(true, 2000, null, 10);
+
+    ```
+# launcher
+# launcher-follow
+# launcher-follow-world
+# body-debug
+# body-scale
+# platformer-tight

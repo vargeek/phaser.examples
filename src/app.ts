@@ -113,4 +113,10 @@ class App {
 // const app = new App(GlobalPauseState);
 // const app = new App(MoveOverDistanceState);
 // const app = new App(PlatformerBasicsState);
-const app = new App(ShipTrailState);
+// const app = new App(ShipTrailState);
+// const app = new App(SnakeState);
+// const app = new App(MultiballState);
+// const app = new App(MaskedCollisionState);
+// const app = new App(LauncherState);
+// const app = new App(LauncherFollowState);
+const app = new App(LauncherFollowWorldState);
