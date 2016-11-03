@@ -101,4 +101,7 @@ class App {
 // const app = new App(QuadtreeCollisionInfosState);
 // const app = new App(BoundingBoxState);
 // const app = new App(LargerBoundingBoxState);
-const app = new App(OffsetBoundingBoxState);
+// const app = new App(OffsetBoundingBoxState);
+// const app = new App(OnCollideEventState);
+// const app = new App(WorldBoundsEventState);
+const app = new App(ProcessCallbackState);

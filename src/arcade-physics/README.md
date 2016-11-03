@@ -515,3 +515,44 @@
   - body.setSize
 # offset-bounding-box
   - body.setSize
+# on-collide-event
+  - body.onCollide
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#onCollide
+    // onCollide :Phaser.Signal
+    // A Signal that is dispatched when this Body collides with another Body.
+
+    // You still need to call game.physics.arcade.collide in your update method in order for this signal to be dispatched.
+
+    // Usually you'd pass a callback to the collide method, but this signal provides for a different level of notification.
+
+    // Due to the potentially high volume of signals this could create it is disabled by default.
+
+    // To use this feature set this property to a Phaser.Signal: sprite.body.onCollide = new Phaser.Signal()
+    // and it will be called when a collision happens, passing two arguments: the sprites which collided.
+    // The first sprite in the argument is always the owner of this Body.
+
+    // If two Bodies with this Signal set collide, both will dispatch the Signal.
+    this.face1.body.onCollide = new Phaser.Signal();
+    this.face1.body.onCollide.add(this.hitSprite, this);
+
+    ```
+  - body.onCollide v.s. arcade.collide(...,collideCallback,...)
+# world-bounds-event
+  - body.onWorldBounds
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#onWorldBounds
+    // onWorldBounds :Phaser.Signal
+    // A Signal that is dispatched when this Body collides with the world bounds.
+
+    // Due to the potentially high volume of signals this could create it is disabled by default.
+    // To use this feature set this property to a Phaser.Signal: sprite.body.onWorldBounds = new Phaser.Signal()
+    // and it will be called when a collision happens, passing five arguments:
+    // onWorldBounds(sprite, up, down, left, right)
+    // where the Sprite is a reference to the Sprite that owns this Body, and the other arguments are booleans
+    // indicating on which side of the world the Body collided.
+    face.body.onWorldBounds = new Phaser.Signal();
+
+    ```
+# process-callback
+  - arcade.collide(..., processCallback, ...)
