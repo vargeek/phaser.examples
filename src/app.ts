@@ -98,4 +98,7 @@ class App {
 // const app = new App(SortDirectionVerticalState);
 // const app = new App(NestedGroupState);
 // const app = new App(OneWayCollisionState);
-const app = new App(QuadtreeCollisionInfosState);
+// const app = new App(QuadtreeCollisionInfosState);
+// const app = new App(BoundingBoxState);
+// const app = new App(LargerBoundingBoxState);
+const app = new App(OffsetBoundingBoxState);

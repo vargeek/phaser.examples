@@ -509,3 +509,9 @@
     // sprite.skipQuadTree
 
     ```
+# bounding-box
+  - arcade.collide
+# larger-bounding-box
+  - body.setSize
+# offset-bounding-box
+  - body.setSize
