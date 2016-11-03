@@ -110,4 +110,7 @@ class App {
 // const app = new App(BounceAcceleratorState);
 // const app = new App(BounceKnockState);
 // const app = new App(BounceWithGravityState);
-const app = new App(GlobalPauseState);
+// const app = new App(GlobalPauseState);
+// const app = new App(MoveOverDistanceState);
+// const app = new App(PlatformerBasicsState);
+const app = new App(ShipTrailState);

@@ -624,3 +624,102 @@
     this.physics.arcade.isPaused = !this.physics.arcade.isPaused;
 
     ```
+# move-over-distance
+  - body.moveTo
+    ```js
+    //  Move the Body 300 pixels to the right, over 2000 ms
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#moveTo
+    // moveTo(duration, distance, direction) → {boolean}
+    // Note: This method is experimental, and may be changed or removed in a future release.
+
+    // This method moves the Body in the given direction, for the duration specified.
+    // It works by setting the velocity on the Body, and an internal distance counter.
+    // The distance is monitored each frame. When the distance equals the distance
+    // specified in this call, the movement is stopped, and the Body.onMoveComplete
+    // signal is dispatched.
+
+    // Movement also stops if the Body collides or overlaps with any other Body.
+
+    // stop manually:
+    // You can control if the velocity should be reset to zero on collision, by using
+    // the property Body.stopVelocityOnCollide.
+
+    // Stop the movement at any time by calling Body.stopMovement.
+
+    // 精确性:
+    // Please note that due to browser timings you should allow for a variance in
+    // when the distance will actually expire.
+
+    // 不受其他力影响:
+    // Note: This method doesn't take into consideration any other forces acting
+    // on the Body, such as Gravity, drag or maxVelocity, all of which may impact the
+    // movement.
+    this.sprite.body.moveTo(2000, 300, Phaser.ANGLE_RIGHT);
+
+    ```
+  - body.stopVelocityOnCollide
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#stopVelocityOnCollide
+    // stopVelocityOnCollide :boolean
+    // Set by the moveTo and moveFrom methods.
+
+    ```
+  - body.onMoveComplete
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#onMoveComplete
+    // onMoveComplete :Phaser.Signal
+    // Listen for the completion of moveTo or moveFrom events.
+    this.sprite.body.onMoveComplete.add(this.moveOver, this);
+
+    ```
+# platformer-basics
+  - body.onFloor
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#onFloor
+    // onFloor() → {boolean}
+    // Returns true if the bottom of this Body is in contact with either the world bounds or a tile.
+    if (this.jumpButton.isDown && this.player.body.onFloor() && this.time.now > this.jumpTimer) { }
+
+    ```
+  - time.desiredFps
+    ```js
+    // http://localhost:3000/Phaser.Time.html#desiredFps
+    // desiredFps :integer
+    // The desired frame rate of the game.
+
+    // This is used is used to calculate the physic / logic multiplier and how to apply catch-up logic updates. The desired frame rate of the game. Defaults to 60.
+    this.time.desiredFps = 30;
+
+    ```
+  - time.suggestedFps
+    ```js
+    // http://localhost:3000/Phaser.Time.html#suggestedFps
+    // suggestedFps :number
+    // The suggested frame rate for your game, based on an averaged real frame rate.
+    // This value is only populated if Time.advancedTiming is enabled.
+
+    // Note: This is not available until after a few frames have passed; until then
+    // it's set to the same value as desiredFps.
+    this.game.debug.text(this.time.suggestedFps.toString(), 32, 32);
+
+    ```
+  - time.physicsElapsed
+    ```js
+    // http://localhost:3000/Phaser.Time.html#physicsElapsed
+    // physicsElapsed :number
+    // The physics update delta, in fractional seconds.
+    // This should be used as an applicable multiplier by all logic update steps (eg. preUpdate/postUpdate/update)
+    // to ensure consistent game timing. Game/logic timing can drift from real-world time if the system
+    // is unable to consistently maintain the desired FPS.
+    // With fixed-step updates this is normally equivalent to 1.0 / desiredFps.
+    this.game.debug.text(this.time.physicsElapsed.toString(), 32, 64);
+
+    ```
+# ship-trail
+  - bitmapData.dirty
+    ```js
+    // http://localhost:3000/Phaser.BitmapData.html#dirty
+    // If dirty this BitmapData will be re-rendered.
+    this.bmd.dirty = true;
+
+    ```
