@@ -597,3 +597,20 @@
     this.sprite.events.onDragStop.add(this.stopDrag, this);
 
     ```
+# bounce
+  - add.tween(Phaser.Easing.Bounce.In)
+# bounce-accelerator
+  - body.acceleration
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.Body.html#acceleration
+    // acceleration :Phaser.Point
+
+    // The acceleration is the rate of change of the velocity. Measured in pixels per second squared.
+    this.flyer.body.acceleration.y = -600;
+
+    ```
+# bounce-knock
+  - body.bounce
+# bounce-with-gravity
+  - body.bounce
+  - body.gravity

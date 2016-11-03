@@ -105,4 +105,8 @@ class App {
 // const app = new App(OnCollideEventState);
 // const app = new App(WorldBoundsEventState);
 // const app = new App(ProcessCallbackState);
-const app = new App(GravityAndDragState);
+// const app = new App(GravityAndDragState);
+// const app = new App(BounceState);
+// const app = new App(BounceAcceleratorState);
+// const app = new App(BounceKnockState);
+const app = new App(BounceWithGravityState);
