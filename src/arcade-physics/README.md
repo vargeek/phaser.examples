@@ -614,3 +614,13 @@
 # bounce-with-gravity
   - body.bounce
   - body.gravity
+# global-pause
+  - body.arcade
+    ```js
+    // http://localhost:3000/Phaser.Physics.Arcade.html#isPaused
+    // isPaused :boolean
+    // If true the Body.preUpdate method will be skipped, halting all motion for all bodies.
+    // Note that other methods such as collide will still work, so be careful not to call them on paused bodies.
+    this.physics.arcade.isPaused = !this.physics.arcade.isPaused;
+
+    ```

@@ -109,4 +109,5 @@ class App {
 // const app = new App(BounceState);
 // const app = new App(BounceAcceleratorState);
 // const app = new App(BounceKnockState);
-const app = new App(BounceWithGravityState);
+// const app = new App(BounceWithGravityState);
+const app = new App(GlobalPauseState);
