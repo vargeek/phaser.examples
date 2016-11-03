@@ -104,4 +104,5 @@ class App {
 // const app = new App(OffsetBoundingBoxState);
 // const app = new App(OnCollideEventState);
 // const app = new App(WorldBoundsEventState);
-const app = new App(ProcessCallbackState);
+// const app = new App(ProcessCallbackState);
+const app = new App(GravityAndDragState);
