@@ -63,7 +63,7 @@ class App {
   }
 }
 
-const app = new App(BitmapFontCacheAsBitmapState);
+// const app = new App(BitmapFontCacheAsBitmapState);
 // const app = new App(BitmapFontFromTextureAtlasState);
 // const app = new App(BitmapFontsState);
 // const app = new App(BitmapfontDragState);
@@ -106,4 +106,4 @@ const app = new App(BitmapFontCacheAsBitmapState);
 // const app = new App(TextTintState);
 // const app = new App(TextWithPhysicsState);
 // const app = new App(UpdateTextState);
-// const app = new App(WordWrapState);
+const app = new App(WordWrapState);
