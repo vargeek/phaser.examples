@@ -1,0 +1,248 @@
+# accelerate-to-object
+  - p2.enable>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#enable
+    // enable(object, debug, children)
+    // debug{boolean=false}     Create a debug object to go with this body?
+    // children{boolean=true}   Should a body be created on all children of this object? If true it will recurse down the display list as far as it can go.
+
+    // This will create a P2 Physics body on the given game object or array of game objects.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+    // Note: When the game object is enabled for P2 physics it has its anchor x/y set to 0.5 so it becomes centered.
+    this.physics.p2.enable(bullet, false);
+
+    ```
+  - body.rotateLeft>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#rotateLeft
+    // rotateLeft(speed)
+    // This will rotate the Body by the given speed to the left (counter-clockwise).
+
+    ```
+  - body.rotateRight>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#rotateRight
+    // rotateRight(speed)
+    // This will rotate the Body by the given speed to the left (clockwise).
+    this.ship.body.rotateRight(100);
+
+    ```
+  - body.setZeroRotation>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#setZeroRotation
+    // If this Body is dynamic then this will zero its angular velocity.
+    this.ship.body.setZeroRotation();
+
+    ```
+  - body.thrust>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#thrust
+    // thrust(speed)
+    // Applies a force to the Body that causes it to 'thrust' forwards, based on its current angle and the given speed.
+    // The speed is represented in pixels per second. So a value of 100 would move 100 pixels in 1 second (1000ms).
+    this.ship.body.thrust(400);
+
+    ```
+  - body.reverse>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#reverse
+    // reverse(speed)
+
+    // Applies a force to the Body that causes it to 'thrust' backwards (in reverse), based on its current angle and the given speed.
+    // The speed is represented in pixels per second. So a value of 100 would move 100 pixels in 1 second (1000ms).
+    this.ship.body.reverse(400);
+
+    ```
+  - body.rotation>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#rotation
+    // rotation :number
+    // The angle of the Body in radians.
+    // If you wish to work in degrees instead of radians use the Body.angle property instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in radians.
+    obj1.body.rotation = angle + this.math.degToRad(90);
+
+    ```
+  - body.angle>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#angle
+    // angle :number
+    // The angle of the Body in degrees from its original orientation. Values from 0 to 180 represent clockwise rotation; values from 0 to -180 represent counterclockwise rotation.
+    // Values outside this range are added to or subtracted from 360 to obtain a value within the range. For example, the statement Body.angle = 450 is the same as Body.angle = 90.
+    // If you wish to work in radians instead of degrees use the property Body.rotation instead. Working in radians is faster as it doesn't have to convert values. The angle of this Body in degrees.
+
+    ```
+  - body.force>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#force
+    // force :Phaser.Physics.P2.InversePointProxy
+    // The force applied to the body.
+    obj1.body.force.x = Math.cos(angle) * speed;
+
+    ```
+# basic-movement
+  - body.setZeroDamping>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#setZeroDamping
+    // setZeroDamping()
+    // Sets the Body damping and angularDamping to zero.
+
+    ```
+  - body.damping>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#damping
+    // damping :number
+    // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The linear damping acting on the body in the velocity direction.
+
+    ```
+  - body.angularDamping>
+    ```js
+
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#angularDamping
+    // angularDamping :number
+    // Damping is specified as a value between 0 and 1, which is the proportion of velocity lost per second. The angular damping acting acting on the body.
+
+    ```
+  - body.fixedRotation>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#fixedRotation
+	  this.sprite.body.fixedRotation = true;
+
+    ```
+  - body.setZeroVelocity>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#setZeroVelocity
+    // setZeroVelocity()
+    // If this Body is dynamic then this will zero its velocity on both axis.
+
+    ```
+  - body.moveLeft>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#moveLeft
+    // moveLeft(speed)
+    // If this Body is dynamic then this will move it to the left by setting its x velocity to the given speed.
+    // The speed is represented in pixels per second. So a value of 100 would move 100 pixels in 1 second (1000ms).
+    this.sprite.body.moveLeft(400);
+
+    ```
+  - body.moveRight>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#moveRight
+
+    ```
+  - body.moveUp>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#moveUp
+
+    ```
+  - body.moveDown>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#moveDown
+
+    ```
+# body-click
+  - load.physics>
+    ```js
+    // http://localhost:3000/Phaser.Loader.html#physics
+    // Adds a physics data file to the current load queue.
+    // The data must be in Lime + Corona JSON format. Physics Editor by code'n'web exports in this format natively.
+
+    // You can choose to either load the data externally, by providing a URL to a json file.
+    // Or you can pass in a JSON object or String via the data parameter.
+    // If you pass a String the data is automatically run through JSON.parse and then immediately added to the Phaser.Cache.
+
+    // If a URL is provided the file is not loaded immediately after calling this method, but is added to the load queue.
+
+    // The key must be a unique String. It is used to add the file to the Phaser.Cache upon successful load.
+
+    // Retrieve the file via Cache.getJSON(key). JSON files are automatically parsed upon load.
+    // If you need to control when the JSON is parsed then use Loader.text instead and parse the text file as needed.
+
+    // The URL can be relative or absolute. If the URL is relative the Loader.baseURL and Loader.path values will be prepended to it.
+
+    // If the URL isn't specified and no data is given then the Loader will take the key and create a filename from that.
+    // For example if the key is "alien" and no URL or data is given then the Loader will set the URL to be "alien.json".
+    // It will always use .json as the extension.
+    this.load.physics('physicsData', 'assets/physics/sprites.json');
+
+    ```
+  - body.clearShapes>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#clearShapes
+    // clearShapes()
+    // Removes all Shapes from this Body.
+
+    ```
+  - body.loadPolygon>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#loadPolygon
+    // loadPolygon(key, object) → {boolean}
+    // key{string}    The key of the Physics Data file as stored in Game.Cache. Alternatively set to null and pass the data as the 2nd argument.
+    // object{string|object}    The key of the object within the Physics data file that you wish to load the shape data from, or if key is null pass the actual physics data object itself as this parameter.
+
+    // Reads the shape data from a physics data file stored in the Game.Cache and adds it as a polygon to this Body.
+    // As well as reading the data from the Cache you can also pass null as the first argument and a physics data object as the second.
+    // When doing this you must ensure the structure of the object is correct in advance.
+    // For more details see the format of the Lime / Corona Physics Editor export.
+    this.contra.body.loadPolygon('physicsData', 'contra2');
+
+    ```
+  - body.setCircle>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#setCircle
+    // setCircle(radius, offsetX, offsetY, rotation)
+    // Clears any previously set shapes. Then creates a new Circle shape and adds it to this Body.
+    // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+    this.wizball.body.setCircle(45);
+
+    ```
+  - p2.hitTest>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#hitTest
+    // hitTest(worldPoint, bodies, precision, filterStatic) → {Array}
+    // precision{number=5}          Used for matching against particles and lines. Adds some margin to these infinitesimal objects.
+    // filterStatic{number=false}   If true all Static objects will be removed from the results array.
+
+    // Test if a world point overlaps bodies. You will get an array of actual P2 bodies back.
+    // You can find out which Sprite a Body belongs to (if any) by checking the Body.parent.sprite property.
+    // Body.parent is a Phaser.Physics.P2.Body property.
+    let bodies = this.physics.p2.hitTest(pointer.position, [this.contra, this.bunny, this.block, this.wizball]);
+
+    ```
+  - body.parent.sprite
+# body-debug
+# chain
+# collide-custom-bounds
+# collide-world-bounds
+# collision-groups
+# contact-events
+# contact-material
+# distance-constraint
+# gear-constraint
+# gravity-scale
+# gravity
+# impact-events
+# kill-and-revive
+# kinematic-body
+# load-polygon-1
+# load-polygon-2
+# load-polygon-3
+# lock-constraint
+# mouse-spring
+# movement-constraint
+# physics-group
+# pick-up-object
+# platformer-material
+# postbroadphase-callback
+# prismatic-constraint
+# remove-spring
+# revolute-constraint
+# springs
+# state-reset
+# static-body
+# thrust-left-right
+# thrust
+# tilemap-gravity
+# tilemap
+# tilesprite
+# world-boundary
+# world-move

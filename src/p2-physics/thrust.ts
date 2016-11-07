@@ -1,0 +1,14 @@
+import { BootState } from '../boot.state';
+import { AssetID } from '../constant';
+
+export class ThrustState extends BootState {
+
+  preload () {
+
+  }
+
+  create () {
+
+  }
+
+}
