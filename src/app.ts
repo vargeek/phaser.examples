@@ -48,7 +48,7 @@ class App {
   }
 }
 
-const app = new App(BlankTilemapState);
+// const app = new App(BlankTilemapState);
 // const app = new App(CreateFromArrayState);
 // const app = new App(CreateFromObjectsState);
 // const app = new App(CsvMapCollideState);
@@ -76,4 +76,4 @@ const app = new App(BlankTilemapState);
 // const app = new App(TileCallbacksState);
 // const app = new App(TilePropertiesState);
 // const app = new App(TilemapRayCastState);
-// const app = new App(TilesetFromBitmapdataState);
+const app = new App(TilesetFromBitmapdataState);
