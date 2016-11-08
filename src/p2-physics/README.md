@@ -575,8 +575,17 @@
     let constraint1 = this.physics.p2.createGearConstraint(this.sprite, sonic1, 0, 1);
 
     ```
-# gravity-scale
 # gravity
+# gravity-scale
+  - body.data>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#data
+    // <internal> data :p2.Body
+    // The p2 Body data.
+    // This member is internal (protected) and may be modified or removed in the future.
+    this.sprite1.body.data.gravityScale = 1;
+
+    ```
 # impact-events
 # kill-and-revive
 # kinematic-body
