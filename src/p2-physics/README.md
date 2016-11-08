@@ -881,10 +881,63 @@
     ```
 # state-reset
 # static-body
-# thrust-left-right
+  - body.static
+  - v.s. body.kinematic
 # thrust
-# tilemap-gravity
+  - body.thrust
+# thrust-left-right
+  - body.thrustLeft>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#thrustLeft
+    // thrustLeft(speed)
+
+    // Applies a force to the Body that causes it to 'thrust' to the left, based on its current angle and the given speed.
+    // The speed is represented in pixels per second. So a value of 100 would move 100 pixels in 1 second (1000ms).
+    this.ship.body.thrustLeft(100);
+
+    ```
+  - body.thrustRight>
+    ```js
+      // http://localhost:3000/Phaser.Physics.P2.Body.html#thrustRight
+      // thrustRight(speed)
+      // Applies a force to the Body that causes it to 'thrust' to the right, based on its current angle and the given speed.
+      // The speed is represented in pixels per second. So a value of 100 would move 100 pixels in 1 second (1000ms).
+      this.ship.body.thrustRight(100);
+
+    ```
 # tilemap
+  - p2.convertTilemap>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#convertTilemap
+    // convertTilemap(map, layer, addToWorld, optimize) → {array}
+    // addToWorld{boolean=true}   If true it will automatically add each body to the world, otherwise it's up to you to do so.
+    // optimize{boolean=true}     If true adjacent colliding tiles will be combined into a single body to save processing. However it means you cannot perform specific Tile to Body collision responses.
+    // Returns: An array of the Phaser.Physics.P2.Body objects that were created.
+
+    // Goes through all tiles in the given Tilemap and TilemapLayer and converts those set to collide into physics bodies.
+    // Only call this after you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
+    // Every time you call this method it will destroy any previously created bodies and remove them from the world.
+    // Therefore understand it's a very expensive operation and not to be done in a core game update loop.
+    this.physics.p2.convertTilemap(this.map, this.layer);
+
+    ```
+  - p2.setBoundsToWorld>
+    ```js
+    //  By default the ship will collide with the World bounds,
+    //  however because you have changed the size of the world (via layer.resizeWorld) to match the tilemap
+    // 新版本不需要手动再调用一次了？
+    //  you need to rebuild the physics world boundary as well. The following
+    //  line does that. The first 4 parameters control if you need a boundary on the left, right, top and bottom of your world.
+    //  The final parameter (false) controls if the boundary should use its own collision group or not. In this case we don't require
+    //  that, so it's set to false. But if you had custom collision groups set-up then you would need this set to true.
+    this.physics.p2.setBoundsToWorld(true, true, true, true, false);
+
+    ```
+# tilemap-gravity
+  - checkIfCanJump
 # tilesprite
 # world-boundary
 # world-move
+# p2 phase
+  - broadphase(postbroadphase-callback)
+  - narrowphase(platformer-material)
