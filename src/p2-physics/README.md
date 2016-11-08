@@ -715,6 +715,90 @@
 
     ```
 # platformer-material
+  - p2.world>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#world
+    // <internal> world :p2.World
+    // The p2 World in which the simulation is run.
+
+    ```
+  - p2.World.defaultContactMaterial>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/World.html#property_defaultContactMaterial
+    // The default contact material to use, if no contact material was set for the colliding materials.
+    this.physics.p2.world.defaultContactMaterial.friction = 0.3;
+
+    ```
+  - p2.World.setGlobalStiffness>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/World.html#method_setGlobalStiffness
+    // Set the stiffness for all equations and contact materials.
+    this.physics.p2.world.setGlobalStiffness(1e5);
+
+    ```
+  - p2.createContactMaterial
+  - p2.World.narrowphase>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/World.html#property_narrowphase
+    // The narrowphase to use to generate contacts.
+    this.physics.p2.world.narrowphase
+
+    ```
+  - p2.World.narrowphase.contactEquations>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/Narrowphase.html#property_contactEquations
+    // narrowphase.contactEquations
+
+    // http://schteppe.github.io/p2.js/docs/classes/ContactEquation.html
+    // p2.ContactEquation
+
+    this.physics.p2.world.narrowphase.contactEquations
+
+    ```
+  - p2.vec2.dot>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/vec2.html#method_dot
+    // Calculates the dot product of two vec2's
+    var d = p2.vec2.dot(c.normalA, this.yAxis);
+
+    ```
+  - contactEquations.normalA>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/ContactEquation.html#property_normalA
+    // the normal vector, pointing out of body i
+    var d = p2.vec2.dot(c.normalA, this.yAxis);
+
+    ```
+  - checkIfCanJump (根据ground法向量与垂直向量的乘积(夹角))>
+    ```js
+    checkIfCanJump () {
+
+      var result = false;
+
+      for (var i=0; i < this.physics.p2.world.narrowphase.contactEquations.length; i++)
+      {
+          var c = this.physics.p2.world.narrowphase.contactEquations[i];
+
+          if (c.bodyA === this.player.body.data || c.bodyB === this.player.body.data)
+          {
+              var d = p2.vec2.dot(c.normalA, this.yAxis);
+
+              if (c.bodyA === this.player.body.data)
+              {
+                  d *= -1;
+              }
+
+              if (d > 0.5)
+              {
+                  result = true;
+              }
+          }
+      }
+
+      return result;
+    }
+
+    ```
 # postbroadphase-callback
 # prismatic-constraint
   - p2.createPrismaticConstraint>
