@@ -84,8 +84,8 @@ class App {
 // const app = new App(MovementConstraintState);
 // const app = new App(PhysicsGroupState);
 // const app = new App(PickUpObjectState);
-const app = new App(PlatformerMaterialState);
-// const app = new App(PostbroadphaseCallbackState);
+// const app = new App(PlatformerMaterialState);
+const app = new App(PostbroadphaseCallbackState);
 // const app = new App(PrismaticConstraintState);
 // const app = new App(RemoveSpringState);
 // const app = new App(RevoluteConstraintState);

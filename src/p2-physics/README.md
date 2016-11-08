@@ -800,6 +800,34 @@
 
     ```
 # postbroadphase-callback
+  - p2.setPostBroadphaseCallback>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#setPostBroadphaseCallback
+    // setPostBroadphaseCallback(callback, context)
+
+    // Sets a callback to be fired after the Broadphase has collected collision pairs in the world.
+    // Just because a pair exists it doesn't mean they will collide, just that they potentially could do.
+    // If your calback returns false the pair will be removed from the narrowphase. This will stop them testing for collision this step.
+    // Returning true from the callback will ensure they are checked in the narrowphase.
+    this.physics.p2.setPostBroadphaseCallback(this.checkVeg, this);
+
+
+    //  To explain - the post broadphase event has collected together all potential collision pairs in the world
+    //  It doesn't mean they WILL collide, just that they might do.
+
+    //  This callback is sent each collision pair of bodies. It's up to you how you compare them.
+    //  If you return true then the pair will carry on into the narrow phase, potentially colliding.
+    //  If you return false they will be removed from the narrow phase check all together.
+
+    //  In this simple example if one of the bodies is our space ship,
+    //  and the other body is the green pepper sprite (frame ID 4) then we DON'T allow the collision to happen.
+    //  Usually you would use a collision mask for something this simple, but it demonstates use.
+    if (body1.sprite.name === 'ship' && body2.sprite.frame === 4 ||
+       body2.sprite.name === 'ship' && body1.sprite.frame === 4) {
+      return false;
+    }
+
+    ```
 # prismatic-constraint
   - p2.createPrismaticConstraint>
     ```js
