@@ -484,7 +484,77 @@
     ```
 
 # contact-events
+  - body.onBeginContact>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#onBeginContact
+    // onBeginContact :Phaser.Signal
+    // Dispatched when a first contact is created between shapes in two bodies.
+    // This event is fired during the step, so collision has already taken place.
+
+    // The event will be sent 5 arguments in this order:
+    // The Phaser.Physics.P2.Body it is in contact with. This might be null if the Body was created directly in the p2 world.
+    // The p2.Body this Body is in contact with.
+    // The Shape from this body that caused the contact.
+    // The Shape from the contact body.
+    // The Contact Equation data array.
+    this.block.body.onBeginContact.add(this.blockHit, this);
+
+    blockHit (body: Body, bodyB: Body, shape: p2.Shape, shapeb: p2.Shape, equation:p2.Equation) {}
+
+    ```
 # contact-material
+  - p2.gravity>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#gravity
+    // gravity :Phaser.Physics.P2.InversePointProxy
+    // The gravity applied to all bodies each step.
+    this.physics.p2.gravity.y = 100;
+
+    ```
+  - p2.createMaterial
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createMaterial
+    // createMaterial(name, body) → {Phaser.Physics.P2.Material}
+    // name{string?}     Each Material has a unique ID but string names are handy for debugging.
+    // body{Body?}       If given it will assign the newly created Material to the Body shapes.
+
+    // Creates a Material. Materials are applied to Shapes owned by a Body and can be set with Body.setMaterial().
+    // Materials are a way to control what happens when Shapes collide. Combine unique Materials together to create Contact Materials.
+    // Contact Materials have properties such as friction and restitution that allow for fine-grained collision control between different Materials.
+    let spriteMaterial = this.physics.p2.createMaterial('spriteMaterial', this.sprite.body);
+
+    ```
+  - p2.setWorldMaterial>
+    ```js
+    this.physics.p2.setWorldMaterial(worldMaterial, true, true, true, true);
+
+    ```
+  - p2.createContactMaterial>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createContactMaterial
+    // createContactMaterial(materialA, materialB, options) → {Phaser.Physics.P2.ContactMaterial}
+    // Creates a Contact Material from the two given Materials. You can then edit the properties of the Contact Material directly.
+    let contactMaterial = this.physics.p2.createContactMaterial(spriteMaterial, worldMaterial);
+
+    // 摩擦力
+    // Friction to use in the contact of these two materials.
+    contactMaterial.friction = 0.3;
+    // 恢复系数
+    // Restitution (i.e. how bouncy it is!) to use in the contact of these two materials.
+    contactMaterial.restitution = 1.0;
+    // 刚度: 指材料或结构在受力时抵抗弹性变形的能力。
+    // Stiffness of the resulting ContactEquation that this ContactMaterial generate.
+    contactMaterial.stiffness = 1e7;
+    // Relaxation of the resulting ContactEquation that this ContactMaterial generate.
+    contactMaterial.relaxation = 3;
+    //  Stiffness of the resulting FrictionEquation that this ContactMaterial generate.
+    (contactMaterial as any).frictionStiffness = 1e7;
+    // Relaxation of the resulting FrictionEquation that this ContactMaterial generate.
+    contactMaterial.frictionRelaxation = 3;
+    // Will add surface velocity to this material. If bodyA rests on top if bodyB, and the surface velocity is positive, bodyA will slide to the right.
+    contactMaterial.surfaceVelocity = 0;
+
+    ```
 # distance-constraint
 # gear-constraint
 # gravity-scale
