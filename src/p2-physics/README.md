@@ -587,8 +587,45 @@
 
     ```
 # impact-events
+  - p2.setImpactEvents
+  - p2.createBodyCallback>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#createBodyCallback
+    // createBodyCallback(object, callback, callbackContext)
+
+    // Sets a callback to be fired any time a shape in this Body impacts with a shape in the given Body. The impact test is performed against body.id values.
+    // The callback will be sent 4 parameters: This body, the body that impacted, the Shape in this body and the shape in the impacting body.
+
+    // Note that the impact event happens after collision resolution, so it cannot be used to prevent a collision from happening.
+    // It also happens mid-step. So do not destroy a Body during this callback, instead set safeDestroy to true so it will be killed on the next preUpdate.
+
+    ```
+  - sprite.pendingDestroy = true;
+  - p2.createBodyCallback v.s. body.collides
 # kill-and-revive
 # kinematic-body
+  - body.kinematic>
+    ```js
+    //  Make kinematic - Kinematic means that the body will not be effected by
+    //  physics such as gravity and collisions, but can still move and
+    //  will fire collision events
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#kinematic
+    // kinematic :boolean
+    // Returns true if the Body is kinematic. Setting Body.kinematic to 'false' will make it static.
+    this.kinematic1.body.kinematic = true;
+
+    ```
+  - p2.mpxi>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#mpxi
+    // mpxi(v) → {number}
+    // Convert p2 physics value (meters) to pixel scale and inverses it.
+    // By default Phaser uses a scale of 20px per meter.
+    // If you need to modify this you can over-ride these functions via the Physics Configuration object.
+    this.kinematic1.body.velocity.x = -this.physics.p2.mpxi(this.kinematic1.body.velocity.x);
+
+    ```
+  - p2.pxmi v.s. p2.mpxi
 # load-polygon-1
 # load-polygon-2
 # load-polygon-3

@@ -71,11 +71,11 @@ class App {
 // const app = new App(ContactMaterialState);
 // const app = new App(DistanceConstraintState);
 // const app = new App(GearConstraintState);
-const app = new App(GravityScaleState);
+// const app = new App(GravityScaleState);
 // const app = new App(GravityState);
 // const app = new App(ImpactEventsState);
 // const app = new App(KillAndReviveState);
-// const app = new App(KinematicBodyState);
+const app = new App(KinematicBodyState);
 // const app = new App(LoadPolygon1State);
 // const app = new App(LoadPolygon2State);
 // const app = new App(LoadPolygon3State);
