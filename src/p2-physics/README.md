@@ -211,7 +211,197 @@
   - body.parent.sprite
 # body-debug
 # chain
+  - body.setRectangle>
+    ```js
+     // http://localhost:3000/Phaser.Physics.P2.Body.html#setRectangle
+      // setRectangle(width, height, offsetX, offsetY, rotation) → {p2.Rectangle}
+      // Clears any previously set shapes. The creates a new Rectangle shape at the given size and offset, and adds it to this Body.
+      // If you wish to create a Rectangle to match the size of a Sprite or Image see Body.setRectangleFromSprite.
+      // If this Body had a previously set Collision Group you will need to re-apply it to the new Shape this creates.
+      newRect.body.setRectangle(width, height);
+
+    ```
+  - body.static>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#static
+    // static :boolean
+    // Returns true if the Body is static. Setting Body.static to 'false' will make it dynamic.
+    (newRect.body as Body).static = true;
+
+    ```
+  - body.velocity>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#velocity
+    // velocity :Phaser.Physics.P2.InversePointProxy
+    // The velocity of the body. Set velocity.x to a negative value to move to the left, position to the right. velocity.y negative values move up, positive move down.
+    (newRect.body as Body).velocity.x = 400;
+
+    ```
+  - body.mass>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#mass
+    // mass :number
+    // The mass of the body.
+    (newRect.body as Body).mass =  length / index;
+
+    ```
+  - p2.createRevoluteConstraint>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createRevoluteConstraint
+    // createRevoluteConstraint(bodyA, pivotA, bodyB, pivotB, maxForce, worldPivot) → {Phaser.Physics.P2.RevoluteConstraint}
+    // pivotA{Array}        The point relative to the center of mass of bodyA which bodyA is constrained to. The value is an array with 2 elements matching x and y, i.e: [32, 32].
+    // maxForce{number=0}   The maximum force that should be applied to constrain the bodies.
+    // worldPivot{Float32Array=null}  A pivot point given in world coordinates. If specified, localPivotA and localPivotB are automatically computed from this value.
+    // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
+    // The pivot points are given in world (pixel) coordinates.
+    this.physics.p2.createRevoluteConstraint(newRect, [0, -10], lastRect, [0, 10], maxForce);
+
+    ```
+  - createRope>
+    ```js
+    createRope (length: number, xAnchor: number, yAnchor: number) {
+      let lastRect: Phaser.Sprite;
+      let height = 20;
+      let width = 16;
+      let maxForce = 20000;
+
+      for (let index = 0; index <= length; index++) {
+        let newRect: Phaser.Sprite;
+        let x = xAnchor;
+        let y = yAnchor + index * height;
+
+        if (index % 2 === 0) {
+          newRect = this.add.sprite(x, y, 'chain', 1);
+        }
+        else {
+          newRect = this.add.sprite(x, y, 'chain', 0);
+          lastRect.bringToTop();
+        }
+
+        this.physics.p2.enable(newRect, false);
+
+        (newRect.body as Body).setRectangle(width, height);
+
+        if (index === 0) {
+          (newRect.body as Body).static = true;
+        }
+        else {
+          (newRect.body as Body).velocity.x = 400;
+          (newRect.body as Body).mass =  length / index;
+        }
+
+        if (lastRect) {
+          this.physics.p2.createRevoluteConstraint(newRect, [0, -10], lastRect, [0, 10], maxForce);
+        }
+
+        lastRect = newRect;
+      }
+    }
+
+    ```
 # collide-custom-bounds
+  - p2.restitution>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#restitution
+    // restitution :number
+    // 碰撞前后两物体接触点的法向相对分离速度与法向相对接近速度之比。
+    // 恢复系数（符号为e）的取值为：弹性碰撞时e=1；完全非弹性碰撞时e=0。
+    // e = (u_2n - u_1n)/(v_2n-v_1n)
+
+    // Default coefficient of restitution between colliding bodies. This value is used if no matching ContactMaterial is found for a Material pair.
+    this.physics.p2.restitution = 0.9;
+
+    ```
+  - p2.pxmi>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#pxmi
+    // pxmi(v) → {number}
+    // Convert pixel value to p2 physics scale (meters) and inverses it.
+    // By default Phaser uses a scale of 20px per meter.
+    // If you need to modify this you can over-ride these functions via the Physics Configuration object.
+
+    ```
+  - p2.world.addBody>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#world
+    // <internal> world :p2.World
+    // The p2 World in which the simulation is run.
+    sim.world.addBody(this.customBounds.left);
+
+    ```
+  - p2.Body (p2js库里的p2)>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/Body.html
+    // Body ( [options] )
+    // A rigid body. Has got a center of mass, position, velocity and a number of shapes that are used for collisions.
+    this.customBounds.left = new p2.Body(<p2.BodyOptions>{
+      mass: 0,
+      position: [sim.pxmi(bounds.x), sim.pxmi(bounds.y)],
+      // 面朝向左边
+      angle: Math.PI/2,
+    });
+
+    ```
+  - body.addShape(p2js库里的p2.Body)>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/Body.html
+    // addShape ( shape  [offset]  [angle] )
+    // shape{Shape}
+    // offset{number[]}     Local body offset of the shape.
+    // angle{number}        Local body angle.
+    // Add a shape to the body. You can pass a local transform when adding a shape, so that the shape gets an offset and angle relative to the body center of mass. Will automatically update the mass properties and bounding radius.
+    this.customBounds.left.addShape(new p2.Plane(undefined));
+
+    ```
+  - customBounds>
+    ```js
+    createPreviewBounds(bounds: Phaser.Rectangle) {
+
+      let sim = this.physics.p2;
+      this.customBounds.left = new p2.Body(<p2.BodyOptions>{
+        mass: 0,
+        position: [sim.pxmi(bounds.x), sim.pxmi(bounds.y)],
+        angle: Math.PI/2,
+      });
+      this.customBounds.left.addShape(new p2.Plane(undefined));
+
+      this.customBounds.right = new p2.Body(<p2.BodyOptions>{
+        mass: 0,
+        position: [sim.pxmi(bounds.x + bounds.width), sim.pxmi(bounds.y)],
+        // 左右面都朝向盒子里面，所有这里为-Math.PI/2
+        angle: -Math.PI/2
+      });
+      this.customBounds.right.addShape(new p2.Plane(undefined));
+
+      this.customBounds.top = new p2.Body(<p2.BodyOptions>{
+        mass: 0,
+        position: [sim.pxmi(bounds.x), sim.pxmi(bounds.y)],
+        angle: -Math.PI,
+      });
+      this.customBounds.top.addShape(new p2.Plane(undefined));
+
+      this.customBounds.bottom = new p2.Body(<p2.BodyOptions>{
+        mass: 0,
+        position: [sim.pxmi(bounds.x), sim.pxmi(bounds.y + bounds.height)],
+        angle: 0,
+      });
+      this.customBounds.bottom.addShape(new p2.Plane(undefined));
+
+      sim.world.addBody(this.customBounds.left);
+      sim.world.addBody(this.customBounds.right)
+      sim.world.addBody(this.customBounds.top);
+      sim.world.addBody(this.customBounds.bottom);
+
+      //  If you want to use your own collision group then set it here and un-comment the lines below
+      let mask = sim.boundsCollisionGroup.mask;
+      // this.customBounds.left.shapes[0].collisionGroup = mask;
+      // this.customBounds.right.shapes[0].collisionGroup = mask;
+      // this.customBounds.top.shapes[0].collisionGroup = mask;
+      // this.customBounds.bottom.shapes[0].collisionGroup = mask;
+
+    }
+
+    ```
 # collide-world-bounds
 # collision-groups
 # contact-events
