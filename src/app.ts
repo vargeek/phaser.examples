@@ -68,7 +68,7 @@ class App {
 // const app = new App(CollideWorldBoundsState);
 // const app = new App(CollisionGroupsState);
 // const app = new App(ContactEventsState);
-const app = new App(ContactMaterialState);
+// const app = new App(ContactMaterialState);
 // const app = new App(DistanceConstraintState);
 // const app = new App(GearConstraintState);
 // const app = new App(GravityScaleState);
@@ -88,7 +88,7 @@ const app = new App(ContactMaterialState);
 // const app = new App(PostbroadphaseCallbackState);
 // const app = new App(PrismaticConstraintState);
 // const app = new App(RemoveSpringState);
-// const app = new App(RevoluteConstraintState);
+const app = new App(RevoluteConstraintState);
 // const app = new App(SpringsState);
 // const app = new App(StateResetState);
 // const app = new App(StaticBodyState);

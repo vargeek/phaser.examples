@@ -556,7 +556,25 @@
 
     ```
 # distance-constraint
+  - p2.createDistanceConstraint
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createDistanceConstraint
+    // createDistanceConstraint(bodyA, bodyB, distance, localAnchorA, localAnchorB, maxForce) → {Phaser.Physics.P2.DistanceConstraint}
+    // Creates a constraint that tries to keep the distance between two bodies constant.
+    let constraint = this.physics.p2.createDistanceConstraint(this.sprite1, this.sprite2, 150);
+
+    ```
 # gear-constraint
+  - p2.createGearConstraint>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createGearConstraint
+    // createGearConstraint(bodyA, bodyB, angle, ratio) → {Phaser.Physics.P2.GearConstraint}
+    // angle{number=0}    The relative angle
+    // ratio{number=1}    The gear ratio.
+    // Creates a constraint that tries to keep the distance between two bodies constant.
+    let constraint1 = this.physics.p2.createGearConstraint(this.sprite, sonic1, 0, 1);
+
+    ```
 # gravity-scale
 # gravity
 # impact-events
@@ -566,15 +584,73 @@
 # load-polygon-2
 # load-polygon-3
 # lock-constraint
+  - p2.createLockConstraint>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createLockConstraint
+    // createLockConstraint(bodyA, bodyB, offset, angle, maxForce) → {Phaser.Physics.P2.LockConstraint}
+    // Locks the relative position between two bodies.
+    let constraint = this.physics.p2.createLockConstraint(this.sprite, vu1, [0, 80], 0);
+
+    ```
 # mouse-spring
 # movement-constraint
+  - p2.createLockConstraint(maxForce:80)
 # physics-group
 # pick-up-object
 # platformer-material
 # postbroadphase-callback
 # prismatic-constraint
+  - p2.createPrismaticConstraint>
+    ```js
+    // See http://www.iforce2d.net/b2dtut/joints-prismatic
+    // The prismatic joint is probably more commonly known as a slider joint.
+    // The two joined bodies have their rotation held fixed relative to each other, and they can only move along a specified axis.
+    // Prismatic joints can be given limits so that the bodies can only move along the axis within a specific range.
+    // They can also be given a motor so that the bodies will try to move at a given speed, with a given force.
+    // Common uses for prismatic joints include: elevators, moving platforms, sliding doors, pistons
+    // localAxis1: the axis (line) of movement (relative to bodyA)
+    // the axis itself is not related to any particular point in the body, it only specifies a direction for the sliding movement.
+    // since this only specifies a direction for sliding, the negative of this vector is an equivalent direction
+    // localAnchorA: a point in body A to keep on the axis line
+    // localAnchorB: a point in body B to keep on the axis line
+
+    // http://localhost:3000/Phaser.Physics.P2.html#createPrismaticConstraint
+    // createPrismaticConstraint(bodyA, bodyB, lockRotation, anchorA, anchorB, axis, maxForce) → {Phaser.Physics.P2.PrismaticConstraint}
+    // lockRotation{boolean=true}     If set to false, bodyB will be free to rotate around its anchor point.
+    // anchorA{[number,number]}       Body A's anchor point, defined in its own local frame. The value is an array with 2 elements matching x and y, i.e: [32, 32].
+    // axis{number,number}            An axis, defined in body A frame, that body B's anchor point may slide along. The value is an array with 2 elements matching x and y, i.e: [32, 32].
+
+    // Constraint that only allows bodies to move along a line, relative to each other.
+    let constraint = this.physics.p2.createPrismaticConstraint(this.sprite, this.vu1, false, [150, 0], [-15, 0], new Float32Array([0, 1]));
+
+    ```
 # remove-spring
 # revolute-constraint
+  - p2.clearCollision>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#clearCollision
+    // clearCollision(clearGroup, clearMask, shape)
+    // clearGroup{boolean=true}   Clear the collisionGroup value from the shape/s?
+    // clearMask{boolean=true}    Clear the collisionMask value from the shape/s?
+    // shape{p2.Shape?}           If not provided the collision data will be cleared from all Shapes in this Body.
+
+    // Clears the collision data from the shapes in this Body. Optionally clears Group and/or Mask.
+    (this.sprite.body as Body).clearCollision(true, true);
+
+    ```
+  - p2.createRevoluteConstraint>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createRevoluteConstraint
+    // createRevoluteConstraint(bodyA, pivotA, bodyB, pivotB, maxForce, worldPivot) → {Phaser.Physics.P2.RevoluteConstraint}
+    // pivotA{[number,number]}    The point relative to the center of mass of bodyA which bodyA is constrained to. The value is an array with 2 elements matching x and y, i.e: [32, 32].
+    // maxForce{number=0}         The maximum force that should be applied to constrain the bodies.
+    // worldPivot{Float32Array=null}  A pivot point given in world coordinates. If specified, localPivotA and localPivotB are automatically computed from this value.
+
+    // Connects two bodies at given offset points, letting them rotate relative to each other around this point.
+    // The pivot points are given in world (pixel) coordinates.
+    let constraint = this.physics.p2.createRevoluteConstraint(this.sprite, [50, 100], vu1, [0, 0]);
+
+    ```
 # springs
 # state-reset
 # static-body
