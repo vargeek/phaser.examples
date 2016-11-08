@@ -683,6 +683,37 @@
   - p2.createLockConstraint(maxForce:80)
 # physics-group
 # pick-up-object
+  - body.toLocalFrame>
+    ```js
+    // this function takes physicsPos and coverts it to the body's local coordinate system
+    // http://localhost:3000/Phaser.Physics.P2.Body.html#toLocalFrame
+    // toLocalFrame(out, worldPoint)
+    // out{Float32Array|Array}        The vector to store the result in.
+    // worldPoint{Float32Array|Array} The input world vector.
+
+    // Transform a world point to local body frame.
+    clickedBody.toLocalFrame(localPointInBody, physicsPos);
+
+    ```
+  - p2.removeConstraint>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#removeConstraint
+    // removeConstraint(constraint) → {Phaser.Physics.P2.Constraint}
+    // Removes a Constraint from the world.
+    this.physics.p2.removeConstraint(this.mouseConstraint);
+
+    ```
+  - pick up things
+    ```js
+    this.mouseBody = new p2.Body()
+    this.physics.p2.world.addBody(this.mouseBody);
+
+    clickedBody.toLocalFrame(localPointInBody, physicsPos);
+
+    // createRevoluteConstraint(bodyA, pivotA, bodyB, pivotB, maxForce, worldPivot) → {Phaser.Physics.P2.RevoluteConstraint}
+    this.mouseConstraint = this.physics.p2.createRevoluteConstraint(this.mouseBody, [0, 0], clickedBody, [this.physics.p2.mpxi(localPointInBody[0]), this.physics.p2.mpxi(localPointInBody[1]) ]);
+
+    ```
 # platformer-material
 # postbroadphase-callback
 # prismatic-constraint
