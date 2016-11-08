@@ -64,9 +64,9 @@ class App {
 // const app = new App(BodyClickState);
 // const app = new App(BodyDebugState);
 // const app = new App(ChainState);
-const app = new App(CollideCustomBoundsState);
+// const app = new App(CollideCustomBoundsState);
 // const app = new App(CollideWorldBoundsState);
-// const app = new App(CollisionGroupsState);
+const app = new App(CollisionGroupsState);
 // const app = new App(ContactEventsState);
 // const app = new App(ContactMaterialState);
 // const app = new App(DistanceConstraintState);
