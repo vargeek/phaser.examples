@@ -78,7 +78,7 @@ class App {
 // const app = new App(KinematicBodyState);
 // const app = new App(LoadPolygon1State);
 // const app = new App(LoadPolygon2State);
-const app = new App(LoadPolygon3State);
+// const app = new App(LoadPolygon3State);
 // const app = new App(LockConstraintState);
 // const app = new App(MouseSpringState);
 // const app = new App(MovementConstraintState);
@@ -89,7 +89,7 @@ const app = new App(LoadPolygon3State);
 // const app = new App(PrismaticConstraintState);
 // const app = new App(RemoveSpringState);
 // const app = new App(RevoluteConstraintState);
-// const app = new App(SpringsState);
+const app = new App(SpringsState);
 // const app = new App(StateResetState);
 // const app = new App(StaticBodyState);
 // const app = new App(ThrustLeftRightState);

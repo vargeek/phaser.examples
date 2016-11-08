@@ -650,6 +650,35 @@
 
     ```
 # mouse-spring
+  - p2.Shape.sensor>
+    ```js
+    // http://schteppe.github.io/p2.js/docs/classes/Shape.html
+    // sensor Boolean
+    // Set to true if you want this shape to be a sensor. A sensor does not generate contacts, but it still reports contact events. This is good if you want to know if a shape is overlapping another shape, without them generating contacts.
+    this.mouseBody.body.data.shapes[0].sensor = true;
+
+    ```
+  - p2.createSpring>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#createSpring
+    // createSpring(bodyA, bodyB, restLength, stiffness, damping, worldA, worldB, localA, localB) → {Phaser.Physics.P2.Spring}
+    // restLength{number=1}   Rest length of the spring. A number > 0.
+    // worldA{[number,number]}  Where to hook the spring to body A in world coordinates. This value is an array by 2 elements, x and y, i.e: [32, 32].
+    // localA{[number,number]}  Where to hook the spring to body A in local body coordinates. This value is an array by 2 elements, x and y, i.e: [32, 32].
+    // Creates a linear spring, connecting two bodies. A spring can have a resting length, a stiffness and damping.
+    this.mouseSpring = this.physics.p2.createSpring(this.mouseBody, bodies[0], 0, 30, 1);
+
+    ```
+  - p2.removeSpring>
+    ```js
+    // http://localhost:3000/Phaser.Physics.P2.html#removeSpring
+    // removeSpring(spring) → {Phaser.Physics.P2.Spring}
+    // Removes a Spring from the world.
+    this.physics.p2.removeSpring(this.mouseSpring);
+
+    ```
+# springs
+# remove-spring
 # movement-constraint
   - p2.createLockConstraint(maxForce:80)
 # physics-group
@@ -681,7 +710,6 @@
     let constraint = this.physics.p2.createPrismaticConstraint(this.sprite, this.vu1, false, [150, 0], [-15, 0], new Float32Array([0, 1]));
 
     ```
-# remove-spring
 # revolute-constraint
   - p2.clearCollision>
     ```js
@@ -708,7 +736,6 @@
     let constraint = this.physics.p2.createRevoluteConstraint(this.sprite, [50, 100], vu1, [0, 0]);
 
     ```
-# springs
 # state-reset
 # static-body
 # thrust-left-right
