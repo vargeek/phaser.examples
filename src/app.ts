@@ -75,10 +75,10 @@ class App {
 // const app = new App(GravityState);
 // const app = new App(ImpactEventsState);
 // const app = new App(KillAndReviveState);
-const app = new App(KinematicBodyState);
+// const app = new App(KinematicBodyState);
 // const app = new App(LoadPolygon1State);
 // const app = new App(LoadPolygon2State);
-// const app = new App(LoadPolygon3State);
+const app = new App(LoadPolygon3State);
 // const app = new App(LockConstraintState);
 // const app = new App(MouseSpringState);
 // const app = new App(MovementConstraintState);

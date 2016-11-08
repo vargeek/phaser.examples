@@ -629,6 +629,17 @@
 # load-polygon-1
 # load-polygon-2
 # load-polygon-3
+  - body.addPolygon>
+    ```js
+   // http://localhost:3000/Phaser.Physics.P2.Body.html#addPolygon
+    // addPolygon(options, points) → {boolean}
+    // Reads a polygon shape path, and assembles convex shapes from that and puts them at proper offset points. The shape must be simple and without holes.
+    // This function expects the x.y values to be given in pixels. If you want to provide them at p2 world scales then call Body.data.fromPolygon directly.
+    this.contra.body.addPolygon( {} , 10, 191  ,  26, 158  ,  25, 186  ,  13, 204  );
+    // this.contra.body.addPolygon( {} , [   10, 191  ,  26, 158  ,  25, 186  ,  13, 204  ]);
+    // this.contra.body.addPolygon( {} , [   [10, 191]  ,  [26, 158]  ,  [25, 186]  ,  [13, 204]  ]);
+
+    ```
 # lock-constraint
   - p2.createLockConstraint>
     ```js
