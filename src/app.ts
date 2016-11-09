@@ -36,7 +36,7 @@ class App {
 // const app = new App(AsteroidsState);
 // const app = new App(AutofireState);
 // const app = new App(BulletAngleVarianceState);
-const app = new App(BulletFrameCycleState);
+// const app = new App(BulletFrameCycleState);
 // const app = new App(BulletSpeedVarianceState);
 // const app = new App(FireManyFromTrackedSpriteState);
 // const app = new App(FireManyWithVarianceState);
@@ -44,4 +44,4 @@ const app = new App(BulletFrameCycleState);
 // const app = new App(FireOffsetPositionState);
 // const app = new App(FireRateState);
 // const app = new App(MultipleBulletsState);
-// const app = new App(SingleBulletState);
+const app = new App(SingleBulletState);
