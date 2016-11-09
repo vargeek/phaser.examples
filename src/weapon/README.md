@@ -196,6 +196,18 @@
 
     ```
 # bullet-frame-cycle
+  - weapon.setBulletFrames
+  - weapon.bulletFrameCycle>
+    ```js
+    http://localhost:3000/Phaser.Weapon.html#bulletFrameCycle
+    // bulletFrameCycle :boolean
+
+    // If you've added a set of frames via Weapon.setBulletFrames then you can optionally
+    // chose for each Bullet fired to use the next frame in the set. The frame index is then
+    // advanced one frame until it reaches the end of the set, then it starts from the start
+    // again. Cycling frames like this allows you to create varied bullet effects via
+    // sprite sheets.
+    ```
 # fire-many-from-tracked-sprite
 # fire-many-with-variance
 # fire-many
