@@ -61,6 +61,116 @@
 
     ```
 # ninja-impact
+  - ninja.collide(collideCallback)
 # ninja-platforms
-# ninja-tilemap
+  - ninja.gravity>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#gravity
+    // gravity :number
+    // The World gravity setting.
+    this.physics.ninja.gravity = 1;
 
+    ```
+  - ninja.setBoundsToWorld>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#setBoundsToWorld
+    // setBoundsToWorld()
+    // Updates the size of this physics world to match the size of the game world.
+    this.physics.ninja.setBoundsToWorld();
+
+    ```
+  - ninja.enable>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#enable
+    // enable(object, type, id, radius, children)
+    // This will create a Ninja Physics body on the given game object or array of game objects.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+    this.physics.ninja.enable(ground);
+
+    ```
+  - body.immovable>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#immovable
+    // immovable :boolean
+    // An immovable Body will not receive any impacts from other bodies. Not fully implemented.
+    ground.body.immovable = true;
+
+    ```
+  - body.gravityScale>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#gravityScale
+    // How much of the world gravity should be applied to this object? 1 = all of it, 0.5 = 50%, etc.
+    ground.body.gravityScale = 0;
+
+    ```
+  - body.bounce>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#bounce
+    // bounce :number
+    // The bounciness of this object when it collides. A value between 0 and 1. We recommend setting it to 0.999 to avoid jittering.
+    this.player.body.bounce = 0.5;
+
+    ```
+  - body.friction>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#friction
+    // riction :number
+    // The friction applied to this object as it moves.
+    this.player.body.friction = 0.5;
+
+    ```
+  - body.collideWorldBounds>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#collideWorldBounds
+    // A Body can be set to collide against the World bounds automatically and rebound back into the World if this is set to true. Otherwise it will leave the World. Should the Body collide with the World bounds?
+    this.player.body.collideWorldBounds = true;
+
+    ```
+# ninja-tilemap
+  - ninja.convertTilemap>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#convertTilemap
+    // convertTilemap(map, layer, slopeMap) → {array}
+    // slopeMap{object}     The tilemap index to Tile ID map.
+
+    // Goes through all tiles in the given Tilemap and TilemapLayer and converts those set to collide into physics tiles.
+    // Only call this after you have specified all of the tiles you wish to collide with calls like Tilemap.setCollisionBetween, etc.
+    // Every time you call this method it will destroy any previously created bodies and remove them from the world.
+    // Therefore understand it's a very expensive operation and not to be done in a core game update loop.
+
+    // In Ninja the Tiles have an ID from 0 to 33, where 0 is 'empty', 1 is a full tile, 2 is a 45-degree slope, etc. You can find the ID
+    // list either at the very bottom of Tile.js, or in a handy visual reference in the resources/Ninja Physics Debug Tiles folder in the repository.
+    // The slopeMap parameter is an array that controls how the indexes of the tiles in your tilemap data will map to the Ninja Tile IDs.
+    // For example if you had 6 tiles in your tileset: Imagine the first 4 should be converted into fully solid Tiles and the other 2 are 45-degree slopes.
+    // Your slopeMap array would look like this: [ 1, 1, 1, 1, 2, 3 ].
+    // Where each element of the array is a tile in your tilemap and the resulting Ninja Tile it should create.
+    this.tiles = this.physics.ninja.convertTilemap(this.map, this.layer, slopeMap);
+
+    ```
+  - ninja.enableCircle>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#enableCircle
+    // enableCircle(object, radius, children)
+
+    // This will create a Ninja Physics Circle body on the given game object.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+    this.physics.ninja.enableCircle(this.sprite1, this.sprite1.width / 2);
+
+    ```
+  - body.circle>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Body.html#circle
+    // circle :Phaser.Physics.Ninja.Circle
+    // The Circle object this body is using for collision.
+
+    this.sprite1.body.circle.collideCircleVsTile(this.tiles[i].tile);
+
+    ```
+  - body.circle.collideCircleVsTile>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.Circle.html#collideCircleVsTile
+    // collideCircleVsTile(t) → {boolean}
+    // Collides this Circle with a Tile.
+    this.sprite1.body.circle.collideCircleVsTile(this.tiles[i].tile);
+
+    ```
