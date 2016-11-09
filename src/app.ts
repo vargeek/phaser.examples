@@ -24,8 +24,8 @@ class App {
   }
 }
 
-const app = new App(NinjaAabbVsAabbState);
-// const app = new App(NinjaAabbVsTileState);
+// const app = new App(NinjaAabbVsAabbState);
+const app = new App(NinjaAabbVsTileState);
 // const app = new App(NinjaImpactState);
 // const app = new App(NinjaPlatformsState);
 // const app = new App(NinjaTilemapState);

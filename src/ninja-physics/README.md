@@ -10,6 +10,17 @@
 
     ```
 # ninja-aabb-vs-aabb
+  - ninja.enableAABB>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#enableAABB
+    // enableAABB(object, children)
+    // children{boolean=true}   Should a body be created on all children of this object? If true it will recurse down the display list as far as it can go.
+
+    // This will create a Ninja Physics AABB body on the given game object. Its dimensions will match the width and height of the object at the point it is created.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+    this.physics.ninja.enableAABB([this.sprite1, this.sprite2]);
+
+    ```
   - ninja.collide>
     ```js
     // http://localhost:3000/Phaser.Physics.Ninja.html#collide
@@ -35,6 +46,20 @@
 
     ```
 # ninja-aabb-vs-tile
+  - ninja.enableAABB
+  - ninja.enableTile>
+    ```js
+    // http://localhost:3000/Phaser.Physics.Ninja.html#enableTile
+    // enableTile(object, id, children)
+    // id{number=1}   The type of Tile this will use, i.e. Phaser.Physics.Ninja.Tile.SLOPE_45DEGpn, Phaser.Physics.Ninja.Tile.CONVEXpp, etc.
+
+    // This will create a Ninja Physics Tile body on the given game object. There are 34 different types of tile you can create, including 45 degree slopes, convex and concave circles and more.
+    // The id parameter controls which Tile type is created, but you can also change it at run-time.
+    // Note that for all degree based tile types they need to have an equal width and height. If the given object doesn't have equal width and height it will use the width.
+    // A game object can only have 1 physics body active at any one time, and it can't be changed until the object is destroyed.
+    this.physics.ninja.enableTile(this.tile, this.tile.frame as number);
+
+    ```
 # ninja-impact
 # ninja-platforms
 # ninja-tilemap
