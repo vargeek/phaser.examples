@@ -162,8 +162,40 @@
 
     ```
 # bullet-angle-variance
-# bullet-frame-cycle
+  - weapon.bulletAngleOffset>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#bulletAngleOffset
+    // bulletAngleOffset :number
+
+    // An optional angle offset applied to the Bullets when they are launched.
+    // This is useful if for example your bullet sprites have been drawn facing up, instead of to the right, and you want to fire them at an angle.
+    // In which case you can set the angle offset to be 90 and they'll be properly rotated when fired.
+    this.weapon.bulletAngleOffset = 90;
+
+    ```
+  - weapon.bulletAngleVariance>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#bulletAngleVariance
+    // bulletAngleVariance :number
+
+    // This is a variance added to the angle of Bullets when they are fired.
+    // If you fire from an angle of 90 and have a bulletAngleVariance of 20 then the actual angle of the Bullets will be between 70 and 110 degrees. This is a quick way to add a great 'spread' effect to a Weapon.
+    this.weapon.bulletAngleVariance = 10;
+
+    ```
 # bullet-speed-variance
+  - weapon.bulletSpeedVariance>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#bulletSpeedVariance
+    // bulletSpeedVariance :number
+
+    // This is a variance added to the speed of Bullets when they are fired.
+    // If bullets have a bulletSpeed value of 200, and a bulletSpeedVariance of 50
+    // then the actual speed of the Bullets will be between 150 and 250 pixels per second.
+    this.weapon.bulletSpeedVariance = 200;
+
+    ```
+# bullet-frame-cycle
 # fire-many-from-tracked-sprite
 # fire-many-with-variance
 # fire-many
