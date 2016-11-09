@@ -118,6 +118,22 @@ export class AsteroidsState extends BootState {
     }
 
     if (this.fireButton.isDown) {
+      // http://localhost:3000/Phaser.Weapon.html#fire
+      // fire(from, x, y) → {Phaser.Bullet}
+
+      // Attempts to fire a single Bullet. If there are no more bullets available in the pool, and the pool cannot be extended,
+      // then this method returns false. It will also return false if not enough time has expired since the last time
+      // the Weapon was fired, as defined in the Weapon.fireRate property.
+
+      // Otherwise the first available bullet is selected and launched.
+
+      // The arguments are all optional, but allow you to control both where the bullet is launched from, and aimed at.
+
+      // If you don't provide any of the arguments then it uses those set via properties such as Weapon.trackedSprite,
+      // Weapon.bulletAngle and so on.
+
+      // When the bullet is launched it has its texture and frame updated, as required. The velocity of the bullet is
+      // calculated based on Weapon properties like bulletSpeed.
       this.weapon.fire();
     }
 

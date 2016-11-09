@@ -81,6 +81,27 @@
     this.weapon.trackSprite(this.sprite, 0, 0, true);
 
     ```
+  - weapon.fire>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#fire
+    // fire(from, x, y) → {Phaser.Bullet}
+
+    // Attempts to fire a single Bullet. If there are no more bullets available in the pool, and the pool cannot be extended,
+    // then this method returns false. It will also return false if not enough time has expired since the last time
+    // the Weapon was fired, as defined in the Weapon.fireRate property.
+
+    // Otherwise the first available bullet is selected and launched.
+
+    // The arguments are all optional, but allow you to control both where the bullet is launched from, and aimed at.
+
+    // If you don't provide any of the arguments then it uses those set via properties such as Weapon.trackedSprite,
+    // Weapon.bulletAngle and so on.
+
+    // When the bullet is launched it has its texture and frame updated, as required. The velocity of the bullet is
+    // calculated based on Weapon properties like bulletSpeed.
+    this.weapon.fire();
+
+    ```
   - weapon.debug>
     ```js
     // http://localhost:3000/Phaser.Weapon.html#debug
@@ -113,6 +134,33 @@
 
     ```
 # autofire
+  - weapon.setBulletFrames>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#setBulletFrames
+    // setBulletFrames(min, max, cycle, random) → {Phaser.Weapon}
+    // min{number}              The minimum value the frame can be. Usually zero.
+    // max{number}              The maximum value the frame can be.
+    // cycle{boolean=true}      Should the bullet frames cycle as they are fired?
+    // random{boolean=false}    Should the bullet frames be picked at random as they are fired?
+
+    // Sets the texture frames that the bullets can use when being launched.
+
+    // This is intended for use when you've got numeric based frames, such as those loaded via a Sprite Sheet.
+
+    // It works by calling Phaser.ArrayUtils.numberArray internally, using the min and max values provided. Then it sets the frame index to be zero.
+
+    // You can optionally set the cycle and random booleans, to allow bullets to cycle through the frames when they're fired, or pick one at random.
+    this.weapon.setBulletFrames(0, 80, true);
+
+    ```
+  - weapon.autofire>
+    ```js
+    // http://localhost:3000/Phaser.Weapon.html#autofire
+    // Will this weapon auto fire? If set to true then a new bullet will be fired
+    // based on the fireRate value.
+    this.weapon.autofire = true;
+
+    ```
 # bullet-angle-variance
 # bullet-frame-cycle
 # bullet-speed-variance

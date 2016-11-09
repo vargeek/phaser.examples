@@ -32,9 +32,9 @@ class App {
   }
 }
 
-const app = new App(AsteroidsBulletWrapState);
+// const app = new App(AsteroidsBulletWrapState);
 // const app = new App(AsteroidsState);
-// const app = new App(AutofireState);
+const app = new App(AutofireState);
 // const app = new App(BulletAngleVarianceState);
 // const app = new App(BulletFrameCycleState);
 // const app = new App(BulletSpeedVarianceState);
