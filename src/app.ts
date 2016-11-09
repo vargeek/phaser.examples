@@ -1,10 +1,18 @@
 import { BootState } from './boot.state';
 
-import { NinjaAabbVsAabbState } from './ninja-physics/ninja-aabb-vs-aabb';
-import { NinjaAabbVsTileState } from './ninja-physics/ninja-aabb-vs-tile';
-import { NinjaImpactState } from './ninja-physics/ninja-impact';
-import { NinjaPlatformsState } from './ninja-physics/ninja-platforms';
-import { NinjaTilemapState } from './ninja-physics/ninja-tilemap';
+import { AsteroidsBulletWrapState } from './weapon/asteroids-bullet-wrap';
+import { AsteroidsState } from './weapon/asteroids';
+import { AutofireState } from './weapon/autofire';
+import { BulletAngleVarianceState } from './weapon/bullet-angle-variance';
+import { BulletFrameCycleState } from './weapon/bullet-frame-cycle';
+import { BulletSpeedVarianceState } from './weapon/bullet-speed-variance';
+import { FireManyFromTrackedSpriteState } from './weapon/fire-many-from-tracked-sprite';
+import { FireManyWithVarianceState } from './weapon/fire-many-with-variance';
+import { FireManyState } from './weapon/fire-many';
+import { FireOffsetPositionState } from './weapon/fire-offset-position';
+import { FireRateState } from './weapon/fire-rate';
+import { MultipleBulletsState } from './weapon/multiple-bullets';
+import { SingleBulletState } from './weapon/single-bullet';
 
 const BootStateKey = 'boot';
 class App {
@@ -24,8 +32,16 @@ class App {
   }
 }
 
-// const app = new App(NinjaAabbVsAabbState);
-// const app = new App(NinjaAabbVsTileState);
-// const app = new App(NinjaImpactState);
-// const app = new App(NinjaPlatformsState);
-const app = new App(NinjaTilemapState);
+const app = new App(AsteroidsBulletWrapState);
+// const app = new App(AsteroidsState);
+// const app = new App(AutofireState);
+// const app = new App(BulletAngleVarianceState);
+// const app = new App(BulletFrameCycleState);
+// const app = new App(BulletSpeedVarianceState);
+// const app = new App(FireManyFromTrackedSpriteState);
+// const app = new App(FireManyWithVarianceState);
+// const app = new App(FireManyState);
+// const app = new App(FireOffsetPositionState);
+// const app = new App(FireRateState);
+// const app = new App(MultipleBulletsState);
+// const app = new App(SingleBulletState);
