@@ -44,6 +44,6 @@ class App {
 // const app = new App(PlayMusicState);
 // const app = new App(RestartSoundState);
 // const app = new App(RemoveSoundState);
-const app = new App(SoundCompleteState);
-// const app = new App(ProtrackerState);
+// const app = new App(SoundCompleteState);
+const app = new App(ProtrackerState);
 // const app = new App(YmState);
