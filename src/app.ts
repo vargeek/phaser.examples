@@ -38,12 +38,12 @@ class App {
 // const app = new App(AudioSpriteJsonState);
 // const app = new App(FadeInState);
 // const app = new App(IosState);
-const app = new App(LoopState);
+// const app = new App(LoopState);
 // const app = new App(PauseAndResumeState);
 // const app = new App(PauseAndResumeMarkerState);
 // const app = new App(PlayMusicState);
-// const app = new App(ProtrackerState);
-// const app = new App(RemoveSoundState);
 // const app = new App(RestartSoundState);
-// const app = new App(SoundCompleteState);
+// const app = new App(RemoveSoundState);
+const app = new App(SoundCompleteState);
+// const app = new App(ProtrackerState);
 // const app = new App(YmState);

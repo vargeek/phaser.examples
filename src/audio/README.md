@@ -199,10 +199,83 @@
 
     ```
 # pause-and-resume
+  - sound.pause
+  - sound.resume
 # pause-and-resume-marker
+  - audiosprite.get>
+    ```js
+    // http://localhost:3000/Phaser.AudioSprite.html#get
+    // get(marker) → {Phaser.Sound}
+    // marker{string}
+    // Get a sound with the given name.
+    this.music.get('part2').onDecoded.addOnce(()=>{this.music.play('part2')});
+
+    ```
 # play-music
-# protracker
-# remove-sound
+  - sound.mute>
+    ```js
+    // http://localhost:3000/Phaser.Sound.html#mute
+    // mute :boolean
+    // Gets or sets the muted state of this sound.
+    this.music.mute = !this.music.mute;
+    ```
+  - sound.volume>
+    ```js
+    // http://localhost:3000/Phaser.Sound.html#volume
+    // volume :number
+    // Gets or sets the volume of this sound, a value between 0 and 1. The value given is clamped to the range 0 to 1.
+    this.music.volume += 0.1;
+
+    ```
 # restart-sound
+  - sound.restart>
+    ```js
+    // http://localhost:3000/Phaser.Sound.html#restart
+    // restart(marker, position, volume, loop)
+    // Restart the sound, or a marked section of it.
+    this.music.restart(undefined, undefined);
+
+    ```
+# remove-sound
+  - sound.destroy>
+    ```js
+    // http://localhost:3000/Phaser.Sound.html#destroy
+    // destroy(remove)
+    // Destroys this sound and all associated events and removes it from the SoundManager.
+    this.music.destroy();
+
+    ```
+  - cache.removeSound>
+    ```js
+    // http://localhost:3000/Phaser.Cache.html#removeSound
+    // removeSound(key)
+    // Removes a sound from the cache.
+
+    // If any Phaser.Sound objects use the audio file in the cache that you remove with this method, they will
+    // automatically destroy themselves. If you wish to have full control over when Sounds are destroyed then
+    // you must finish your house-keeping and destroy them all yourself first, before calling this method.
+
+    // Note that this only removes it from the Phaser.Cache. If you still have references to the data elsewhere
+    // then it will persist in memory.
+    this.game.cache.removeSound('wizball');
+
+    ```
+  - cache.checkSoundKey>
+    ```js
+    // http://localhost:3000/Phaser.Cache.html#checkSoundKey
+    // checkSoundKey(key) → {boolean}
+    // Checks if the given key exists in the Sound Cache.
+    if (this.cache.checkSoundKey('wizball')) {}
+
+    ```
 # sound-complete
+  - sound.onStop>
+    ```js
+    // http://localhost:3000/Phaser.Sound.html#onStop
+    // onStop :Phaser.Signal
+    // The onStop event is dispatched when this sound stops playback.
+    this.explosion.onStop.add(this.soundStopped, this);
+
+    ```
+# protracker
 # ym
