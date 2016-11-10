@@ -1,18 +1,14 @@
 import { BootState } from './boot.state';
 
-import { AsteroidsBulletWrapState } from './weapon/asteroids-bullet-wrap';
-import { AsteroidsState } from './weapon/asteroids';
-import { AutofireState } from './weapon/autofire';
-import { BulletAngleVarianceState } from './weapon/bullet-angle-variance';
-import { BulletFrameCycleState } from './weapon/bullet-frame-cycle';
-import { BulletSpeedVarianceState } from './weapon/bullet-speed-variance';
-import { FireManyFromTrackedSpriteState } from './weapon/fire-many-from-tracked-sprite';
-import { FireManyWithVarianceState } from './weapon/fire-many-with-variance';
-import { FireManyState } from './weapon/fire-many';
-import { FireOffsetPositionState } from './weapon/fire-offset-position';
-import { FireRateState } from './weapon/fire-rate';
-import { MultipleBulletsState } from './weapon/multiple-bullets';
-import { SingleBulletState } from './weapon/single-bullet';
+import { BasicLoopedEventState } from './time/basic-looped-event';
+import { BasicRepeatEventState } from './time/basic-repeat-event';
+import { BasicTimedEventState } from './time/basic-timed-event';
+import { CustomTimerState } from './time/custom-timer';
+import { ElapsedSecondsState } from './time/elapsed-seconds';
+import { MultipleTimersState } from './time/multiple-timers';
+import { RemoveEventState } from './time/remove-event';
+import { SlowDownTimeState } from './time/slow-down-time';
+import { TimedSlideshowState } from './time/timed-slideshow';
 
 const BootStateKey = 'boot';
 class App {
@@ -32,16 +28,12 @@ class App {
   }
 }
 
-// const app = new App(AsteroidsBulletWrapState);
-// const app = new App(AsteroidsState);
-// const app = new App(AutofireState);
-// const app = new App(BulletAngleVarianceState);
-// const app = new App(BulletFrameCycleState);
-// const app = new App(BulletSpeedVarianceState);
-// const app = new App(FireManyFromTrackedSpriteState);
-// const app = new App(FireManyWithVarianceState);
-// const app = new App(FireManyState);
-// const app = new App(FireOffsetPositionState);
-// const app = new App(FireRateState);
-// const app = new App(MultipleBulletsState);
-const app = new App(SingleBulletState);
+// const app = new App(BasicLoopedEventState);
+// const app = new App(BasicRepeatEventState);
+// const app = new App(BasicTimedEventState);
+// const app = new App(CustomTimerState);
+// const app = new App(ElapsedSecondsState);
+// const app = new App(MultipleTimersState);
+// const app = new App(RemoveEventState);
+// const app = new App(SlowDownTimeState);
+const app = new App(TimedSlideshowState);
