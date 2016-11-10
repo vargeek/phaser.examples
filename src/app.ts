@@ -1,20 +1,19 @@
 import { BootState } from './boot.state';
 
-import { BasicFollowState } from './camera/basic-follow';
-import { CameraCullState } from './camera/camera-cull';
-import { CameraFadeState } from './camera/camera-fade';
-import { CameraFlashState } from './camera/camera-flash';
-import { CameraLerpState } from './camera/camera-lerp';
-import { CameraShakeState } from './camera/camera-shake';
-import { CameraViewState } from './camera/camera-view';
-import { DeadzoneState } from './camera/deadzone';
-import { FixedToCameraState } from './camera/fixed-to-camera';
-import { FollowStylesState } from './camera/follow-styles';
-import { MassCameraCullState } from './camera/mass-camera-cull';
-import { MovingTheCameraState } from './camera/moving-the-camera';
-import { SmoothFollowState } from './camera/smooth-follow';
-import { WorldSpriteState } from './camera/world-sprite';
-import { ZoomingTheCameraState } from './camera/zooming-the-camera';
+import { AudioSpriteDurationState } from './audio/audio-sprite-duration';
+import { AudioSpriteJsonState } from './audio/audio-sprite-json';
+import { AudioSpriteState } from './audio/audio-sprite';
+import { FadeInState } from './audio/fade-in';
+import { IosState } from './audio/ios';
+import { LoopState } from './audio/loop';
+import { PauseAndResumeMarkerState } from './audio/pause-and-resume-marker';
+import { PauseAndResumeState } from './audio/pause-and-resume';
+import { PlayMusicState } from './audio/play-music';
+import { ProtrackerState } from './audio/protracker';
+import { RemoveSoundState } from './audio/remove-sound';
+import { RestartSoundState } from './audio/restart-sound';
+import { SoundCompleteState } from './audio/sound-complete';
+import { YmState } from './audio/ym';
 
 const BootStateKey = 'boot';
 class App {
@@ -34,18 +33,17 @@ class App {
   }
 }
 
-// const app = new App(BasicFollowState);
-// const app = new App(CameraCullState);
-// const app = new App(CameraFadeState);
-// const app = new App(CameraFlashState);
-// const app = new App(CameraLerpState);
-// const app = new App(CameraShakeState);
-// const app = new App(CameraViewState);
-// const app = new App(DeadzoneState);
-// const app = new App(FixedToCameraState);
-// const app = new App(FollowStylesState);
-// const app = new App(MassCameraCullState);
-// const app = new App(MovingTheCameraState);
-// const app = new App(SmoothFollowState);
-// const app = new App(WorldSpriteState);
-const app = new App(ZoomingTheCameraState);
+// const app = new App(AudioSpriteState);
+// const app = new App(AudioSpriteDurationState);
+// const app = new App(AudioSpriteJsonState);
+// const app = new App(FadeInState);
+// const app = new App(IosState);
+const app = new App(LoopState);
+// const app = new App(PauseAndResumeState);
+// const app = new App(PauseAndResumeMarkerState);
+// const app = new App(PlayMusicState);
+// const app = new App(ProtrackerState);
+// const app = new App(RemoveSoundState);
+// const app = new App(RestartSoundState);
+// const app = new App(SoundCompleteState);
+// const app = new App(YmState);
