@@ -1,14 +1,20 @@
 import { BootState } from './boot.state';
 
-import { BasicLoopedEventState } from './time/basic-looped-event';
-import { BasicRepeatEventState } from './time/basic-repeat-event';
-import { BasicTimedEventState } from './time/basic-timed-event';
-import { CustomTimerState } from './time/custom-timer';
-import { ElapsedSecondsState } from './time/elapsed-seconds';
-import { MultipleTimersState } from './time/multiple-timers';
-import { RemoveEventState } from './time/remove-event';
-import { SlowDownTimeState } from './time/slow-down-time';
-import { TimedSlideshowState } from './time/timed-slideshow';
+import { BasicFollowState } from './camera/basic-follow';
+import { CameraCullState } from './camera/camera-cull';
+import { CameraFadeState } from './camera/camera-fade';
+import { CameraFlashState } from './camera/camera-flash';
+import { CameraLerpState } from './camera/camera-lerp';
+import { CameraShakeState } from './camera/camera-shake';
+import { CameraViewState } from './camera/camera-view';
+import { DeadzoneState } from './camera/deadzone';
+import { FixedToCameraState } from './camera/fixed-to-camera';
+import { FollowStylesState } from './camera/follow-styles';
+import { MassCameraCullState } from './camera/mass-camera-cull';
+import { MovingTheCameraState } from './camera/moving-the-camera';
+import { SmoothFollowState } from './camera/smooth-follow';
+import { WorldSpriteState } from './camera/world-sprite';
+import { ZoomingTheCameraState } from './camera/zooming-the-camera';
 
 const BootStateKey = 'boot';
 class App {
@@ -28,12 +34,18 @@ class App {
   }
 }
 
-// const app = new App(BasicLoopedEventState);
-// const app = new App(BasicRepeatEventState);
-// const app = new App(BasicTimedEventState);
-// const app = new App(CustomTimerState);
-// const app = new App(ElapsedSecondsState);
-// const app = new App(MultipleTimersState);
-// const app = new App(RemoveEventState);
-// const app = new App(SlowDownTimeState);
-const app = new App(TimedSlideshowState);
+// const app = new App(BasicFollowState);
+// const app = new App(CameraCullState);
+// const app = new App(CameraFadeState);
+// const app = new App(CameraFlashState);
+// const app = new App(CameraLerpState);
+// const app = new App(CameraShakeState);
+// const app = new App(CameraViewState);
+// const app = new App(DeadzoneState);
+// const app = new App(FixedToCameraState);
+// const app = new App(FollowStylesState);
+// const app = new App(MassCameraCullState);
+// const app = new App(MovingTheCameraState);
+// const app = new App(SmoothFollowState);
+// const app = new App(WorldSpriteState);
+const app = new App(ZoomingTheCameraState);
