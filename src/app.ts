@@ -1,19 +1,15 @@
 import { BootState } from './boot.state';
 
-import { AudioSpriteDurationState } from './audio/audio-sprite-duration';
-import { AudioSpriteJsonState } from './audio/audio-sprite-json';
-import { AudioSpriteState } from './audio/audio-sprite';
-import { FadeInState } from './audio/fade-in';
-import { IosState } from './audio/ios';
-import { LoopState } from './audio/loop';
-import { PauseAndResumeMarkerState } from './audio/pause-and-resume-marker';
-import { PauseAndResumeState } from './audio/pause-and-resume';
-import { PlayMusicState } from './audio/play-music';
-import { ProtrackerState } from './audio/protracker';
-import { RemoveSoundState } from './audio/remove-sound';
-import { RestartSoundState } from './audio/restart-sound';
-import { SoundCompleteState } from './audio/sound-complete';
-import { YmState } from './audio/ym';
+import { AlphaWebmState } from './video/alpha-webm';
+import { ChangeSourceState } from './video/change-source';
+import { DolbyDigitalPlusState } from './video/dolby-digital-plus';
+import { LoadAsBlobState } from './video/load-as-blob';
+import { MultipleVideosState } from './video/multiple-videos';
+import { PlayVideoState } from './video/play-video';
+import { SnapshotBlendModeState } from './video/snapshot-blend-mode';
+import { SpritesSharingVideoState } from './video/sprites-sharing-video';
+import { TakeSnapshotFromStreamState } from './video/take-snapshot-from-stream';
+import { VideoStreamState } from './video/video-stream';
 
 const BootStateKey = 'boot';
 class App {
@@ -33,17 +29,13 @@ class App {
   }
 }
 
-// const app = new App(AudioSpriteState);
-// const app = new App(AudioSpriteDurationState);
-// const app = new App(AudioSpriteJsonState);
-// const app = new App(FadeInState);
-// const app = new App(IosState);
-// const app = new App(LoopState);
-// const app = new App(PauseAndResumeState);
-// const app = new App(PauseAndResumeMarkerState);
-// const app = new App(PlayMusicState);
-// const app = new App(RestartSoundState);
-// const app = new App(RemoveSoundState);
-// const app = new App(SoundCompleteState);
-// const app = new App(ProtrackerState);
-const app = new App(YmState);
+// const app = new App(AlphaWebmState);
+// const app = new App(ChangeSourceState);
+// const app = new App(DolbyDigitalPlusState);
+// const app = new App(LoadAsBlobState);
+// const app = new App(MultipleVideosState);
+// const app = new App(PlayVideoState);
+// const app = new App(SnapshotBlendModeState);
+// const app = new App(SpritesSharingVideoState);
+// const app = new App(TakeSnapshotFromStreamState);
+// const app = new App(VideoStreamState);
