@@ -13,7 +13,6 @@ import { NoRotationState } from './particles/no-rotation';
 import { ParticleAlphaState } from './particles/particle-alpha';
 import { ParticleClassState } from './particles/particle-class';
 import { ParticleScaleState } from './particles/particle-scale';
-import { ParticlesVsPlatformsState } from './particles/particles-vs-platforms';
 import { RainState } from './particles/rain';
 import { RandomSpriteState } from './particles/random-sprite';
 import { SmokeTrailState } from './particles/smoke-trail';
