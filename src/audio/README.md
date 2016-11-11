@@ -279,3 +279,9 @@
     ```
 # protracker
 # ym
+  - new YM(data: BufferArray)
+  - ym.stop()
+  - ym.clearsong()
+  - ym.parse(data: BufferArray)
+  - ym.play()
+  - ym.vu[0,1,2]
