@@ -31,11 +31,11 @@ class App {
 
 // const app = new App(LoadAsBlobState);
 // const app = new App(PlayVideoState);
-const app = new App(MultipleVideosState);
+// const app = new App(MultipleVideosState);
 // const app = new App(AlphaWebmState);
 // const app = new App(ChangeSourceState);
 // const app = new App(DolbyDigitalPlusState);
 // const app = new App(SnapshotBlendModeState);
 // const app = new App(SpritesSharingVideoState);
 // const app = new App(TakeSnapshotFromStreamState);
-// const app = new App(VideoStreamState);
+const app = new App(VideoStreamState);
