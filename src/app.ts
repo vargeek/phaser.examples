@@ -46,7 +46,7 @@ class App {
 // const app = new App(EmitterWidthState);
 // const app = new App(AutoScaleState);
 // const app = new App(CollisionState);
-const app = new App(FirestarterState);
+// const app = new App(FirestarterState);
 // const app = new App(FlowState);
 // const app = new App(GlassState);
 // const app = new App(NoRotationState);
@@ -61,4 +61,4 @@ const app = new App(FirestarterState);
 // const app = new App(TweenedEmitterState);
 // const app = new App(WhenParticlesCollideState);
 // const app = new App(WorldParticlesState);
-// const app = new App(ZeroGravityState);
+const app = new App(ZeroGravityState);

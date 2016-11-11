@@ -157,12 +157,99 @@
   - emitter.emitX = spriteX
   - emitter.emitY = spriteY
 # flow
+  - emitter.flow>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#flow
+    // flow(lifespan, frequency, quantity, total, immediate) → {Phaser.Particles.Arcade.Emitter}
+    // total{number=-1}     How many particles to launch in total. If -1 it will carry on indefinitely.
+    // immediate{boolean=true}    Should the flow start immediately (true) or wait until the first frequency event? (false)
+
+    // Call this function to start emitting a flow of particles at the given frequency.
+    // It will carry on going until the total given is reached.
+    // Each time the flow is run the quantity number of particles will be emitted together.
+    // If you set the total to be 20 and quantity to be 5 then flow will emit 4 times in total (4 x 5 = 20 total)
+    // If you set the total to be -1 then no quantity cap is used and it will keep emitting.
+    this.emitter.flow(2000, 500, 5, -1);
+
+    ```
 # glass
+  - emitter.setXSpeed>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#setXSpeed
+    // setXSpeed(min, max) → {Phaser.Particles.Arcade.Emitter}
+    // A more compact way of setting the X velocity range of the emitter.
+    this.emitter.setXSpeed(-200, 200);
+
+    ```
+  - emitter.setYSpeed>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#setYSpeed
+    // setYSpeed(min, max) → {Phaser.Particles.Arcade.Emitter}
+    // A more compact way of setting the Y velocity range of the emitter.
+    this.emitter.setYSpeed(-150, -250);
+
+    ```
+  - emitter.particleBringToTop>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#particleBringToTop
+    // particleBringToTop :boolean
+    // If this is true then when the Particle is emitted it will be bought to the top of the Emitters display list.
+    this.emitter.particleBringToTop = true;
+
+    ```
 # no-rotation
+  - emitter.minRotation>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#minRotation
+    // minRotation :number
+    // The minimum possible angular velocity of a particle.
+    emitter.minRotation = 0;
+
+    ```
+  - emitter.maxRotation>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#maxRotation
+    // maxRotation :number
+    // The maximum possible angular velocity of a particle.
+    emitter.maxRotation = 0;
+
+    ```
 # particle-alpha
+  - add.emitter
+  - emitter.makeParticles
+  - emitter.setAlpha
 # particle-class
+  - emitter.particleClass>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#particleClass
+    // particleClass :any
+    // For emitting your own particle class types. They must extend Phaser.Particle.
+    this.emitter.particleClass = MonsterParticle;
+
+    ```
 # particle-scale
+  - emitter.minParticleScale>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#minParticleScale
+    // minParticleScale :number
+    // The minimum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see minParticleScaleX.
+    this.emitter.minParticleScale = 0.5;
+
+    ```
+  - emitter.maxParticleScale>
+    ```js
+    // http://localhost:3000/Phaser.Particles.Arcade.Emitter.html#maxParticleScale
+    // maxParticleScale :number
+    // The maximum possible scale of a particle. This is applied to the X and Y axis. If you need to control each axis see maxParticleScaleX.
+    this.emitter.maxParticleScale = 2;
+
+    ```
 # rain
+  - emitter.width
+  - emitter.setYSpeed(300, 500)
+  - emitter.setXSpeed(-5, 5)
+  - emitter.minRotation = 0
+  - emitter.maxRotation = 0
 # random-sprite
 # smoke-trail
 # snow
@@ -170,3 +257,4 @@
 # when-particles-collide
 # world-particles
 # zero-gravity
+  - emitter.gravity
