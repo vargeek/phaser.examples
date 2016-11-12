@@ -54,12 +54,123 @@
 
     ```
 # line-midpoint
+  - line.midPoint>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#midPoint
+    // midPoint(out) → {Phaser.Point}
+    // out{Phaser.Point?}     A Phaser.Point object into which the result will be populated. If not given a new Point object is created.
+    // Returns a Point object where the x and y values correspond to the center (or midpoint) of the Line segment.
+    this.line.midPoint(this.midpoint);
+    ```
 # rotate-line
+  - line.rotate>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#rotate
+    // rotate(angle, asDegrees) → {Phaser.Line}
+    // Rotates the line by the amount specified in angle.
+    // Rotation takes place from the center of the line.
+    // If you wish to rotate around a different point see Line.rotateAround.
+    // If you wish to rotate the ends of the Line then see Line.start.rotate or Line.end.rotate.
+    this.line.rotate(1, true);
+
+    ```
+  - line.rotateAround>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#rotateAround
+    // rotateAround(x, y, angle, asDegrees) → {Phaser.Line}
+    // Rotates the line by the amount specified in angle.
+    // Rotation takes place around the coordinates given.
+    ```
 # line-intersection
+  - line.intersects>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#intersects
+    // intersects(line, asSegment, result) → {Phaser.Point}
+    // asSegment{boolean=true}        直线或线段
+    // Checks for intersection between this line and another Line.
+    // If asSegment is true it will check for segment intersection. If asSegment is false it will check for line intersection.
+    // Returns the intersection segment of AB and EF as a Point, or null if there is no intersection.
+    this.intersection = this.line1.intersects(this.line2, true);
+
+    ```
 # line-reflection
+  - line.normalAngle 法线的角度>
+    ```js
+    // 法线
+    // http://localhost:3000/Phaser.Line.html#normalAngle
+    // Gets the angle in radians of the normal of this line (line.angle - 90 degrees.)
+    this.normal.fromAngle(this.point.x, this.point.y, this.line2.normalAngle, 100);
+    ```
+  - line.fromAngle>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#fromAngle
+    // fromAngle(x, y, angle, length) → {Phaser.Line}
+    // Sets this line to start at the given x and y coordinates and for the segment to extend at angle for the given length.
+    this.normal.fromAngle(this.point.x, this.point.y, this.line2.normalAngle, 100);
+    ```
+  - line.reflect 反射线角度>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#reflect
+    // reflect(line) → {number}
+    // Returns the reflected angle between two lines.
+    // This is the outgoing angle based on the angle of this line and the normalAngle of the given line.
+    let outgoing = this.line1.reflect(this.line2);
+
+    ```
+  - line.angle 弧度制角度>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#angle
+    // <readonly> angle :number
+    // Gets the angle of the line in radians.
+    this.arrow.rotation = this.reflection.angle;
+
+    ```
 # line-bounds
+  - debug.rectangle(line)
 # line-random-point
+  - Phaser.Color.HSVColorWheel>
+    ```js
+    // http://localhost:3000/Phaser.Color.html#HSVColorWheel
+    // <static> HSVColorWheel(s, v) → {array}
+    // Get HSV color wheel values in an array which will be 360 elements in size.
+    colors = Phaser.Color.HSVColorWheel();
+
+    ```
+  - line.random>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#random
+    // random(out) → {Phaser.Point}
+    // Picks a random point from anywhere on the Line segment and returns it.
+    this.lines[color].random(this.point);
+
+    ```
+  - point.floor>
+    ```js
+    // http://localhost:3000/Phaser.Point.html#floor
+    // floor() → {Phaser.Point}
+    // Math.floor() both the x and y properties of this Point.
+    this.point.floor();
+
+    ```
+  - math.wrapValue>
+    ```js
+    // http://localhost:3000/Phaser.Math.html#wrapValue
+    // wrapValue(value, amount, max) → {number}
+    // Adds value to amount and ensures that the result always stays between 0 and max, by wrapping the value around.
+    // Values must be positive integers, and are passed through Math.abs. See Phaser.Math#wrap for an alternative.
+    this.index = this.math.wrapValue(this.index, 1, 359);
+
+    ```
 # center-line
+  - line.centerOn>
+    ```js
+    // http://localhost:3000/Phaser.Line.html#centerOn
+    // centerOn(x, y) → {Phaser.Line}
+    // Centers this Line on the given coordinates.
+    // The line is centered by positioning the start and end points so that the lines midpoint matches the coordinates given.
+    this.line.centerOn(this.input.activePointer.x, this.input.activePointer.y);
+
+    ```
 # circle
 # circle-random-point
 # ellipse-random-point

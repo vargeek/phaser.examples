@@ -41,17 +41,18 @@ class App {
 }
 
 // const app = new App(RotatePointState);
-// const app = new App(CenterLineState);
-const app = new App(CentroidState);
+// const app = new App(CentroidState);
+// const app = new App(LineState);
+// const app = new App(LineMidpointState);
+// const app = new App(RotateLineState);
+// const app = new App(LineIntersectionState);
+// const app = new App(LineReflectionState);
+// const app = new App(LineBoundsState);
+// const app = new App(LineRandomPointState);
+const app = new App(CenterLineState);
 // const app = new App(CircleRandomPointState);
 // const app = new App(CircleState);
 // const app = new App(EllipseRandomPointState);
-// const app = new App(LineBoundsState);
-// const app = new App(LineIntersectionState);
-// const app = new App(LineMidpointState);
-// const app = new App(LineRandomPointState);
-// const app = new App(LineReflectionState);
-// const app = new App(LineState);
 // const app = new App(PlayingWithPointsState);
 // const app = new App(PolygonContainsState);
 // const app = new App(PolygonState);
@@ -60,5 +61,5 @@ const app = new App(CentroidState);
 // const app = new App(RectangleIntersectsState);
 // const app = new App(RectangleRandomPointState);
 // const app = new App(RectangleState);
-// const app = new App(RotateLineState);
+
 
