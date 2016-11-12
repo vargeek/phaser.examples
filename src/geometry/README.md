@@ -191,6 +191,22 @@
 
     ```
 # ellipse-random-point
+  - new Phaser.Ellipse>
+    ```js
+    // http://localhost:3000/Phaser.Ellipse.html
+    // new Ellipse(x, y, width, height)
+    // Creates a Ellipse object. A curve on a plane surrounding two focal points.
+    this.ellipse = new Phaser.Ellipse(this.world.centerX, this.world.centerY, 300, 550);
+
+    ```
+  - ellipse.random>
+    ```js
+    // http://localhost:3000/Phaser.Ellipse.html#random
+    // random(out) → {Phaser.Point}
+    // Returns a uniformly distributed random point from anywhere within this Ellipse.
+    this.ellipse.random(this.point);
+
+    ```
 # rectangle
 # rectangle-get-point
 # rectangle-intersects
