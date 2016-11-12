@@ -40,8 +40,9 @@ class App {
   }
 }
 
-const app = new App(CenterLineState);
-// const app = new App(CentroidState);
+// const app = new App(RotatePointState);
+// const app = new App(CenterLineState);
+const app = new App(CentroidState);
 // const app = new App(CircleRandomPointState);
 // const app = new App(CircleState);
 // const app = new App(EllipseRandomPointState);
@@ -60,4 +61,4 @@ const app = new App(CenterLineState);
 // const app = new App(RectangleRandomPointState);
 // const app = new App(RectangleState);
 // const app = new App(RotateLineState);
-// const app = new App(RotatePointState);
+
