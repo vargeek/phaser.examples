@@ -173,6 +173,23 @@
     ```
 # circle
 # circle-random-point
+  - new Phaser.Circle>
+    ```js
+    // http://localhost:3000/Phaser.Circle.html
+    // new Circle(x, y, diameter)
+    // Creates a new Circle object with the center coordinate specified by the x and y parameters and the diameter specified by the diameter parameter.
+    // If you call this function without parameters, a circle with x, y, diameter and radius properties set to 0 is created.
+    this.circle = new Phaser.Circle(this.world.randomX, this.world.randomY, 500);
+
+    ```
+  - circle.random>
+    ```js
+    // http://localhost:3000/Phaser.Circle.html#random
+    // random(out) → {Phaser.Point}
+    // Returns a uniformly distributed random point from anywhere within this Circle.
+    this.circle.random(this.point);
+
+    ```
 # ellipse-random-point
 # rectangle
 # rectangle-get-point
