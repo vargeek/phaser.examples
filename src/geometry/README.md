@@ -286,5 +286,48 @@
 
     ```
 # polygon
+  - new Phaser.Polygon>
+    ```js
+    // http://localhost:3000/Phaser.Polygon.html
+    // Creates a new Polygon.
+
+    // The points can be set from a variety of formats:
+
+    // An array of Point objects: [new Phaser.Point(x1, y1), ...]
+    // An array of objects with public x/y properties: [obj1, obj2, ...]
+    // An array of paired numbers that represent point coordinates: [x1,y1, x2,y2, ...]
+    // As separate Point arguments: setTo(new Phaser.Point(x1, y1), ...)
+    // As separate objects with public x/y properties arguments: setTo(obj1, obj2, ...)
+    // As separate arguments representing point coordinates: setTo(x1,y1, x2,y2, ...)
+    let polygon = new Phaser.Polygon();
+
+    ```
+  - polygon.setTo>
+    ```js
+    // http://localhost:3000/Phaser.Polygon.html#setTo
+    // setTo(points) → {Phaser.Polygon}
+
+    // Sets this Polygon to the given points.
+
+    // The points can be set from a variety of formats:
+
+    // An array of Point objects: [new Phaser.Point(x1, y1), ...]
+    // An array of objects with public x/y properties: [obj1, obj2, ...]
+    // An array of paired numbers that represent point coordinates: [x1,y1, x2,y2, ...]
+    // An array of arrays with two elements representing x/y coordinates: [[x1, y1], [x2, y2], ...]
+    // As separate Point arguments: setTo(new Phaser.Point(x1, y1), ...)
+    // As separate objects with public x/y properties arguments: setTo(obj1, obj2, ...)
+    // As separate arguments representing point coordinates: setTo(x1,y1, x2,y2, ...)
+    // setTo may also be called without any arguments to remove all points.
+    polygon.setTo([new Phaser.Point(200, 100), new Phaser.Point(350, 100), new Phaser.Point(275, 200), new Phaser.Point(150, 200)]);
+
+    ```
 # polygon-contains
+  - polygon.contains>
+    ```js
+    // http://localhost:3000/Phaser.Polygon.html#contains
+    // contains(x, y) → {boolean}
+    // Checks whether the x and y coordinates are contained within this polygon.
+    if (this.polygon.contains(this.input.x, this.input.y)) { }
+    ```
 
