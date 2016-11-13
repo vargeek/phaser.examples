@@ -57,7 +57,7 @@ class App {
 // const app = new App(RectangleGetPointState);
 // const app = new App(RectangleIntersectsState);
 // const app = new App(RectangleRandomPointState);
-const app = new App(QuadtreeState);
-// const app = new App(PlayingWithPointsState);
-// const app = new App(PolygonContainsState);
+// const app = new App(QuadtreeState);
 // const app = new App(PolygonState);
+const app = new App(PolygonContainsState);
+// const app = new App(PlayingWithPointsState);
