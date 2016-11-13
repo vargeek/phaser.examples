@@ -218,8 +218,41 @@
 
     ```
 # rectangle-get-point
+  - rectangle.getPoint>
+    ```js
+    // http://localhost:3000/Phaser.Rectangle.html#getPoint
+    // Returns a point based on the given position constant, which can be one of:
+    // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER,
+    // Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
+    // This method returns the same values as calling Rectangle.bottomLeft, etc, but those
+    // calls always create a new Point object, where-as this one allows you to use your own.
+    rectangle.getPoint(Phaser.TOP_LEFT, p);
+
+    ```
 # rectangle-intersects
+  - Phaser.Rectangle.intersection>
+    ```js
+    // http://localhost:3000/Phaser.Rectangle.html#
+    // <static> intersection(a, b, output) → {Phaser.Rectangle}
+    // If the Rectangle object specified in the toIntersect parameter intersects with this Rectangle object, returns the area of intersection as a Rectangle object. If the Rectangles do not intersect, this method returns an empty Rectangle object with its properties set to 0.
+    let intersects = Phaser.Rectangle.intersection(this.rectA, this.rectB);
+
+    ```
+  - rectangle.intersection>
+    ```js
+    // intersection(b, out) → {Phaser.Rectangle}
+    // If the Rectangle object specified in the toIntersect parameter intersects with this Rectangle object, returns the area of intersection as a Rectangle object. If the Rectangles do not intersect, this method returns an empty Rectangle object with its properties set to 0.
+
+    ```
 # rectangle-random-point
+  - rectangle.random>
+    ```js
+    // http://localhost:3000/Phaser.Rectangle.html#random
+    // random(out) → {Phaser.Point}
+    // Returns a uniformly distributed random point from anywhere within this Rectangle.
+    this.rectangle.random(this.point);
+
+    ```
 # quadtree
 # polygon
 # polygon-contains
