@@ -51,15 +51,15 @@ class App {
   }
 }
 
-const app = new App(ArcState);
-// const app = new App(ArcDetailsState);
-// const app = new App(ArcadePhysicsGraphicsShapeState);
+// const app = new App(GameBackgroundColorState);
 // const app = new App(CircleState);
 // const app = new App(EllipseState);
+// const app = new App(ArcState);
+const app = new App(ArcDetailsState);
+// const app = new App(ArcadePhysicsGraphicsShapeState);
 // const app = new App(ExtractMaskState);
 // const app = new App(FullscreenButtonsState);
 // const app = new App(FullscreenState);
-// const app = new App(GameBackgroundColorState);
 // const app = new App(GenerateTextureFromGraphicsState);
 // const app = new App(GradientState);
 // const app = new App(Graphics2State);
