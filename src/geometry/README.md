@@ -254,6 +254,37 @@
 
     ```
 # quadtree
+  - new Phaser.QuadTree>
+    ```js
+    // http://localhost:3000/Phaser.QuadTree.html#random
+    // new QuadTree(x, y, width, height, maxObjects, maxLevels, level)
+    // maxObjects{number=10}      The maximum number of objects per node.
+    // maxLevels{number=4}        The maximum number of levels to iterate to.
+    // level{number=0}            Which level is this?
+    // A QuadTree implementation. The original code was a conversion of the Java code posted to GameDevTuts.
+    // However I've tweaked it massively to add node indexing, removed lots of temp. var creation and significantly increased performance as a result.
+    // Original version at https://github.com/timohausmann/quadtree-js/
+    this.quadTree = new Phaser.QuadTree(0, 0, 800, 600, 10, 4, 0)
+
+    ```
+  - quadTree.insert>
+    ```js
+    // http://localhost:3000/Phaser.QuadTree.html#insert
+    // insert(body)
+    // body{{x,y,right,bottom}}
+    // Insert the object into the node. If the node exceeds the capacity, it will split and add all objects to their corresponding subnodes.
+    this.quadTree.insert(rect);
+
+    ```
+  - quadTree.retrieve>
+    ```js
+    // http://localhost:3000/Phaser.QuadTree.html#retrieve
+    // retrieve(source) → {array}
+    // source{Phaser.Sprite|Phaser.Rectangle}
+    // Return all objects that could collide with the given Sprite or Rectangle.
+    let found = this.quadTree.retrieve(this.marker);
+
+    ```
 # polygon
 # polygon-contains
 
