@@ -70,10 +70,10 @@ class App {
 // const app = new App(RenderTextureStarfieldState);
 // const app = new App(RenderTextureTilemapState);
 // const app = new App(RenderTextureToTilespriteState);
-const app = new App(RenderTextureTrailState);
-// const app = new App(PixiRenderTextureState);
-// const app = new App(GraphicsPerfState);
+// const app = new App(RenderTextureTrailState);
+const app = new App(PixiRenderTextureState);
 // const app = new App(ExtractMaskState);
+// const app = new App(GraphicsPerfState);
 // const app = new App(FullscreenButtonsState);
 // const app = new App(FullscreenState);
 // const app = new App(GradientState);

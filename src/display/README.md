@@ -257,12 +257,13 @@
 # render-texture-to-tilesprite
   - texture.renderXY
 # render-texture-trail
+# pixi-render-texture
+  - this.renderTexture2.renderXY(this.game.stage, 0, 0, true);
 # extract-mask
 # fullscreen
 # fullscreen-buttons
 # gradient
 # hsv-color-wheel
-# pixi-render-texture
 # round-pixels
 # sprite-shadow
 # tint-sprite
