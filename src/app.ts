@@ -45,7 +45,7 @@ class App {
   }
 }
 
-const app = new App(AlphaMaskState);
+// const app = new App(AlphaMaskState);
 // const app = new App(AtlasState);
 // const app = new App(CachedBitmapdataState);
 // const app = new App(CopyBitmapdataState);
@@ -70,4 +70,4 @@ const app = new App(AlphaMaskState);
 // const app = new App(TextBlendState);
 // const app = new App(TextState);
 // const app = new App(TintState);
-// const app = new App(WobbleState);
+const app = new App(WobbleState);
