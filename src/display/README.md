@@ -260,8 +260,86 @@
 # pixi-render-texture
   - this.renderTexture2.renderXY(this.game.stage, 0, 0, true);
 # extract-mask
+  - make.bitmapData>
+    ```js
+    // http://localhost:3000/Phaser.GameObjectCreator.html#bitmapData
+    // bitmapData(width, height, key, addToCache) → {Phaser.BitmapData}
+    // Create a BitmpaData object.
+    // A BitmapData object can be manipulated and drawn to like a traditional Canvas object and used to texture Sprites.
+    this.font = this.make.bitmapData(320, 150);
+
+    ```
+  - bitmapData.fill>
+    ```js
+    // http://localhost:3000/Phaser.BitmapData.html#fill
+    // fill(r, g, b, a) → {Phaser.BitmapData}
+    // Fills the BitmapData with the given color.
+    this.mask.fill(50, 50, 50);
+
+    ```
+  - bitmapData.draw>
+    ```js
+    // http://localhost:3000/Phaser.BitmapData.html#draw
+    // draw(source, x, y, width, height, blendMode, roundPx) → {Phaser.BitmapData}
+    // blendMode{string=null}     The composite blend mode that will be used when drawing. The default is no blend mode at all. This is a Canvas globalCompositeOperation value such as 'lighter' or 'xor'.
+    // roundPx{boolean=false}     Should the x and y values be rounded to integers before drawing? This prevents anti-aliasing in some instances.
+
+    // Draws the given Phaser.Sprite, Phaser.Image or Phaser.Text to this BitmapData at the coordinates specified.
+    // You can use the optional width and height values to 'stretch' the sprite as it is drawn. This uses drawImage stretching, not scaling.
+    // The children will be drawn at their x and y world space coordinates. If this is outside the bounds of the BitmapData they won't be visible.
+    // When drawing it will take into account the rotation, scale, scaleMode, alpha and tint values.
+    // Note: You should ensure that at least 1 full update has taken place before calling this,
+    // otherwise the objects are likely to render incorrectly, if at all.
+    // You can trigger an update yourself by calling stage.updateTransform() before calling draw.
+    this.font.draw('font');
+
+    ```
+  - bitmapData.update>
+    ```js
+    // http://localhost:3000/Phaser.BitmapData.html#update
+    // update(x, y, width, height) → {Phaser.BitmapData}
+    // This re-creates the BitmapData.imageData from the current context.
+    // It then re-builds the ArrayBuffer, the data Uint8ClampedArray reference and the pixels Int32Array.
+    // If not given the dimensions defaults to the full size of the context.
+    // Warning: This is a very expensive operation, so use it sparingly.
+    this.font.update();
+
+    ```
 # fullscreen
+  - scale.isFullScreen>
+    ```js
+    // http://localhost:3000/Phaser.ScaleManager.html#isFullScreen
+    // <readonly> isFullScreen :boolean
+    // Returns true if the browser is in fullscreen mode, otherwise false.
+
+    ```
+  - scale.startFullScreen>
+    ```js
+    // http://localhost:3000/Phaser.ScaleManager.html#startFullScreen
+    // startFullScreen(antialias, allowTrampoline) → {boolean}
+    // antialias{boolean?}        Changes the anti-alias feature of the canvas before jumping in to fullscreen (false = retain pixel art, true = smooth art). If not specified then no change is made. Only works in CANVAS mode.
+    // allowTrampoline{boolean?}  Internal argument. If false click trampolining is suppressed.
+    // Start the browsers fullscreen mode - this must be called from a user input Pointer or Mouse event.
+    // The Fullscreen API must be supported by the browser for this to work - it is not the same as setting
+    // the game size to fill the browser window. See compatibility.supportsFullScreen to check if the current
+    // device is reported to support fullscreen mode.
+    // The fullScreenFailed signal will be dispatched if the fullscreen change request failed or the game does not support the Fullscreen API.
+    this.scale.startFullScreen(false);
+
+    ```
+  - scale.stopFullScreen>
+    ```js
+    // http://localhost:3000/Phaser.ScaleManager.html#stopFullScreen
+    // stopFullScreen() → {boolean}
+    // Stops / exits fullscreen mode, if active.
+    // Returns: boolean -
+    // Returns true if the browser supports fullscreen mode and fullscreen mode will be exited.
+    this.scale.stopFullScreen();
+
+    ```
 # fullscreen-buttons
+  - scale.isFullScreen
+  - scale.startFullScreen
 # gradient
 # hsv-color-wheel
 # round-pixels
