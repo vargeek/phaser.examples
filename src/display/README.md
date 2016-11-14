@@ -341,7 +341,26 @@
   - scale.isFullScreen
   - scale.startFullScreen
 # gradient
+  - Color.interpolateColor>
+    ```js
+    // http://localhost:3000/Phaser.Color.html#interpolateColor
+    // <static> interpolateColor(color1, color2, steps, currentStep, alpha) → {number}
+    // Interpolates the two given colours based on the supplied step and currentStep properties.
+    let color = Phaser.Color.interpolateColor(0x66d973, 0x40b54d, 30, index);
+    bmd.rect(0, y, 800, y + 2, Phaser.Color.getWebRGB(color));
+
+    ```
 # hsv-color-wheel
+  - Phaser.Color.HSVColorWheel>
+    ```js
+    // http://localhost:3000/Phaser.Color.html#HSVColorWheel
+    // <static> HSVColorWheel(s, v) → {array}
+    // Get HSV color wheel values in an array which will be 360 elements in size.
+    this.colors = Phaser.Color.HSVColorWheel();
+
+    ```
+  - bmd.circle
+  - bmd.dirty
 # round-pixels
 # sprite-shadow
 # tint-sprite
