@@ -178,20 +178,91 @@
     // ...
 
     ```
+# render-crispc
+  - sprite.smoothed>
+    ```js
+    // http://localhost:3000/Phaser.Sprite.html#smoothed
+    // smoothed :boolean
+    // Enable or disable texture smoothing for this Game Object.
+    // It only takes effect if the Game Object is using an image based texture.
+    // Smoothing is enabled by default.
+    this.boss.smoothed = false;
+
+    ```
+# render-texture-image
+  - add.renderTexture>
+    ```js
+    // http://localhost:3000/Phaser.GameObjectFactory.html#renderTexture
+    // renderTexture(width, height, key, addToCache) → {Phaser.RenderTexture}
+    // key{string=''}                 Asset key for the RenderTexture when stored in the Cache (see addToCache parameter).
+    // addToCache{boolean=false}      Should this RenderTexture be added to the Game.Cache? If so you can retrieve it with Cache.getTexture(key)
+    // A dynamic initially blank canvas to which images can be drawn.
+    this.texture = this.add.renderTexture(this.game.width, this.game.height);
+
+    ```
+  - texture.renderXY>
+    ```js
+    // http://localhost:3000/Phaser.RenderTexture.html#renderXY
+    // renderXY(displayObject, x, y, clear)
+    // This function will draw the display object to the RenderTexture at the given coordinates.
+    // When the display object is drawn it takes into account scale and rotation.
+    // If you don't want those then use RenderTexture.renderRawXY instead.
+    this.texture.renderXY(this.ball, this.input.activePointer.x, this.input.activePointer.y, true);
+
+    ```
+  - texture.renderRawXY>
+    ```js
+    // http://localhost:3000/Phaser.RenderTexture.html#renderRawXY
+    // renderRawXY(displayObject, x, y, clear)
+    // This function will draw the display object to the RenderTexture at the given coordinates.
+    // When the display object is drawn it doesn't take into account scale, rotation or translation.
+    // If you need those then use RenderTexture.renderXY instead.
+
+    ```
+# render-texture-mirror
+  - texture.renderXY(x,y);texture.renderXY(x,game.height - y);
+# render-texture-rotation
+  - texture.render>
+    ```js
+    // http://localhost:3000/Phaser.RenderTexture.html#render
+    // render(displayObject, matrix, clear)
+    // matrix{Phaser.Matrix}      Optional matrix to apply to the display object before rendering. If null or undefined it will use the worldTransform matrix of the given display object.
+    // This function will draw the display object to the RenderTexture.
+    // In versions of Phaser prior to 2.4.0 the second parameter was a Phaser.Point object.
+    // This is now a Matrix allowing you much more control over how the Display Object is rendered.
+    // If you need to replicate the earlier behavior please use Phaser.RenderTexture.renderXY instead.
+    // If you wish for the displayObject to be rendered taking its current scale, rotation and translation into account then either
+    // pass null, leave it undefined or pass displayObject.worldTransform as the matrix value.
+
+    ```
+# render-texture-starfield
+  - 同一个displayObject在多个随机坐标进行render
+    ```js
+    texture.renderXY(displayObject,x1,y1,true);
+    texture.renderXY(displayObject,x2,y2,false);
+
+    ```
+# render-texture-tilemap
+  - 根据tilemap json数据渲染 texture
+    ```js
+    this.add.tilemap('level3')
+    this.add.renderTexture()
+    for x
+      for y
+        let tile = this.map.getTile(x, y);
+        this.stamp.frame = tile.index - 1;
+        this.texture.renderXY(this.stamp, dx, dy, cls);
+
+    ```
+# render-texture-to-tilesprite
+  - texture.renderXY
+# render-texture-trail
 # extract-mask
 # fullscreen
 # fullscreen-buttons
 # gradient
 # hsv-color-wheel
 # pixi-render-texture
-# render-crisp
-# render-texture-image
-# render-texture-mirror
-# render-texture-rotation
-# render-texture-starfield
-# render-texture-tilemap
-# render-texture-to-tilesprite
-# render-texture-trail
 # round-pixels
 # sprite-shadow
 # tint-sprite
