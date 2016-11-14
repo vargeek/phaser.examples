@@ -362,8 +362,33 @@
   - bmd.circle
   - bmd.dirty
 # round-pixels
-# sprite-shadow
 # tint-sprite
+  - sprite.tint>
+    ```js
+    // http://localhost:3000/Phaser.Sprite.html#tint
+    // tint :Number
+    // The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
+    this.pic.tint = Math.random() * 0xffffff;
+
+    ```
 # tint-sprite-frame
+  - sprite.tint
+# sprite-shadow
+  - shadow
+    ```js
+    shadow = this.add.sprite(x + offset.x, y + offset.y, key)
+    sprite = this.add.sprite(x, y, key);
+
+    shadow.tint = 0x000000;
+    shadow.alpha = 0.6;
+
+    move (pointer, x, y) {
+      sprite.x = x;
+      sprite.y = y;
+      shadow.x = x + offset.x;
+      shadow.y = y + offset.y;
+    }
+
+    ```
 # viewport
 # graphics-perf

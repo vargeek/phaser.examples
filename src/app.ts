@@ -77,9 +77,9 @@ class App {
 // const app = new App(FullscreenButtonsState);
 // const app = new App(GradientState);
 // const app = new App(HsvColorWheelState);
-const app = new App(RoundPixelsState);
-// const app = new App(GraphicsPerfState);
-// const app = new App(SpriteShadowState);
-// const app = new App(TintSpriteFrameState);
+// const app = new App(RoundPixelsState);
 // const app = new App(TintSpriteState);
+const app = new App(TintSpriteFrameState);
+// const app = new App(SpriteShadowState);
+// const app = new App(GraphicsPerfState);
 // const app = new App(ViewportState);
